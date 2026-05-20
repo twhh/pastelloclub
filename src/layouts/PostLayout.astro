@@ -1,0 +1,58 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  tags?: string[];
+  cover?: string;
+  prev?: { slug: string; title: string } | null;
+  next?: { slug: string; title: string } | null;
+}
+
+const { title, description, pubDate, updatedDate, tags = [], cover, prev, next } = Astro.props;
+---
+<BaseLayout title={title} description={description} image={cover} article={true} pubDate={pubDate}>
+  <article class="reading">
+    <header class="post-header">
+      <div class="post-date">
+        <FormattedDate date={pubDate} />
+        {updatedDate && <span> · updated <FormattedDate date={updatedDate} /></span>}
+      </div>
+      <h1>{title}</h1>
+      {description && <p class="post-desc">{description}</p>}
+    </header>
+
+    {cover && <img src={cover} alt="" />}
+
+    <div class="post-content">
+      <slot />
+    </div>
+
+    {tags.length > 0 && (
+      <div class="tags">
+        {tags.map((t) => <span class="tag">#{t}</span>)}
+      </div>
+    )}
+
+    {(prev || next) && (
+      <nav class="prev-next" aria-label="More posts">
+        {prev ? (
+          <a href={`/posts/${prev.slug}/`}>
+            <small>← previous</small><br />
+            {prev.title}
+          </a>
+        ) : <span />}
+        {next ? (
+          <a href={`/posts/${next.slug}/`} class="next">
+            <small>next →</small><br />
+            {next.title}
+          </a>
+        ) : <span />}
+      </nav>
+    )}
+  </article>
+</BaseLayout>

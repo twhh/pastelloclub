@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../consts';
+---
+<BaseLayout title="About" description={`About ${SITE.title}`}>
+  <article class="reading">
+    <header class="post-header">
+      <h1>About</h1>
+      <p class="post-desc">A small place, on purpose.</p>
+    </header>
+
+    <div class="post-content">
+      <p>
+        pastelloclub is a soft, slow journal for parents. We write about the everyday
+        — feeding small humans, surviving sleep regressions, the quiet ten minutes
+        after they finally close their eyes.
+      </p>
+      <p>
+        No tracking, no popups, no recipes that start with a 1,500-word memoir.
+        Just notes, in pastel.
+      </p>
+      <p>
+        Want to say hello? Write us at
+        {' '}<a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+      </p>
+    </div>
+  </article>
+</BaseLayout>

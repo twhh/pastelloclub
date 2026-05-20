@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import { SITE } from '../consts';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
+);
+---
+<BaseLayout>
+  <section class="hero">
+    <h1>{SITE.tagline}</h1>
+    <p>
+      pastelloclub is a quiet corner of the internet for parents — short essays on
+      patience, play, food, sleep, and the small things that turn into childhoods.
+    </p>
+  </section>
+
+  <ul class="post-list">
+    {posts.map((post) => (
+      <li>
+        <a class="post-link" href={`/posts/${post.id}/`}>
+          <span class="post-date"><FormattedDate date={post.data.pubDate} /></span>
+          <span>
+            <span class="post-title">{post.data.title}</span>
+            {post.data.description && <span class="post-desc">{post.data.description}</span>}
+          </span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>
