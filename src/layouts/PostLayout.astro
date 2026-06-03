@@ -26,7 +26,7 @@ const { title, description, pubDate, updatedDate, tags = [], cover, prev, next }
       {description && <p class="post-desc">{description}</p>}
     </header>
 
-    {cover && <img src={cover} alt="" />}
+    {cover && <img src={cover} alt="" class="post-cover" />}
 
     <div class="post-content">
       <slot />

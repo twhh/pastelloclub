@@ -7,6 +7,7 @@ const formatted = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
+  timeZone: 'UTC',
 }).format(date);
 ---
 <time datetime={date.toISOString()}>{formatted}</time>
