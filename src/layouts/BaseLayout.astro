@@ -45,6 +45,7 @@ const ogImage = image ? new URL(image, canonicalURL).toString() : undefined;
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title ?? SITE.title} />
     <meta name="twitter:description" content={description} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

@@ -183,15 +183,18 @@ nav.primary a:hover { color: var(--accent); }
 /* hero / intro */
 .hero {
   padding: 1rem 0 2.5rem;
+  text-align: center;
 }
 .hero h1 {
   font-style: italic;
   font-weight: 400;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
 }
-.hero p {
+.hero-intro {
   font-size: 1.15rem;
   color: var(--ink-soft);
   max-width: 38rem;
+  margin: 0.75rem auto 0;
 }
 
 /* post list */
@@ -207,15 +210,33 @@ nav.primary a:hover { color: var(--accent); }
 }
 .post-list a.post-link {
   display: grid;
-  grid-template-columns: 7rem 1fr;
+  grid-template-columns: auto 1fr;
   gap: 1.25rem;
-  align-items: baseline;
+  align-items: center;
   padding: 1.1rem 0;
   border-bottom: none;
   color: var(--ink);
 }
 .post-list a.post-link:hover {
   color: var(--accent);
+}
+.post-list .post-thumbnail {
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.post-list .post-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.post-list .post-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
 }
 .post-list .post-date {
   font-family: var(--font-serif);
@@ -238,8 +259,12 @@ nav.primary a:hover { color: var(--accent); }
 
 @media (max-width: 560px) {
   .post-list a.post-link {
-    grid-template-columns: 1fr;
-    gap: 0.15rem;
+    grid-template-columns: auto 1fr;
+    gap: 0.75rem;
+  }
+  .post-list .post-thumbnail {
+    width: 60px;
+    height: 60px;
   }
 }
 

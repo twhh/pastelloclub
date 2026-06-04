@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import { SITE } from '../consts';
+import { Image } from 'astro:assets';
 
 const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
@@ -11,9 +12,10 @@ const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
 <BaseLayout>
   <section class="hero">
     <h1>{SITE.tagline}</h1>
-    <p>
-      pastelloclub is a quiet corner of the internet for parents - short essays on
-      patience, play, food, sleep, and the small things that turn into childhoods.
+    <p class="hero-intro">
+      Hi, I'm Jason - a girl dad with another kiddo on the way. pastelloclub is a quiet
+      corner of the internet for parents. Notes on patience, play, food, sleep, and the
+      small things that turn into childhoods.
     </p>
   </section>
 
@@ -21,10 +23,17 @@ const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
     {posts.map((post) => (
       <li>
         <a class="post-link" href={`/posts/${post.id}/`}>
-          <span class="post-date"><FormattedDate date={post.data.pubDate} /></span>
-          <span>
-            <span class="post-title">{post.data.title}</span>
-            {post.data.description && <span class="post-desc">{post.data.description}</span>}
+          {post.data.cover && (
+            <span class="post-thumbnail">
+              <Image src={post.data.cover} alt={post.data.coverAlt || ''} loading="lazy" width={80} height={80} format="webp" />
+            </span>
+          )}
+          <span class="post-content">
+            <span class="post-date"><FormattedDate date={post.data.pubDate} /></span>
+            <span>
+              <span class="post-title">{post.data.title}</span>
+              {post.data.description && <span class="post-desc">{post.data.description}</span>}
+            </span>
           </span>
         </a>
       </li>

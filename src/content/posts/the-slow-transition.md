@@ -5,6 +5,7 @@ pubDate: 2026-06-01
 tags: ["tips"]
 draft: false
 cover: "/images/posts/the-slow-transition-cover.jpg"
+coverAlt: "A baby sleeping next to a white teddy bear"
 ---
 
 Welcome to pastelloclub\! I’m Jason, a girl dad with another kiddo on the way. As one of the first in our friend group and the first of all the siblings to have a kid, we did what any reasonable parents would do for advice \- we turned to the internet.
