@@ -12,11 +12,12 @@ export interface Props {
   tags?: string[];
   cover?: string;
   coverAlt?: string;
+  readingTime?: number;
   prev?: { slug: string; title: string } | null;
   next?: { slug: string; title: string } | null;
 }
 
-const { title, description, pubDate, updatedDate, tags = [], cover, coverAlt, prev, next } = Astro.props;
+const { title, description, pubDate, updatedDate, tags = [], cover, coverAlt, readingTime, prev, next } = Astro.props;
 
 // Structured data for SEO
 const schema = {
@@ -73,6 +74,7 @@ const schema = {
     <header class="post-header">
       <div class="post-date">
         <FormattedDate date={pubDate} />
+        {readingTime && <span> · {readingTime} min read</span>}
         {updatedDate && <span> · updated <FormattedDate date={updatedDate} /></span>}
       </div>
       <h1>{title}</h1>

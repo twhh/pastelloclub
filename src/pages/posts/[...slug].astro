@@ -24,6 +24,11 @@ type Props = {
 
 const { post, prev, next } = Astro.props as Props;
 const { Content } = await render(post);
+
+// Calculate reading time (200 words per minute average)
+const body = post.body || '';
+const wordCount = body.split(/\s+/).length;
+const readingTime = Math.max(1, Math.ceil(wordCount / 200));
 ---
 <PostLayout
   title={post.data.title}
@@ -32,6 +37,8 @@ const { Content } = await render(post);
   updatedDate={post.data.updatedDate}
   tags={post.data.tags}
   cover={post.data.cover}
+  coverAlt={post.data.coverAlt}
+  readingTime={readingTime}
   prev={prev ? { slug: prev.id, title: prev.data.title } : null}
   next={next ? { slug: next.id, title: next.data.title } : null}
 >
