@@ -1,8 +1,8 @@
 ---
 title: "The Slow Transition: 5 Things That Actually Made a Difference"
-description: "Five things to buy as a new parent"
+description: "Five things to buy as a new parent."
 pubDate: 2026-06-01
-tags: ["tips"]
+tags: ["tips", "new-parents", "baby-gear"]
 draft: false
 cover: "/images/posts/the-slow-transition-cover.jpg"
 coverAlt: "A baby sleeping next to a white teddy bear"
