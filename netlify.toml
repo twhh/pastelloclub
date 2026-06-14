@@ -1,0 +1,18 @@
+# Redirect all traffic to HTTPS and non-www canonical URL
+[[redirects]]
+  from = "http://pastelloclub.com/*"
+  to = "https://pastelloclub.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.pastelloclub.com/*"
+  to = "https://pastelloclub.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.pastelloclub.com/*"
+  to = "https://pastelloclub.com/:splat"
+  status = 301
+  force = true

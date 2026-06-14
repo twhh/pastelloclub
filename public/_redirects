@@ -1,0 +1,4 @@
+# Redirect all traffic to HTTPS and non-www
+http://pastelloclub.com/* https://pastelloclub.com/:splat 301!
+http://www.pastelloclub.com/* https://pastelloclub.com/:splat 301!
+https://www.pastelloclub.com/* https://pastelloclub.com/:splat 301!
