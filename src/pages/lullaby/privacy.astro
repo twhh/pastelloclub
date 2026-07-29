@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../consts';
+
+const updated = 'July 29, 2026';
+---
+<BaseLayout
+  title="Lullaby Privacy Policy"
+  description="Privacy policy for the local-only Lullaby Android app."
+>
+  <article class="reading">
+    <header class="post-header">
+      <h1>Lullaby Privacy Policy</h1>
+      <p class="post-desc">Effective and last updated: {updated}</p>
+    </header>
+
+    <div class="post-content">
+      <h2>Summary</h2>
+      <p>
+        Lullaby's first public Android release is a free, local-only app. We do
+        not operate a Lullaby account service or backend and do not collect,
+        receive, sell, rent, or share the baby care information entered in the app.
+      </p>
+
+      <h2>Information stored by the app</h2>
+      <p>Lullaby can store the following information locally on your device:</p>
+      <ul>
+        <li>Child profile names, dates of birth, avatar/color preferences, and chart sex.</li>
+        <li>Feed, sleep, diaper, note, and reminder records.</li>
+        <li>Weight, length/height, and head-circumference measurements.</li>
+        <li>App preferences such as display units, theme, and quiet hours.</li>
+      </ul>
+      <p>
+        This information is personal and may be health-related. It remains in the
+        app's private storage on your device. Lullaby disables Android cloud backup
+        and device-to-device transfer for this data.
+      </p>
+
+      <h2>Information we collect or share</h2>
+      <p>
+        We do not collect or share personal information, health information,
+        analytics, advertising identifiers, crash telemetry, location, contacts,
+        photos, or usage history through this release of Lullaby.
+      </p>
+      <p>
+        The app has no advertising SDK and does not sell data. Notification
+        permission is used only to deliver reminders you configure. The boot
+        permission lets Android restore those reminders after a restart.
+      </p>
+
+      <h2>User-directed exports</h2>
+      <p>
+        When you choose Export All Data, export a Health Summary PDF, or use the
+        Android share sheet, you choose the destination. The selected receiving
+        app or service handles that copy under its own privacy terms. Lullaby
+        does not receive a copy.
+      </p>
+
+      <h2>Retention, deletion, and recovery</h2>
+      <p>
+        Data remains on the device until you edit or delete it, use
+        <strong>Settings → Local data & privacy → Delete all local data</strong>,
+        clear Android app storage, or uninstall Lullaby.
+      </p>
+      <p>
+        Lullaby has no account and no server copy, so we cannot recover deleted
+        information. You can create a user-controlled JSON copy with Export All
+        Data before deleting or moving devices.
+      </p>
+
+      <h2>Children and intended users</h2>
+      <p>
+        Lullaby is intended for adults, parents, and caregivers. It is not
+        directed to children and does not ask a child to use the app or submit
+        information.
+      </p>
+
+      <h2>Health and medical disclaimer</h2>
+      <p>
+        Lullaby organizes information supplied by a caregiver. It is not a
+        medical device and does not diagnose, treat, cure, or prevent any medical
+        condition. It is not a substitute for advice from a qualified healthcare
+        professional.
+      </p>
+
+      <h2>Security</h2>
+      <p>
+        Android's application sandbox protects local app storage from other apps
+        under normal operating conditions. You are responsible for securing the
+        device and any files you choose to export.
+      </p>
+
+      <h2>Future accounts, sync, and purchases</h2>
+      <p>
+        Accounts, cloud backup, partner synchronization, and paid features are
+        not part of this release. Before enabling those features we will update
+        this policy, provide appropriate in-app disclosures and controls, and
+        update the Google Play Data safety declaration.
+      </p>
+
+      <h2>Changes to this policy</h2>
+      <p>
+        We may update this policy when Lullaby changes or legal requirements
+        evolve. The effective date above will be updated. Material changes to data
+        handling will also be disclosed in the app before they take effect.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions about Lullaby privacy can be sent to
+        {' '}<a href={`mailto:${SITE.email}?subject=Lullaby privacy`}>{SITE.email}</a>.
+        Please do not include baby care records or other sensitive information.
+      </p>
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../consts';
+---
+<BaseLayout
+  title="Delete Lullaby Data"
+  description="How to delete all locally stored Lullaby data."
+>
+  <article class="reading">
+    <header class="post-header">
+      <h1>Delete Lullaby data</h1>
+      <p class="post-desc">There is no account or server copy.</p>
+    </header>
+
+    <div class="post-content">
+      <p>
+        Lullaby's first release stores information only on your Android device.
+        Pastello Club does not hold an account or cloud copy to delete.
+      </p>
+
+      <h2>Delete from inside Lullaby</h2>
+      <ol>
+        <li>Open <strong>Settings</strong>.</li>
+        <li>Open <strong>Local data & privacy</strong>.</li>
+        <li>Tap <strong>Delete all local data</strong>.</li>
+        <li>Confirm <strong>Delete everything</strong>.</li>
+      </ol>
+
+      <h2>Delete through Android</h2>
+      <p>
+        Android Settings → Apps → Lullaby → Storage → Clear storage also removes
+        the app's local information. Uninstalling the app removes its private
+        local storage.
+      </p>
+
+      <p>
+        Deletion is permanent because this release has no cloud backup. Export a
+        copy first if you need one.
+      </p>
+
+      <p>
+        Need help? Email
+        {' '}<a href={`mailto:${SITE.email}?subject=Lullaby data deletion`}>{SITE.email}</a>
+        {' '}without attaching sensitive baby information.
+      </p>
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../consts';
+---
+<BaseLayout
+  title="Lullaby"
+  description="Lullaby is a private, local-first baby care tracker for Android."
+>
+  <article class="reading">
+    <header class="post-header">
+      <h1>Lullaby</h1>
+      <p class="post-desc">A calm, private baby care tracker.</p>
+    </header>
+
+    <div class="post-content">
+      <p>
+        Lullaby helps parents record feeds, sleep, diapers, growth measurements,
+        and gentle reminders without turning a tired day into data entry.
+      </p>
+
+      <h2>Free and local-only</h2>
+      <p>
+        The first Android release has no account, ads, analytics, cloud backend,
+        partner sync, or in-app purchases. Baby profiles and care information stay
+        inside Lullaby on the device where they were entered.
+      </p>
+      <p>
+        Because there is no cloud copy, uninstalling Lullaby, clearing its app
+        storage, or losing the device can permanently remove the information.
+        The app includes Export All Data and Delete All Local Data controls.
+      </p>
+
+      <h2>Support</h2>
+      <p>
+        Questions or problems? Email
+        {' '}<a href={`mailto:${SITE.email}?subject=Lullaby support`}>{SITE.email}</a>.
+        Please do not include a child's health or identifying information in a
+        support email.
+      </p>
+
+      <p>
+        <a href="/lullaby/privacy/">Privacy policy</a>
+        {' · '}
+        <a href="/lullaby/data-deletion/">Data deletion instructions</a>
+      </p>
+
+      <blockquote>
+        Lullaby does not diagnose, treat, cure, or prevent any medical condition.
+        Consult a qualified healthcare professional for medical advice.
+      </blockquote>
+    </div>
+  </article>
+</BaseLayout>
