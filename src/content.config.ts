@@ -11,7 +11,15 @@ const posts = defineCollection({
     author: z.string().default('pastelloclub'),
     tags: z.array(z.string()).default([]),
     cover: z.string().optional(),
+    coverAlt: z.string().optional(),
     draft: z.boolean().default(false),
+    // Review-specific fields (optional - only used for product reviews)
+    type: z.enum(['post', 'review']).default('post'),
+    product: z.string().optional(),
+    price: z.number().optional(),
+    priceRange: z.enum(['$', '$$', '$$$', '$$$$']).optional(),
+    rating: z.number().min(0).max(5).optional(),
+    buyLink: z.string().url().optional(),
   }),
 });
 

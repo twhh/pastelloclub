@@ -60,3 +60,37 @@
 - Format: JPG or PNG
 - Name: descriptive, e.g., `nursery-furniture-essentials-cover.jpg`
 - Add `cover` and `coverAlt` fields to frontmatter
+
+## Product Reviews
+
+### Template Location
+`src/content/_templates/review-template.md` - Copy this file to `src/content/posts/` and rename it when starting a new review.
+
+### Review-Specific Frontmatter Fields
+- `type: review` - Required to identify this as a product review
+- `product` - The product name (for display and filtering)
+- `price` - Numeric price value at time of review (for future price range filtering)
+- `priceRange` - Price category: `$` (under $25), `$$` ($25-75), `$$$` ($75-200), `$$$$` ($200+)
+- `rating` - The Pastello Scale score (0-5, supports decimals like 4.5)
+- `buyLink` - Direct affiliate link to the product
+
+### The Pastello Scale (Rating System)
+- Use crayon emoji: 🖍️
+- Format: 🖍️🖍️🖍️🖍️🖍️ (5/5) or 🖍️🖍️🖍️🖍️.5 (4.5/5)
+- Use ".5" after the crayons for half ratings
+
+### Review Structure
+1. **Title** - "[Product Name] Review: [Catchy subtitle]"
+2. **Short Version** - 2-3 sentence honest summary + Pastello Scale rating
+3. **Why We Brought It Home** - The specific problem you were trying to solve
+4. **The Everyday Feel** - What it's like living with this product (diary-style)
+5. **A Few Quiet Details** - Specific features with honest takes
+6. **The Low Lights** - Honest cons (parents trust honesty)
+7. **Is It Worth the Space?** - Final verdict
+8. **Shop the Notes** - Affiliate link with current price note
+
+### Review Tags
+- Always include `review` as the first tag
+- Add the product category (e.g., `sleep`, `feeding`, `gear`)
+- Add relevant life stage (e.g., `newborn`, `toddler`)
+
