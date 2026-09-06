@@ -1,7 +1,7 @@
 ---
 title: "Jeep Aries Stroller Wagon by Delta Children Review"
 description: "We tested the Jeep Aries Stroller Wagon for a year of beach days, hikes, and zoo trips. Here's how it held up."
-pubDate: 2026-08-12
+pubDate: 2026-06-28
 tags: ["review", "baby-gear"]
 draft: false
 type: review

@@ -1,7 +1,7 @@
 ---
 title: "Radio Flyer Classic Walker Wagon Review"
 description: "Four years of real use and our Radio Flyer Classic Walker Wagon still looks new. Our honest review of the wooden baby walker that grows with your child."
-pubDate: 2026-08-20
+pubDate: 2026-07-05
 tags: ["review", "baby-gear"]
 draft: false
 type: review

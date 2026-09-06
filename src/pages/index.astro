@@ -8,35 +8,123 @@ import { Image } from 'astro:assets';
 const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
 );
+
+const [featured, ...rest] = posts;
+const reviews = rest.filter((post) => post.data.type === 'review');
+const notes = rest.filter((post) => post.data.type !== 'review');
+
+const isReview = (post: (typeof posts)[number]) => post.data.type === 'review';
+const crayons = (rating: number) => '🖍️'.repeat(Math.floor(rating)) + (rating % 1 ? '✏️' : '');
 ---
+
 <BaseLayout>
   <section class="hero">
     <h1>{SITE.tagline}</h1>
     <p class="hero-intro">
-      Hi, I'm Jason - a girl dad with another kiddo on the way. pastelloclub is a quiet
-      corner of the internet for parents. Notes on patience, play, food, sleep, and the
-      small things that turn into childhoods.
+      Honest baby-gear reviews and quiet notes on patience, play, food, and sleep —
+      from a girl dad with another kiddo on the way.
     </p>
   </section>
 
-  <ul class="post-list">
-    {posts.map((post) => (
-      <li>
-        <a class="post-link" href={`/posts/${post.id}/`}>
-          {post.data.cover && (
-            <span class="post-thumbnail">
-              <Image src={post.data.cover} alt={post.data.coverAlt || ''} loading="lazy" width={80} height={80} format="webp" />
-            </span>
-          )}
-          <span class="post-content">
-            <span class="post-date"><FormattedDate date={post.data.pubDate} /></span>
-            <span>
-              <span class="post-title">{post.data.title}</span>
-              {post.data.description && <span class="post-desc">{post.data.description}</span>}
-            </span>
-          </span>
-        </a>
-      </li>
-    ))}
-  </ul>
+  {featured && (
+    <a class="featured-card" href={`/posts/${featured.id}/`}>
+      <span class="featured-media">
+        {featured.data.cover && (
+          <Image
+            src={featured.data.cover}
+            alt={featured.data.coverAlt || ''}
+            width={1200}
+            height={750}
+            loading="eager"
+          />
+        )}
+      </span>
+      <span class="featured-body">
+        {isReview(featured) ? (
+          <span class="chip chip-review">Gear Review</span>
+        ) : (
+          <span class="chip chip-note">Latest Note</span>
+        )}
+        <span class="featured-date"><FormattedDate date={featured.data.pubDate} /></span>
+        <span class="featured-title">{featured.data.title}</span>
+        {featured.data.description && (
+          <span class="featured-desc">{featured.data.description}</span>
+        )}
+        <span class="featured-cta">
+          {isReview(featured) ? 'Read the review' : 'Read the note'} <span aria-hidden="true">→</span>
+        </span>
+      </span>
+    </a>
+  )}
+
+  {reviews.length > 0 && (
+    <section class="post-section">
+      <div class="section-head">
+        <h2>Baby Gear Reviews</h2>
+        <span class="section-rule" aria-hidden="true"></span>
+      </div>
+      <ul class="post-grid">
+        {reviews.map((post) => (
+          <li>
+            <a class="post-card" href={`/posts/${post.id}/`}>
+              <span class="card-media">
+                {post.data.cover && (
+                  <Image
+                    src={post.data.cover}
+                    alt={post.data.coverAlt || ''}
+                    width={640}
+                    height={400}
+                    loading="lazy"
+                  />
+                )}
+              </span>
+              <span class="card-body">
+                <span class="card-date">
+                  <FormattedDate date={post.data.pubDate} />
+                  {typeof post.data.rating === 'number' && (
+                    <span> · {crayons(post.data.rating)} {post.data.rating}/5</span>
+                  )}
+                </span>
+                <span class="card-title">{post.data.title}</span>
+                {post.data.description && <span class="card-desc">{post.data.description}</span>}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {notes.length > 0 && (
+    <section class="post-section">
+      <div class="section-head">
+        <h2>Field Notes</h2>
+        <span class="section-rule" aria-hidden="true"></span>
+      </div>
+      <ul class="post-grid">
+        {notes.map((post) => (
+          <li>
+            <a class="post-card" href={`/posts/${post.id}/`}>
+              <span class="card-media">
+                {post.data.cover && (
+                  <Image
+                    src={post.data.cover}
+                    alt={post.data.coverAlt || ''}
+                    width={640}
+                    height={400}
+                    loading="lazy"
+                  />
+                )}
+              </span>
+              <span class="card-body">
+                <span class="card-date"><FormattedDate date={post.data.pubDate} /></span>
+                <span class="card-title">{post.data.title}</span>
+                {post.data.description && <span class="card-desc">{post.data.description}</span>}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
 </BaseLayout>

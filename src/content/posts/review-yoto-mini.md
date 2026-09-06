@@ -1,7 +1,7 @@
 ---
 title: "Yoto Mini Review: Kid-friendly Story and Music Player"
 description: "We traveled with the Yoto Mini with our toddler. Here's our takeaways."
-pubDate: 2026-08-10
+pubDate: 2026-06-21
 tags: ["review", "baby-gear"]
 draft: false
 type: review
