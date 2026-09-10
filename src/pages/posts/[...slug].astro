@@ -6,12 +6,28 @@ export async function getStaticPaths() {
   const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
     (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
   );
+
+  // Related posts: prefer same content type, then shared tags, newest first as tie-breaker
+  const relatedFor = (post: CollectionEntry<'posts'>) =>
+    posts
+      .filter((p) => p.id !== post.id)
+      .map((p) => ({
+        p,
+        score:
+          (p.data.type === post.data.type ? 10 : 0) +
+          p.data.tags.filter((t) => post.data.tags.includes(t)).length * 2,
+      }))
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 2)
+      .map(({ p }) => p);
+
   return posts.map((post, i) => ({
     params: { slug: post.id },
     props: {
       post,
       prev: posts[i + 1] ?? null,
       next: posts[i - 1] ?? null,
+      related: relatedFor(post),
     },
   }));
 }
@@ -20,15 +36,18 @@ type Props = {
   post: CollectionEntry<'posts'>;
   prev: CollectionEntry<'posts'> | null;
   next: CollectionEntry<'posts'> | null;
+  related: CollectionEntry<'posts'>[];
 };
 
-const { post, prev, next } = Astro.props as Props;
+const { post, prev, next, related } = Astro.props as Props;
 const { Content } = await render(post);
 
 // Calculate reading time (200 words per minute average)
 const body = post.body || '';
 const wordCount = body.split(/\s+/).length;
 const readingTime = Math.max(1, Math.ceil(wordCount / 200));
+
+const isReview = post.data.type === 'review' && post.data.rating != null;
 ---
 <PostLayout
   title={post.data.title}
@@ -41,6 +60,25 @@ const readingTime = Math.max(1, Math.ceil(wordCount / 200));
   readingTime={readingTime}
   prev={prev ? { slug: prev.id, title: prev.data.title } : null}
   next={next ? { slug: next.id, title: next.data.title } : null}
+  review={
+    isReview
+      ? {
+          product: post.data.product,
+          rating: post.data.rating,
+          price: post.data.price,
+          buyLink: post.data.buyLink,
+        }
+      : undefined
+  }
+  related={related.map((p) => ({
+    slug: p.id,
+    title: p.data.title,
+    cover: p.data.cover,
+    coverAlt: p.data.coverAlt,
+    pubDate: p.data.pubDate,
+    rating: p.data.type === 'review' ? p.data.rating : undefined,
+  }))}
+  relatedHeading={post.data.type === 'review' ? 'More Gear Reviews' : 'More Notes'}
 >
   <Content />
 </PostLayout>

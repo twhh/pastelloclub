@@ -424,6 +424,11 @@ nav.primary a:hover { color: var(--accent); }
   border-bottom: none;
 }
 
+/* related posts (post pages) */
+.related { margin-top: 3.25rem; }
+.related .post-grid { gap: 1rem; }
+.related .card-title { font-size: 1.1rem; }
+
 .prev-next {
   margin-top: 3rem;
   display: grid;

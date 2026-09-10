@@ -3,6 +3,7 @@ import BaseLayout from './BaseLayout.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import { SITE } from '../consts';
 import { Image } from 'astro:assets';
+import { crayons } from '../utils/rating';
 
 export interface Props {
   title: string;
@@ -15,9 +16,67 @@ export interface Props {
   readingTime?: number;
   prev?: { slug: string; title: string } | null;
   next?: { slug: string; title: string } | null;
+  review?: {
+    product?: string;
+    rating: number;
+    price?: number;
+    buyLink?: string;
+  };
+  related?: {
+    slug: string;
+    title: string;
+    cover?: string;
+    coverAlt?: string;
+    pubDate: Date;
+    rating?: number;
+  }[];
+  relatedHeading?: string;
 }
 
-const { title, description, pubDate, updatedDate, tags = [], cover, coverAlt, readingTime, prev, next } = Astro.props;
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  tags = [],
+  cover,
+  coverAlt,
+  readingTime,
+  prev,
+  next,
+  review,
+  related = [],
+  relatedHeading,
+} = Astro.props;
+
+// Review structured data (star ratings in search results)
+const reviewNode = review && {
+  '@type': 'Review',
+  itemReviewed: {
+    '@type': 'Product',
+    name: review.product ?? title,
+    image: cover ? new URL(cover, SITE.url).toString() : undefined,
+    ...(review.price != null && {
+      offers: {
+        '@type': 'Offer',
+        price: review.price,
+        priceCurrency: 'USD',
+        url: review.buyLink,
+      },
+    }),
+  },
+  reviewRating: {
+    '@type': 'Rating',
+    ratingValue: review.rating,
+    bestRating: 5,
+    worstRating: 1,
+  },
+  author: {
+    '@type': 'Person',
+    name: SITE.author,
+  },
+  datePublished: pubDate.toISOString(),
+};
 
 // Structured data for SEO
 const schema = {
@@ -41,7 +100,9 @@ const schema = {
         url: SITE.url,
       },
       keywords: tags?.join(', '),
+      ...(reviewNode && { about: reviewNode.itemReviewed }),
     },
+    ...(reviewNode ? [reviewNode] : []),
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
@@ -91,6 +152,35 @@ const schema = {
       <div class="tags">
         {tags.map((t) => <span class="tag">#{t}</span>)}
       </div>
+    )}
+
+    {related.length > 0 && (
+      <aside class="related">
+        <div class="section-head">
+          <h2>{relatedHeading ?? 'Keep Reading'}</h2>
+          <span class="section-rule" aria-hidden="true"></span>
+        </div>
+        <ul class="post-grid">
+          {related.map((r) => (
+            <li>
+              <a class="post-card" href={`/posts/${r.slug}/`}>
+                {r.cover && (
+                  <span class="card-media">
+                    <Image src={r.cover} alt={r.coverAlt || ''} width={640} height={400} loading="lazy" />
+                  </span>
+                )}
+                <span class="card-body">
+                  <span class="card-date">
+                    <FormattedDate date={r.pubDate} />
+                    {r.rating != null && <span> · {crayons(r.rating)} {r.rating}/5</span>}
+                  </span>
+                  <span class="card-title">{r.title}</span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </aside>
     )}
 
     {(prev || next) && (

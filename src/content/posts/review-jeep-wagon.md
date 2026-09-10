@@ -22,7 +22,7 @@ coverAlt: "Jeep Aries Stroller Wagon Review"
 
 We use the [Jeep Aries Stroller Wagon](https://amzn.to/3S7Em0N) for longer day outings with our little one and dog. It’s durable and handles different terrains just like a Jeep. Our little one can nap and eat in it with greater comfort than in a stroller. Despite the size, it surprisingly fits better in our trunk than the stroller, making it easier to pack other things.
 
-**The Pastello Scale:** 🖍️🖍️🖍️🖍️.5 (4.5/5)
+**The Pastello Scale:** 🖍️🖍️🖍️🖍️✏️ (4.5/5)
 
 ## Why We Brought It Home
 

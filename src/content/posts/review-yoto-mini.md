@@ -22,7 +22,7 @@ coverAlt: "Yoto Mini Review"
 
 I bought the Yoto Mini for my three-year-old to help with traveling for the holidays. The quality of the Yoto Mini, the audio cards, the sound, etc. exceeded my expectations. The kiddo loved it, and 10 months later still uses it every day.
 
-**The Pastello Scale:** 🖍️🖍️🖍️🖍️.5 (4.5/5)
+**The Pastello Scale:** 🖍️🖍️🖍️🖍️✏️ (4.5/5)
 
 ## Why We Brought It Home
 

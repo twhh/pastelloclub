@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import { SITE } from '../consts';
 import { Image } from 'astro:assets';
+import { crayons } from '../utils/rating';
 
 const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
@@ -14,7 +15,6 @@ const reviews = rest.filter((post) => post.data.type === 'review');
 const notes = rest.filter((post) => post.data.type !== 'review');
 
 const isReview = (post: (typeof posts)[number]) => post.data.type === 'review';
-const crayons = (rating: number) => '🖍️'.repeat(Math.floor(rating)) + (rating % 1 ? '✏️' : '');
 ---
 
 <BaseLayout>
