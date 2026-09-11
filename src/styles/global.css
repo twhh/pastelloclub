@@ -153,8 +153,7 @@ img, video {
 .brand:hover { color: var(--accent); }
 .brand-mark {
   width: 28px; height: 28px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--blush), var(--peach) 50%, var(--sage));
+  border-radius: 22%;
   box-shadow: var(--shadow);
 }
 nav.primary a {
