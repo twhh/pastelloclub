@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE } from '../../consts';
 
-const updated = 'July 29, 2026';
+const updated = 'September 29, 2026';
 ---
 <BaseLayout
   title="Lullaby Privacy Policy"
@@ -17,15 +17,16 @@ const updated = 'July 29, 2026';
     <div class="post-content">
       <h2>Summary</h2>
       <p>
-        Lullaby's first public Android release is a free, local-only app. We do
-        not operate a Lullaby account service or backend and do not collect,
-        receive, sell, rent, or share the baby care information entered in the app.
+        Lullaby's public Google Play build is free and local-only. A separately
+        configured server-enabled build offers an optional encrypted server copy
+        for manual backup and transfer. We do not sell, rent, advertise against,
+        or share baby care information.
       </p>
 
       <h2>Information stored by the app</h2>
       <p>Lullaby can store the following information locally on your device:</p>
       <ul>
-        <li>Child profile names, dates of birth, avatar/color preferences, and chart sex.</li>
+        <li>Child profile names, dates of birth, and avatar/color preferences.</li>
         <li>Feed, sleep, diaper, note, and reminder records.</li>
         <li>Weight, length/height, and head-circumference measurements.</li>
         <li>App preferences such as display units, theme, and quiet hours.</li>
@@ -38,14 +39,29 @@ const updated = 'July 29, 2026';
 
       <h2>Information we collect or share</h2>
       <p>
-        We do not collect or share personal information, health information,
-        analytics, advertising identifiers, crash telemetry, location, contacts,
-        photos, or usage history through this release of Lullaby.
+        The local-only Android build does not transmit personal information,
+        health information, analytics, advertising identifiers, crash telemetry,
+        location, contacts, photos, or usage history.
       </p>
       <p>
         The app has no advertising SDK and does not sell data. Notification
         permission is used only to deliver reminders you configure. The boot
         permission lets Android restore those reminders after a restart.
+      </p>
+
+      <h2>Optional server-enabled mode</h2>
+      <p>
+        A server-enabled build does not upload anything until an adult explicitly
+        creates or joins a server copy. A snapshot can include child profiles,
+        care logs, growth measurements, reminders, and display preferences.
+        Upload and download are manual; Lullaby does not silently merge devices.
+      </p>
+      <p>
+        Each server copy has a random family ID and pairing key. The server stores
+        only a hash of the pairing key and encrypts snapshots at rest with
+        AES-256-GCM. Anyone with both pairing values can access or replace that
+        copy, so they must be kept private. Server mode has no advertising,
+        analytics, account directory, or administrator data API.
       </p>
 
       <h2>User-directed exports</h2>
@@ -63,9 +79,16 @@ const updated = 'July 29, 2026';
         clear Android app storage, or uninstall Lullaby.
       </p>
       <p>
-        Lullaby has no account and no server copy, so we cannot recover deleted
-        information. You can create a user-controlled JSON copy with Export All
-        Data before deleting or moving devices.
+        In server-enabled mode, Settings → Server backup → Delete server copy
+        permanently removes the remote snapshot. Delete All Local Data also
+        attempts remote deletion before resetting the app.
+      </p>
+      <p>
+        Lullaby has no account-recovery workflow. Local-only data cannot be
+        recovered after deletion. In server-enabled mode, a device can download
+        a remote snapshot only while that snapshot and its pairing values still
+        exist. Export All Data creates a readable JSON archive for your records;
+        this release cannot import that archive back into Lullaby.
       </p>
 
       <h2>Children and intended users</h2>
@@ -92,9 +115,9 @@ const updated = 'July 29, 2026';
 
       <h2>Future accounts, sync, and purchases</h2>
       <p>
-        Accounts, cloud backup, partner synchronization, and paid features are
-        not part of this release. Before enabling those features we will update
-        this policy, provide appropriate in-app disclosures and controls, and
+        Accounts, automatic synchronization, partner collaboration, and paid
+        features are not part of the Google Play release. Before enabling those
+        features there, we will provide appropriate disclosures and controls and
         update the Google Play Data safety declaration.
       </p>
 

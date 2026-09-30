@@ -9,7 +9,7 @@ import { SITE } from '../../consts';
   <article class="reading">
     <header class="post-header">
       <h1>Delete Lullaby data</h1>
-      <p class="post-desc">There is no account or server copy.</p>
+      <p class="post-desc">There is no account; server backup is opt-in.</p>
     </header>
 
     <div class="post-content">
@@ -33,9 +33,17 @@ import { SITE } from '../../consts';
         local storage.
       </p>
 
+      <h2>Delete an optional server copy</h2>
+      <p>
+        In a server-enabled build, open <strong>Settings → Encrypted server
+        copy</strong> and choose <strong>Delete server copy</strong>. The family
+        ID, encrypted snapshot, and pairing-key hash are permanently removed.
+      </p>
+
       <p>
         Deletion is permanent because this release has no cloud backup. Export a
-        copy first if you need one.
+        readable archive first if you need a record; it cannot be imported back
+        into Lullaby.
       </p>
 
       <p>
