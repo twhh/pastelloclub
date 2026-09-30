@@ -1,7 +1,7 @@
 ---
 title: "The Top 25 Boy Names of 2026 (and What They Mean)"
 description: "From Liam to Atlas, here are the boy names parents are picking in 2026, what each one means, and a few keepsakes we love for making the name official."
-pubDate: 2026-08-17
+pubDate: 2026-08-16
 tags: ["baby-names", "new-parents", "pregnancy", "tips"]
 draft: false
 cover: "/images/posts/top-25-boy-names-2026-cover.jpg"

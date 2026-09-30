@@ -60,6 +60,27 @@
 - Format: JPG or PNG
 - Name: descriptive, e.g., `nursery-furniture-essentials-cover.jpg`
 - Add `cover` and `coverAlt` fields to frontmatter
+- Size to 1200x630 for social cards
+- See `COVER-GUIDELINES.md` for the cover styles, the pastel illustration design system, and the in-repo SVG-to-JPG generation workflow
+
+## Note/Tips Posts
+
+The standard format for non-review posts (examples: `nursery-furniture-essentials.md`, `top-25-girl-names-2026.md`, `car-essentials-infant-travel.md`).
+
+### Template Location
+`src/content/_templates/note-template.md` - Copy this file to `src/content/posts/` and rename it when starting a new note post.
+
+### Note Post Structure
+1. **Hook** - Open with a relatable pain point or misconception. Do NOT repeat the title as an H1; note posts start directly with body text
+2. **Context** (optional) - A short section on where the list/advice comes from ("How We Built This List", personal experience) - builds trust and adds SEO surface
+3. **Main sections** - One H2 per item or point. Weave affiliate products inline where they solve a problem, leading with the problem rather than the product. Keep it honest
+4. **Closing** - Reassuring, practical summary, callback to the hook if possible
+5. **Shop the Notes** - Bulleted list of every product mentioned, with short descriptors
+6. **Affiliate disclaimer** - `---` then the standard blockquote
+
+### Note Post Frontmatter
+- Standard fields only (title, description, pubDate, tags, cover, coverAlt); `type` defaults to `post` and note posts appear in the site's "Field Notes" section
+- If an affiliate link isn't ready, use `https://amzn.to/REPLACE-SLUG` as a placeholder and grep for `REPLACE` before publishing
 
 ## Product Reviews
 
