@@ -305,6 +305,7 @@ nav.primary a:hover { color: var(--accent); }
 }
 .chip-review { background: var(--blush); }
 .chip-note { background: var(--sage); }
+.chip-money { background: var(--peach); }
 
 .post-card {
   display: flex;

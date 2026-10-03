@@ -6,7 +6,12 @@ import rehypeExternalLinks from 'rehype-external-links';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://pastelloclub.com',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      // Keep thin legal/app pages out of the sitemap
+      filter: (page) => !page.includes('/lullaby/privacy') && !page.includes('/lullaby/data-deletion'),
+    }),
+  ],
   markdown: {
     shikiConfig: {
       theme: 'github-light',

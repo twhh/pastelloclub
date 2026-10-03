@@ -14,8 +14,6 @@ cover: "/images/posts/review-infant-optics-cover.jpg"
 coverAlt: "Infant Optics DXR-8 PRO baby monitor set — parent unit with a screen showing a baby, camera, and zoom lens"
 ---
 
-# Infant Optics DXR-8 PRO Baby Monitor Review
-
 *A look at the DXR-8 PRO by Infant Optics. Do you really need a Wi-Fi baby monitor — or is the old-school kind the smarter buy?*
 
 ## The Short Version

@@ -14,8 +14,6 @@ cover: "/images/posts/review-jeep-wagon-cover.jpg"
 coverAlt: "Jeep Aries Stroller Wagon Review"
 ---
 
-# Jeep Aries Stroller Wagon by Delta Children Review
-
 *A look at the Jeep Aries Stroller Wagon by Delta Children. Does this children's wagon live up to the Jeep name?*
 
 ## The Short Version

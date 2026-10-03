@@ -1,8 +1,8 @@
 export const SITE = {
   title: 'pastelloclub',
-  tagline: 'Notes for parents, in soft colors.',
+  tagline: 'Honest notes on gear, money, and the everyday - for parents, in soft colors.',
   description:
-    'A warm, slow blog about raising small humans — patience, play, food, sleep, and everything in between.',
+    'Honest gear teardowns, money notes for working parents, and quiet field notes on the everyday - from a family of two kids, one dog, and one small business.',
   url: 'https://pastelloclub.com',
   author: 'pastelloclub',
   email: 'hi@pastelloclub.com',

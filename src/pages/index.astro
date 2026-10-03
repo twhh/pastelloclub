@@ -11,18 +11,24 @@ const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
 );
 
 const [featured, ...rest] = posts;
+const money = rest.filter((post) => post.data.type === 'money');
 const reviews = rest.filter((post) => post.data.type === 'review');
-const notes = rest.filter((post) => post.data.type !== 'review');
+const notes = rest.filter((post) => post.data.type === 'post');
 
-const isReview = (post: (typeof posts)[number]) => post.data.type === 'review';
+const chip = (post: (typeof posts)[number]) =>
+  post.data.type === 'review'
+    ? { class: 'chip chip-review', label: 'Gear Review' }
+    : post.data.type === 'money'
+      ? { class: 'chip chip-money', label: 'Money Note' }
+      : { class: 'chip chip-note', label: 'Latest Note' };
 ---
 
-<BaseLayout>
+<BaseLayout title="Baby Gear Reviews & Money Notes for Working Parents">
   <section class="hero">
     <h1>{SITE.tagline}</h1>
     <p class="hero-intro">
-      Honest baby-gear reviews and quiet notes on patience, play, food, and sleep —
-      from a girl dad with another kiddo on the way.
+      Honest gear teardowns, money notes for parents who work for themselves, and quiet
+      notes on the everyday - from a family of two kids, one dog, and one small business.
     </p>
   </section>
 
@@ -40,21 +46,50 @@ const isReview = (post: (typeof posts)[number]) => post.data.type === 'review';
         )}
       </span>
       <span class="featured-body">
-        {isReview(featured) ? (
-          <span class="chip chip-review">Gear Review</span>
-        ) : (
-          <span class="chip chip-note">Latest Note</span>
-        )}
+        <span class={chip(featured).class}>{chip(featured).label}</span>
         <span class="featured-date"><FormattedDate date={featured.data.pubDate} /></span>
         <span class="featured-title">{featured.data.title}</span>
         {featured.data.description && (
           <span class="featured-desc">{featured.data.description}</span>
         )}
         <span class="featured-cta">
-          {isReview(featured) ? 'Read the review' : 'Read the note'} <span aria-hidden="true">→</span>
+          {featured.data.type === 'review' ? 'Read the review' : 'Read the note'} <span aria-hidden="true">→</span>
         </span>
       </span>
     </a>
+  )}
+
+  {money.length > 0 && (
+    <section class="post-section">
+      <div class="section-head">
+        <h2>Money Notes</h2>
+        <span class="section-rule" aria-hidden="true"></span>
+      </div>
+      <ul class="post-grid">
+        {money.map((post) => (
+          <li>
+            <a class="post-card" href={`/posts/${post.id}/`}>
+              <span class="card-media">
+                {post.data.cover && (
+                  <Image
+                    src={post.data.cover}
+                    alt={post.data.coverAlt || ''}
+                    width={640}
+                    height={400}
+                    loading="lazy"
+                  />
+                )}
+              </span>
+              <span class="card-body">
+                <span class="card-date"><FormattedDate date={post.data.pubDate} /></span>
+                <span class="card-title">{post.data.title}</span>
+                {post.data.description && <span class="card-desc">{post.data.description}</span>}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
   )}
 
   {reviews.length > 0 && (

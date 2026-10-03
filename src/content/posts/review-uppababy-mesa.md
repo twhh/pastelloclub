@@ -14,8 +14,6 @@ cover: "/images/posts/review-uppababy-mesa-cover.jpg"
 coverAlt: "UPPAbaby Mesa infant car seat with a baby buckled inside, installed on its base with a load leg in the back seat of a car"
 ---
 
-# UPPAbaby Mesa V2 Infant Car Seat Review
-
 *A look at the Mesa V2 by UPPAbaby. Is a premium infant car seat worth the splurge — or will a cheaper seat do the same job?*
 
 ## The Short Version

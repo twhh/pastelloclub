@@ -14,8 +14,6 @@ cover: "/images/posts/review-yoyo-stroller-cover.jpg"
 coverAlt: "Stokke YOYO compact travel stroller in taupe and white on a city sidewalk"
 ---
 
-# Stokke YOYO Travel Stroller Review
-
 *A look at the YOYO by Stokke, the travel stroller formerly known as the Babyzen YOYO. Can a stroller that fits in the overhead bin really handle everyday life?*
 
 ## The Short Version

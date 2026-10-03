@@ -41,3 +41,28 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Notifies Bing (and other IndexNow engines) of every URL after deploy.
+      # The key is public by design — it must be served at
+      # https://pastelloclub.com/212d551bc56643458e4bc872ae9c145c.txt
+      # (committed as public/212d551bc56643458e4bc872ae9c145c.txt).
+      - name: Ping IndexNow (Bing)
+        env:
+          INDEXNOW_KEY: 212d551bc56643458e4bc872ae9c145c
+        run: |
+          payload=$(python3 - <<EOF
+          import json, os, re, urllib.request
+          xml = urllib.request.urlopen('https://pastelloclub.com/sitemap-0.xml').read().decode()
+          urls = re.findall(r'<loc>([^<]+)</loc>', xml)
+          print(json.dumps({
+              'host': 'pastelloclub.com',
+              'key': os.environ['INDEXNOW_KEY'],
+              'keyLocation': f'https://pastelloclub.com/{os.environ["INDEXNOW_KEY"]}.txt',
+              'urlList': urls,
+          }))
+          EOF
+          )
+          echo "Pinging IndexNow for $(echo "$payload" | python3 -c 'import json,sys; print(len(json.load(sys.stdin)["urlList"]))') URLs..."
+          curl -s -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json" \
+            -d "$payload" -w "HTTP %{http_code}\n"

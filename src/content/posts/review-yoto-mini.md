@@ -14,8 +14,6 @@ cover: "/images/posts/review-yoto-mini-cover.jpg"
 coverAlt: "Yoto Mini Review"
 ---
 
-# Yoto Mini Review: Kid-friendly Story and Music Player
-
 *A soft look at the Yoto Mini (2024 Edition). Does it actually make traveling with infants and toddlers easier?*
 
 ## The Short Version

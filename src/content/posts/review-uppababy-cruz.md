@@ -14,8 +14,6 @@ cover: "/images/posts/review-uppababy-cruz-cover.jpg"
 coverAlt: "UPPAbaby Cruz stroller with a toddler riding forward-facing under an open canopy, pushed along a white fence on a sunny neighborhood walk"
 ---
 
-# UPPAbaby Cruz V2 Stroller Review
-
 *A look at the Cruz V2 by UPPAbaby. Is a premium stroller worth the splurge — or will a cheaper one do the same job?*
 
 ## The Short Version

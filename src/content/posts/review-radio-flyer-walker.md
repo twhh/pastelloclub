@@ -14,8 +14,6 @@ cover: "/images/posts/review-radio-flyer-walker-cover.jpg"
 coverAlt: "Toddler pushing the red and wood Radio Flyer Classic Walker Wagon across the grass"
 ---
 
-# Radio Flyer Classic Walker Wagon Review
-
 *A look at the Classic Walker Wagon by Radio Flyer. Can one wooden wagon really carry your kid from first steps to stuffed-animal parades?*
 
 ## The Short Version

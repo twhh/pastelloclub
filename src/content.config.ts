@@ -14,7 +14,7 @@ const posts = defineCollection({
     coverAlt: z.string().optional(),
     draft: z.boolean().default(false),
     // Review-specific fields (optional - only used for product reviews)
-    type: z.enum(['post', 'review']).default('post'),
+    type: z.enum(['post', 'review', 'money']).default('post'),
     product: z.string().optional(),
     price: z.number().optional(),
     priceRange: z.enum(['$', '$$', '$$$', '$$$$']).optional(),
