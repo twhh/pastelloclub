@@ -20,12 +20,14 @@ const chip = (post: (typeof posts)[number]) =>
     ? { class: 'chip chip-review', label: 'Gear Review' }
     : post.data.type === 'money'
       ? { class: 'chip chip-money', label: 'Money Note' }
-      : { class: 'chip chip-note', label: 'Latest Note' };
+      : { class: 'chip chip-note', label: 'Note' };
 ---
 
 <BaseLayout title="Baby Gear Reviews & Money Notes for Working Parents">
   <section class="hero">
-    <h1>{SITE.tagline}</h1>
+    <h1>
+      Honest notes on gear, money, and the everyday, <em>for parents, in soft colors.</em>
+    </h1>
     <p class="hero-intro">
       Honest gear teardowns, money notes for parents who work for themselves, and quiet
       notes on the everyday - from a family of two kids, one dog, and one small business.
@@ -65,6 +67,11 @@ const chip = (post: (typeof posts)[number]) =>
         <h2>Money Notes</h2>
         <span class="section-rule" aria-hidden="true"></span>
       </div>
+      <a class="tool-banner" href="/tools/trump-account-calculator/">
+        <span class="tool-banner-label">New tool</span>
+        <span class="tool-banner-text">Trump Account Calculator: see what the $1,000 becomes by 18, 21, and 30</span>
+        <span class="tool-banner-cta" aria-hidden="true">→</span>
+      </a>
       <ul class="post-grid">
         {money.map((post) => (
           <li>
@@ -133,7 +140,7 @@ const chip = (post: (typeof posts)[number]) =>
   {notes.length > 0 && (
     <section class="post-section">
       <div class="section-head">
-        <h2>Field Notes</h2>
+        <h2>Everyday Notes</h2>
         <span class="section-rule" aria-hidden="true"></span>
       </div>
       <ul class="post-grid">

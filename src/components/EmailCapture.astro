@@ -1,0 +1,199 @@
+---
+interface Props {
+  source: string;
+  variant?: 'money' | 'general';
+  rail?: boolean;
+}
+
+const { source, variant = 'general', rail = false } = Astro.props;
+
+const copy =
+  variant === 'money'
+    ? {
+        heading: 'One money note a month',
+        body: 'Claim deadlines, contribution windows, and honest numbers for parent budgets. No spam, unsubscribe anytime.',
+      }
+    : {
+        heading: 'One note a month, in soft colors',
+        body: 'The best of our gear reviews, money notes, and everyday stories, straight to your inbox. No spam, unsubscribe anytime.',
+      };
+
+const fieldId = `capture-email-${source.replace(/[^a-z0-9-]/gi, '')}`;
+---
+
+<section class:list={['email-capture', { rail }]} data-source={source}>
+  <div class="capture-copy">
+    <h2>{copy.heading}</h2>
+    <p>{copy.body}</p>
+  </div>
+  <form class="capture-form">
+    <label class="sr-only" for={fieldId}>Email address</label>
+    <input type="email" id={fieldId} name="email" placeholder="you@example.com" required />
+    <button type="submit">Get the notes</button>
+  </form>
+  <p class="capture-msg" aria-live="polite"></p>
+</section>
+
+<script>
+  import { NEWSLETTER_ENDPOINT } from '../consts';
+
+  document.querySelectorAll<HTMLFormElement>('.email-capture form').forEach((form) => {
+    const wrap = form.closest('.email-capture') as HTMLElement;
+    const msg = wrap.querySelector<HTMLElement>('.capture-msg')!;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = (form.elements.namedItem('email') as HTMLInputElement).value.trim();
+      if (!email) return;
+      try {
+        // text/plain avoids the CORS preflight Apps Script can't answer
+        const res = await fetch(NEWSLETTER_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({ email, source: wrap.dataset.source }),
+        });
+        const data = await res.json();
+        msg.textContent = data.ok
+          ? 'You are on the list. First note lands soon.'
+          : 'That email did not look right, please check it and try again.';
+      } catch {
+        msg.textContent = 'Something went wrong, please try again.';
+      }
+    });
+  });
+</script>
+
+<style>
+  .email-capture {
+    margin-top: 2.75rem;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 1rem 2rem;
+    align-items: center;
+    background: var(--card-bg);
+    border: var(--card-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.6rem 1.75rem;
+  }
+  @media (max-width: 760px) {
+    .email-capture {
+      grid-template-columns: 1fr;
+      padding: 1.35rem 1.25rem 1.5rem;
+    }
+  }
+  .capture-copy h2 {
+    font-size: 1.35rem;
+    margin: 0 0 0.3rem;
+  }
+  .capture-copy p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+  .capture-form {
+    display: flex;
+    gap: 0.6rem;
+  }
+  .capture-form input {
+    flex: 1;
+    min-width: 0;
+    font: inherit;
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: var(--panel-bg);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 0.6rem 1.1rem;
+  }
+  .capture-form input::placeholder {
+    color: var(--ink-soft);
+    opacity: 0.8;
+  }
+  .capture-form input:focus-visible,
+  .capture-form button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  .capture-form button {
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #3d3934;
+    background: var(--peach);
+    border: none;
+    border-radius: 999px;
+    padding: 0.6rem 1.3rem;
+    cursor: pointer;
+    transition: scale 160ms var(--ease);
+    white-space: nowrap;
+  }
+  .capture-form button:hover {
+    scale: 1.03;
+  }
+  .capture-form button:active {
+    scale: 0.97;
+    translate: 0 1px;
+  }
+  .capture-msg {
+    grid-column: 1 / -1;
+    margin: 0;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    min-height: 1.2em;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  /* rail variant: stacks inside the reading column, floats in the right
+     margin on wide screens so it's visible without scrolling to the end */
+  .email-capture.rail {
+    grid-template-columns: 1fr;
+  }
+  .rail .capture-copy h2 {
+    font-size: 1.2rem;
+  }
+  .rail .capture-copy p {
+    font-size: 0.88rem;
+  }
+  .rail .capture-form {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .rail .capture-form input {
+    width: 100%;
+    text-align: center;
+  }
+  .rail .capture-form button {
+    width: 100%;
+  }
+  @media (min-width: 1200px) {
+    .email-capture.rail {
+      position: fixed;
+      top: 7rem;
+      /* reading column is 36rem centered; sit just right of it */
+      left: calc(50% + 20rem);
+      width: 250px;
+      margin: 0;
+      z-index: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .capture-form button {
+      transition: none;
+    }
+    .capture-form button:hover {
+      scale: none;
+    }
+  }
+</style>

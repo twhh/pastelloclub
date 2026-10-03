@@ -40,7 +40,7 @@ If your baby arrived in 2025 or later, you're almost certainly in. If you're exp
 1. **Go to the official site yourself: [trumpaccounts.gov](https://www.trumpaccounts.gov).** Type it into your browser. Don't click a version of it that arrived by email or text - more on that below.
 2. **Find your activation email, or wait for your phase.** Treasury has been sending activation emails in waves since the summer. Search your inbox and spam folder for it. No email yet? The portal is still the place to start; many families are activating directly.
 3. **Activate the account and elect the $1,000.** Inside, you'll confirm your child's details and make what the IRS calls the election to request the one-time $1,000 pilot contribution. It's the same election as [Form 4547](https://www.irs.gov/forms-pubs/about-form-4547), the form the early filers attached to their tax returns - the portal just walks you through it now.
-4. **Decide about your own money later.** You can add up to $5,000 a year, but you can also add nothing, forever, and the $1,000 is still yours to claim. Don't let the contribution question stop the claim. Free money first, strategy second.
+4. **Decide about your own money later.** You can add up to $5,000 a year, but you can also add nothing, forever, and the $1,000 is still yours to claim. Don't let the contribution question stop the claim. Free money first, strategy second. (When you're ready to see what it could become, [our calculator projects it out to age 30](/tools/trump-account-calculator/).)
 
 ## The Scam Wave Has Already Started
 

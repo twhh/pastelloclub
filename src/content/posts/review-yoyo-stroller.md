@@ -24,7 +24,7 @@ The [Stokke YOYO Travel Stroller](https://amzn.to/4gH498q) fits the bill as a tr
 
 ## Why We Brought It Home
 
-The first time we flew across the country with our infant, we brought our regular stroller. At the TSA line, an agent got upset and told me I had to take the entire stroller apart — which isn’t possible. It backed up the whole line before the head agent stepped in, corrected him, and pulled him off our line.
+The first time we flew across the country with our infant, we brought our regular stroller. At the TSA line, an agent got upset and told me I had to take the entire stroller apart - which isn’t possible. It backed up the whole line before the head agent stepped in, corrected him, and pulled him off our line.
 
 Besides not wanting to deal with another issue at the TSA line, traveling with a regular stroller is just a hassle. So the next time we traveled, we decided to buy a flight-friendly travel stroller. The [Stokke YOYO Travel Stroller](https://amzn.to/4gH498q) met our needs and made flights and road trips easier.
 
@@ -46,11 +46,11 @@ One issue we had when we first got it was the folding and unfolding process. If 
 
 The main issue we originally had with the [Stokke YOYO Travel Stroller](https://amzn.to/4gH498q) was learning how to unfold and fold it. It’s our first and only travel stroller, and it was frustrating at first. I recommend watching a tutorial, and it should be easy to figure out. After that, you’re off to the races.
 
-The other low light is the price. It’s more expensive than I’d like — if it were roughly $150, it’d be an ideal buy. But more on that in a bit, because so far, it’s earned its keep.
+The other low light is the price. It’s more expensive than I’d like - if it were roughly $150, it’d be an ideal buy. But more on that in a bit, because so far, it’s earned its keep.
 
 ## Is It Worth the Space?
 
-It doesn’t take up much space when it’s folded, so it’s definitely worth the space. At around $400, it’s on the pricier side, but from our experience, the price for quality has been worth it, especially if you’re planning on having more than one kid. We’ve tried cheaper products in the past and had issues with stitching falling apart or products not lasting. In the end, replacing them cost as much as — if not more than — the “quality” version.
+It doesn’t take up much space when it’s folded, so it’s definitely worth the space. At around $400, it’s on the pricier side, but from our experience, the price for quality has been worth it, especially if you’re planning on having more than one kid. We’ve tried cheaper products in the past and had issues with stitching falling apart or products not lasting. In the end, replacing them cost as much as - if not more than - the “quality” version.
 
 ## Shop the Notes
 

@@ -79,6 +79,8 @@ const isReview = post.data.type === 'review' && post.data.rating != null;
     rating: p.data.type === 'review' ? p.data.rating : undefined,
   }))}
   relatedHeading={post.data.type === 'review' ? 'More Gear Reviews' : post.data.type === 'money' ? 'More Money Notes' : 'More Notes'}
+  captureSource={`post:${post.id}`}
+  captureVariant={post.data.type === 'money' ? 'money' : 'general'}
 >
   <Content />
 </PostLayout>

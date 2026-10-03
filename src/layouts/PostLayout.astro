@@ -1,6 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import FormattedDate from '../components/FormattedDate.astro';
+import EmailCapture from '../components/EmailCapture.astro';
 import { SITE } from '../consts';
 import { Image } from 'astro:assets';
 import { crayons } from '../utils/rating';
@@ -31,6 +32,8 @@ export interface Props {
     rating?: number;
   }[];
   relatedHeading?: string;
+  captureSource?: string;
+  captureVariant?: 'money' | 'general';
 }
 
 const {
@@ -47,6 +50,8 @@ const {
   review,
   related = [],
   relatedHeading,
+  captureSource,
+  captureVariant = 'general',
 } = Astro.props;
 
 // Review structured data (star ratings in search results)
@@ -130,7 +135,7 @@ const schema = {
       <div class="post-date">
         <FormattedDate date={pubDate} />
         {readingTime && <span> · {readingTime} min read</span>}
-        {updatedDate && <span> · updated <FormattedDate date={updatedDate} /></span>}
+        {updatedDate && <span>, updated <FormattedDate date={updatedDate} /></span>}
       </div>
       <h1>{title}</h1>
       {description && <p class="post-desc">{description}</p>}
@@ -147,6 +152,8 @@ const schema = {
         {tags.map((t) => <span class="tag">#{t}</span>)}
       </div>
     )}
+
+    {captureSource && <EmailCapture source={captureSource} variant={captureVariant} rail />}
 
     {related.length > 0 && (
       <aside class="related">

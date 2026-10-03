@@ -14,13 +14,13 @@ cover: "/images/posts/review-uppababy-cruz-cover.jpg"
 coverAlt: "UPPAbaby Cruz stroller with a toddler riding forward-facing under an open canopy, pushed along a white fence on a sunny neighborhood walk"
 ---
 
-*A look at the Cruz V2 by UPPAbaby. Is a premium stroller worth the splurge — or will a cheaper one do the same job?*
+*A look at the Cruz V2 by UPPAbaby. Is a premium stroller worth the splurge - or will a cheaper one do the same job?*
 
 ## The Short Version
 
 The [UPPAbaby Cruz](https://amzn.to/4iUL8Sv) is a full-size stroller that lasts from birth to toddlerhood (up to 50 lbs). It offers multiple seating configurations, including the [UPPAbaby Mesa Infant Car Seat](https://amzn.to/4A97BSk) for infants, a reversible seat (parent-facing or forward-facing), adjustable leg recline, and attachments like a bassinet. Ours has lasted four years, and we plan to use it for our next baby.
 
-One thing to know before buying: like [our review of the Mesa V2](/posts/review-uppababy-mesa/), this review covers the Cruz V2 — but UPPAbaby has since released the Cruz V3, and stores no longer sell the V2 new, so the shopping links in this post point to the V3.
+One thing to know before buying: like [our review of the Mesa V2](/posts/review-uppababy-mesa/), this review covers the Cruz V2 - but UPPAbaby has since released the Cruz V3, and stores no longer sell the V2 new, so the shopping links in this post point to the V3.
 
 **The Pastello Scale:** 🖍️🖍️🖍️🖍️✏️ (4.5/5)
 
@@ -36,7 +36,7 @@ It was on the pricier side, but with our first child, we valued safety and conve
 
 The [UPPAbaby Cruz](https://amzn.to/4iUL8Sv) has a comfortable handle and large wheels that make pushing the stroller smooth. We’ve used it on a variety of terrains without any issues, including bumpy roads.
 
-The storage basket underneath is huge — we’ve fit a backpack, a diaper bag, and clothes with room to spare, and you can hang smaller items from the handles. For day trips, it’s big enough that you rarely need to carry bags on your shoulders.
+The storage basket underneath is huge - we’ve fit a backpack, a diaper bag, and clothes with room to spare, and you can hang smaller items from the handles. For day trips, it’s big enough that you rarely need to carry bags on your shoulders.
 
 Folding it was much easier than many of the other strollers we tried at the stores; just press a couple of buttons and fold. It fit nicely in our truck, though it does take up a fair amount of space.
 
@@ -53,13 +53,13 @@ The seat's adaptability is a huge plus. We started by snapping our [UPPAbaby Mes
 
 The stroller weighs over 25 lbs. That’s no problem when you’re pushing it, but the size and weight can make it a struggle to lift in and out of the car trunk. Even though it’s easy to fold, it still takes up quite a bit of space when stood up, so we had to carve out a spot in the garage when we didn’t have it in the truck.
 
-The official UPPAbaby accessories are expensive — the travel bag, snack tray, infant insert, rain shield, and so on add up fast. We flew once with the Cruz, and we get a decent amount of rain in our area, so we ended up buying non-brand-name accessories instead. They weren’t perfect, but they were good enough for us.
+The official UPPAbaby accessories are expensive - the travel bag, snack tray, infant insert, rain shield, and so on add up fast. We flew once with the Cruz, and we get a decent amount of rain in our area, so we ended up buying non-brand-name accessories instead. They weren’t perfect, but they were good enough for us.
 
 And at around $900 before any accessories, it’s one of the pricier full-size strollers out there.
 
 ## Is It Worth the Space?
 
-The bottom line: the [UPPAbaby Cruz](https://amzn.to/4iUL8Sv) lasts. Newborn to toddler, four years in, still going strong — and ready for baby number two. Despite the initial price, it’s been well worth it.
+The bottom line: the [UPPAbaby Cruz](https://amzn.to/4iUL8Sv) lasts. Newborn to toddler, four years in, still going strong - and ready for baby number two. Despite the initial price, it’s been well worth it.
 
 ## Shop the Notes
 

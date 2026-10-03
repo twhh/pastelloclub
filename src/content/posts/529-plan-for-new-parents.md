@@ -13,7 +13,7 @@ The 529 is the only financial product that gets recommended to you before your b
 
 So here's the guide we wish someone had handed us. We're two kids in, one ScholarShare account open, and this is the 529 explained the way a parent needs it - what it does, who controls it, what happens when life doesn't follow the savings plan, and how it fits next to the brand-new federal Trump Account.
 
-The two-minute version, if you're reading one-handed: a 529 is an account for education costs. Money goes in after tax, grows untaxed, and comes out untaxed for qualified education expenses. You, the parent, stay in control forever. Most states sweeten it with a tax deduction (ours, California, doesn't). And it stacks neatly with the Trump Account's free $1,000, which you should [claim first no matter what](/posts/trump-account-claim-guide/).
+The two-minute version, if you're reading one-handed: a 529 is an account for education costs. Money goes in after tax, grows untaxed, and comes out untaxed for qualified education expenses. You, the parent, stay in control forever. Most states sweeten it with a tax deduction (ours, California, doesn't). And it stacks neatly with the Trump Account's free $1,000, which you should [claim first no matter what](/posts/trump-account-claim-guide/) - [here's what it can grow into](/tools/trump-account-calculator/).
 
 ## What a 529 Actually Is
 

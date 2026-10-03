@@ -1,3 +1,8 @@
+// Google Apps Script web app backing the Google Sheet "pastelloclub-emails".
+// See scripts/email-capture.gs. Swap for a newsletter provider endpoint later.
+export const NEWSLETTER_ENDPOINT =
+  'https://script.google.com/macros/s/AKfycbyPtIkcxFMVdACHPXh8VWSGHhaAkNvJgYQYn6nYSa1YoCocFJnMyrOe5vLLmDtdixaM/exec';
+
 export const SITE = {
   title: 'pastelloclub',
   tagline: 'Honest notes on gear, money, and the everyday - for parents, in soft colors.',

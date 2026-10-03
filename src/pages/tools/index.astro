@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Tools"
+  description="Free calculators and tools for parent money decisions, from the Trump Account to education savings."
+>
+  <article class="tool reading">
+    <header class="post-header">
+      <span class="chip chip-money">Money Tools</span>
+      <h1>Tools</h1>
+      <p class="post-desc">Small calculators for parent money decisions. No accounts, no tracking, everything runs in your browser.</p>
+    </header>
+
+    <div class="post-content">
+      <ul class="tool-list">
+        <li>
+          <a href="/tools/trump-account-calculator/">
+            <strong>Trump Account Calculator</strong>
+            <span>Project what the $1,000 federal seed plus your contributions becomes at 18, 21, and 30.</span>
+          </a>
+        </li>
+      </ul>
+      <p>More coming. A baby gear price watch is next on the bench.</p>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .post-header .chip {
+    margin-bottom: 0.6rem;
+  }
+  .post-header h1 {
+    margin-top: 0.4rem;
+  }
+  .tool-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .tool-list a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1.1rem 1.25rem;
+    background: var(--card-bg);
+    border: var(--card-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    color: var(--ink);
+    border-bottom: none;
+    transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
+  }
+  .tool-list a:hover {
+    color: var(--ink);
+    border-bottom: none;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lift);
+  }
+  .tool-list span {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+</style>

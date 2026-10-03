@@ -1,5 +1,13 @@
 ---
 import { SITE } from '../consts';
+import '@fontsource/nunito/400.css';
+import '@fontsource/nunito/600.css';
+import '@fontsource/nunito/700.css';
+import '@fontsource/petrona/400.css';
+import '@fontsource/petrona/500.css';
+import '@fontsource/petrona/600.css';
+import '@fontsource/petrona/400-italic.css';
+import '@fontsource/petrona/500-italic.css';
 import '../styles/global.css';
 
 export interface Props {
@@ -18,7 +26,7 @@ const {
   pubDate,
 } = Astro.props;
 
-const pageTitle = title ? `${title} — ${SITE.title}` : `${SITE.title} — ${SITE.tagline}`;
+const pageTitle = title ? `${title} · ${SITE.title}` : `${SITE.title} · ${SITE.tagline}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? SITE.url);
 const ogImage = image ? new URL(image, canonicalURL).toString() : undefined;
 ---
@@ -47,12 +55,8 @@ const ogImage = image ? new URL(image, canonicalURL).toString() : undefined;
     <meta name="twitter:description" content={description} />
     {ogImage && <meta name="twitter:image" content={ogImage} />}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Nunito:wght@400;600&display=swap"
-    />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fdf8f2" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#221d19" />
   </head>
   <body>
     <header class="site-header">
@@ -63,6 +67,7 @@ const ogImage = image ? new URL(image, canonicalURL).toString() : undefined;
         </a>
         <nav class="primary" aria-label="Primary">
           <a href="/">Writing</a>
+          <a href="/tools/trump-account-calculator/">Calculator</a>
           <a href="/about/">About</a>
           <a href="/rss.xml">RSS</a>
         </nav>

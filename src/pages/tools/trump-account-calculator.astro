@@ -1,0 +1,417 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { SITE } from '../../consts';
+
+const title = 'Trump Account Calculator';
+const description =
+  'Project what your kid\'s Trump Account could be worth at 18, 21, and 30. Adjust the birth year, your contributions, and the return rate - and see what the $1,000 does on its own.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebApplication',
+      name: 'Trump Account Calculator',
+      url: `${SITE.url}/tools/trump-account-calculator/`,
+      applicationCategory: 'FinanceApplication',
+      operatingSystem: 'Any',
+      description,
+      publisher: { '@type': 'Organization', name: SITE.title, url: SITE.url },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Trump Account Calculator',
+          item: `${SITE.url}/tools/trump-account-calculator/`,
+        },
+      ],
+    },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <article class="tool">
+    <header class="tool-header">
+      <span class="chip chip-money">Money Tool</span>
+      <h1>What could your kid's Trump Account become?</h1>
+      <p class="tool-sub">
+        The $1,000 federal seed plus whatever you add, compounded to adulthood. Move the
+        dials, watch it grow.
+      </p>
+    </header>
+
+    <section class="calc" aria-label="Trump Account calculator">
+      <div class="calc-inputs">
+        <div class="field">
+          <label for="birth-year">Child's birth year</label>
+          <select id="birth-year"></select>
+          <p class="hint" id="seed-hint"></p>
+        </div>
+
+        <div class="field">
+          <label for="contribution">
+            What you add each year
+            <output id="contribution-out" for="contribution"></output>
+          </label>
+          <input type="range" id="contribution" min="0" max="5000" step="100" value="1200" />
+          <p class="hint">Up to the $5,000 yearly cap. About <span id="monthly-equiv"></span> a month.</p>
+        </div>
+
+        <div class="field">
+          <label for="return-rate">
+            Assumed return per year
+            <output id="return-out" for="return-rate"></output>
+          </label>
+          <input type="range" id="return-rate" min="0" max="10" step="0.5" value="6" />
+          <p class="hint">The long-run stock market has averaged roughly 7% before inflation. 6% is a common planning number.</p>
+        </div>
+      </div>
+
+      <div class="calc-results" aria-live="polite">
+        <div class="milestones">
+          <div class="milestone">
+            <span class="milestone-age">At 18 <span class="milestone-year" id="year-18"></span></span>
+            <span class="milestone-value" id="value-18"></span>
+            <span class="milestone-note">they take control</span>
+          </div>
+          <div class="milestone">
+            <span class="milestone-age">At 21 <span class="milestone-year" id="year-21"></span></span>
+            <span class="milestone-value" id="value-21"></span>
+          </div>
+          <div class="milestone">
+            <span class="milestone-age">At 30 <span class="milestone-year" id="year-30"></span></span>
+            <span class="milestone-value" id="value-30"></span>
+          </div>
+        </div>
+
+        <dl class="breakdown">
+          <div><dt>Federal seed</dt><dd id="row-seed"></dd></div>
+          <div><dt>You put in</dt><dd id="row-contrib"></dd></div>
+          <div><dt>Growth does the rest</dt><dd id="row-growth"></dd></div>
+        </dl>
+
+        <p class="comparison" id="comparison"></p>
+      </div>
+    </section>
+
+    <EmailCapture source="trump-account-calculator" variant="money" />
+
+    <section class="notes">
+      <h2>How this works</h2>
+      <ul>
+        <li>The $1,000 federal seed applies to kids born January 1, 2025 through December 31, 2028. The calculator adds it automatically for those years.</li>
+        <li>Your contributions are capped at $5,000 per year, from money already taxed. We assume you contribute through age 18, then let it ride.</li>
+        <li>Values are nominal, not inflation-adjusted. A dollar at 30 will buy less than a dollar today.</li>
+        <li>The account is locked until your child turns 18. This is not a diaper fund.</li>
+        <li>In the year your child turns 18, the account automatically becomes a Traditional IRA in their name and they take control. They can instead elect to convert it to a Roth IRA, which can be tax-free while the balance is under their standard deduction. Either way the money stays invested - the projections above don't change.</li>
+        <li>Projections are illustrations, not promises. Real returns vary year to year.</li>
+      </ul>
+      <p class="disclaimer">
+        Not financial, tax, or investment advice. Rules reflect the program as it stands
+        now and may change. Read the walkthrough in
+        <a href="/posts/trump-account-claim-guide/">How to Claim Your Baby's Trump Account</a>,
+        see <a href="/posts/trump-account-vs-529/">how it compares to a 529</a>, or start
+        <a href="/posts/529-plan-for-new-parents/">a 529 from zero</a>.
+      </p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .tool {
+    max-width: 56rem;
+    margin: 0 auto;
+  }
+
+  .tool-header {
+    text-align: center;
+    margin: 1.5rem 0 2.25rem;
+  }
+  .tool-header h1 {
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    line-height: 1.25;
+    margin: 0.8rem 0 0.6rem;
+  }
+  .tool-sub {
+    color: var(--ink-soft);
+    font-size: 1.1rem;
+    max-width: 34rem;
+    margin: 0 auto;
+  }
+
+  /* calculator shell */
+  .calc {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 1.5rem;
+    background: var(--card-bg);
+    border: var(--card-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.75rem;
+  }
+  @media (max-width: 760px) {
+    .calc {
+      grid-template-columns: 1fr;
+      padding: 1.35rem 1.25rem 1.5rem;
+    }
+  }
+
+  /* inputs */
+  .calc-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .field label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+  .field output {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .hint {
+    color: var(--ink-soft);
+    font-size: 0.83rem;
+    line-height: 1.45;
+    margin: 0.45rem 0 0;
+  }
+  select {
+    width: 100%;
+    font: inherit;
+    color: var(--ink);
+    background: var(--panel-bg);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 0.55rem 0.75rem;
+  }
+  input[type='range'] {
+    width: 100%;
+    accent-color: var(--accent);
+    height: 1.75rem;
+  }
+  select:focus-visible,
+  input:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* results */
+  .calc-results {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .milestones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+  @media (max-width: 480px) {
+    .milestones {
+      grid-template-columns: 1fr;
+    }
+  }
+  .milestone {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    background: var(--panel-bg);
+    border-radius: 10px;
+    padding: 0.85rem 0.9rem;
+  }
+  .milestone:first-child {
+    background: var(--peach);
+  }
+  .milestone-age {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .milestone-year {
+    font-weight: 400;
+    opacity: 0.75;
+  }
+  .milestone-value {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+  .milestone-note {
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+  }
+  /* the highlighted (peach) tile keeps dark ink in both modes */
+  .milestone:first-child .milestone-age,
+  .milestone:first-child .milestone-value,
+  .milestone:first-child .milestone-note {
+    color: #3d3934;
+  }
+  .breakdown {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .breakdown div {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.95rem;
+  }
+  .breakdown dt {
+    color: var(--ink-soft);
+  }
+  .breakdown dd {
+    margin: 0;
+    font-weight: 700;
+  }
+  .comparison {
+    margin: 0;
+    padding: 0.75rem 1rem;
+    background: var(--panel-bg);
+    border-radius: 10px;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+  .comparison strong {
+    color: var(--ink);
+  }
+
+  /* notes */
+  .notes {
+    margin-top: 2.75rem;
+  }
+  .notes h2 {
+    font-size: 1.45rem;
+    margin: 0 0 0.75rem;
+  }
+  .notes ul {
+    margin: 0 0 1.25rem;
+    padding-left: 1.2rem;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+  .notes li {
+    margin-bottom: 0.35rem;
+  }
+  .disclaimer {
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+</style>
+
+<script>
+  const SEED_YEARS = { min: 2025, max: 2028 };
+  const SEED_AMOUNT = 1000;
+  const MILESTONES = [18, 21, 30];
+  const CONTRIBUTE_UNTIL = 18;
+
+  const $ = (id: string) => document.getElementById(id)!;
+  const usd = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 0,
+  });
+
+  const birthYear = $('birth-year') as HTMLSelectElement;
+  const contribution = $('contribution') as HTMLInputElement;
+  const returnRate = $('return-rate') as HTMLInputElement;
+
+  // populate birth years: eligible window first, then older kids (no seed)
+  const years: number[] = [];
+  for (let y = SEED_YEARS.max; y >= SEED_YEARS.min; y--) years.push(y);
+  for (let y = SEED_YEARS.min - 1; y >= 2010; y--) years.push(y);
+  for (const y of years) {
+    const opt = document.createElement('option');
+    opt.value = String(y);
+    opt.textContent = String(y);
+    birthYear.appendChild(opt);
+  }
+  birthYear.value = '2026';
+
+  function project(year: number, age: number, rate: number, contrib: number) {
+    const r = rate / 100;
+    const grown = r === 0 ? 1 : Math.pow(1 + r, age);
+    const seed = year >= SEED_YEARS.min && year <= SEED_YEARS.max ? SEED_AMOUNT : 0;
+    const contribYears = Math.min(age, CONTRIBUTE_UNTIL);
+    const seedFV = seed * grown;
+    const contribFV = r === 0 ? contrib * contribYears : contrib * ((grown - 1) / r);
+    // contributions stop at 18; later milestones keep compounding what's there
+    const totalAt18 =
+      seed * (r === 0 ? 1 : Math.pow(1 + r, CONTRIBUTE_UNTIL)) +
+      (r === 0 ? contrib * CONTRIBUTE_UNTIL : contrib * ((Math.pow(1 + r, CONTRIBUTE_UNTIL) - 1) / r));
+    const after18 = age > CONTRIBUTE_UNTIL ? totalAt18 * Math.pow(1 + r, age - CONTRIBUTE_UNTIL) : totalAt18;
+    const total = age <= CONTRIBUTE_UNTIL ? seedFV + contribFV : after18;
+    return { total, seed: seedFV, contributed: contrib * contribYears };
+  }
+
+  function render() {
+    const year = Number(birthYear.value);
+    const contrib = Number(contribution.value);
+    const rate = Number(returnRate.value);
+    const eligible = year >= SEED_YEARS.min && year <= SEED_YEARS.max;
+
+    $('contribution-out').textContent = usd.format(contrib) + '/yr';
+    $('monthly-equiv').textContent = usd.format(Math.round(contrib / 12));
+    $('return-out').textContent = rate + '%';
+    $('seed-hint').textContent = eligible
+      ? 'Eligible: the $1,000 federal seed is included.'
+      : 'Before 2025: no federal seed, but you can still open and fund the account.';
+
+    let contributedTotal = 0;
+    for (const age of MILESTONES) {
+      const p = project(year, age, rate, contrib);
+      $('value-' + age).textContent = usd.format(Math.round(p.total));
+      $('year-' + age).textContent = 'in ' + (year + age);
+      if (age === 18) {
+        contributedTotal = p.contributed;
+        $('row-seed').textContent = eligible ? usd.format(SEED_AMOUNT) + ' seed' : 'none';
+      }
+    }
+    const at18 = project(year, 18, rate, contrib);
+    $('row-contrib').textContent = usd.format(contributedTotal);
+    $('row-growth').textContent = usd.format(Math.max(0, at18.total - contributedTotal - (eligible ? SEED_AMOUNT : 0)));
+
+    if (eligible) {
+      const solo = project(year, 30, rate, 0).total;
+      $('comparison').innerHTML =
+        'Claim it and add nothing: <strong>' +
+        usd.format(Math.round(solo)) +
+        '</strong> by age 30 from the $1,000 alone. Claiming late costs compounding years you never get back.';
+    } else {
+      $('comparison').innerHTML =
+        'No federal seed for this birth year, so the account is whatever you make it.';
+    }
+  }
+
+  [birthYear, contribution, returnRate].forEach((el) =>
+    el.addEventListener('input', render),
+  );
+  render();
+</script>
