@@ -4,6 +4,8 @@
 
 **Voice**: Personal, practical, and honest. Write like you're talking to a friend who's also navigating parenthood.
 
+**Persona rule**: never claim honesty/realness in copy ("honest notes", "real numbers, no lectures") - demonstrate it with specifics from the facts canon in content-strategy.md (years owned, prices paid, actual returns, income as ranges). "Honest review" is allowed in titles/meta descriptions as a search phrase only. Conversational interjections ("I'll be honest, the fold drove me nuts") are fine; identity claims are not.
+
 **Tone**:
 - Authentic about challenges (limited leave, budget constraints, overwhelming moments)
 - Practical and solution-oriented

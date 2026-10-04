@@ -5,10 +5,16 @@ export const NEWSLETTER_ENDPOINT =
 
 export const SITE = {
   title: 'pastelloclub',
-  tagline: 'Honest notes on gear, money, and the everyday - for parents.',
+  tagline: 'Gear that lasts, money math that checks out - notes for parents.',
   description:
-    'Honest gear teardowns, money notes for working parents, and everyday notes from the trenches - from a family of two kids, one dog, and one small business.',
+    'Long-term gear teardowns, money math for self-employed parents, and Trump Account guides - from a Bay Area dad who left big tech to run a solo business and raise two kids.',
   url: 'https://pastelloclub.com',
-  author: 'pastelloclub',
+  author: 'Jason',
   email: 'hi@pastelloclub.com',
+} as const;
+
+export const AUTHOR = {
+  name: 'Jason',
+  bio: 'Product manager for a decade - Google, Facebook, Twitter, Discord - now five years into running a solo consulting LLC and raising two kids in the Bay Area.',
+  url: '/about/',
 } as const;

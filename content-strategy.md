@@ -2,6 +2,40 @@
 
 Last updated: October 2026. Companion to GROWTH-PLAYBOOK.md.
 
+## Voice & facts canon
+
+The position: a builder with receipts, not an "honest parent" brand. Never claim
+honesty/realness - demonstrate it with specifics from this canon. ("Honest
+review" is fine in post titles/meta descriptions as a search phrase only.)
+
+Facts approved for use in copy:
+
+- Jason. Bay Area, CA. Kids: 4-year-old + infant (no names, no faces). 75-lb
+  bernedoodle (5).
+- Ex-product manager: Google, Facebook, Twitter, Discord; early employee at two
+  startups acquired (by Twitter, Discord).
+- Solo LLC, 5 years, product management consulting (pre-seed to Fortune 500);
+  replaced full-time tech salary. Actual revenue swings $10-55K/mo, but publish
+  softened ("six figures a year, with swings"). Expanding to a team this year.
+  LLC taxed as S corp in California.
+- Retirement: Solo 401(k) only; S corp side makes employer contributions (I
+  match myself).
+- 529 (California ScholarShare) for the older kid: contribute monthly, near the
+  annual gifting max until kid was ~3-4, >60% 3-year return. Will open one for
+  the infant. Researching/opening a Trump Account for the infant now.
+- Taxes: quarterly, accounting outsourced to Collective (referral:
+  https://share.collective.com/simplybootstrapped). Health insurance through
+  spouse's employer.
+- Gear: mostly from the 4-year-old, bought ourselves. Durability
+  retrospectives are the review format. Don't claim "no sponsored posts / no
+  free gear" as policy - state self-bought as present fact only, keep options
+  open.
+- Own apps, plug only where natural: Lullaby (Android feeding/diaper tracker;
+  free core + paid premium - still in Play Store testing, don't link from the
+  blog until it's live), kidsmealtoys (Happy Meal toy tracker).
+- Income/numbers publish as ranges, rounded to comfort. Spouse referred to
+  generically; no employer names.
+
 ## Diagnosis
 
 Zero domain authority means we win long-tail, intent-exact, timely queries only. Our
@@ -84,10 +118,30 @@ pin; everyday essays don't. When the price watch goes live, it generates one
 
 ## Channel notes
 
-- Price watch worker is live and self-starts when Amazon grants API access
-  (eligible-pending, up to 48h from Oct 3-4). When data flows, build /price-watch/
-  pages and link reviews to them.
+- Price watch: missed the Amazon API access window (Oct 2026) - punted until we
+  re-qualify and reapply. The worker stays dormant; /price-watch/ pages and the
+  weekly "biggest drop" pin are blocked on that. Until then, gear posts link
+  straight to affiliate links, no price pages.
 - Email capture is on every post + calculator, source-tagged per page in the
   "pastelloclub-emails" sheet. Review the Source column monthly to learn which
   lanes convert.
 - Pinterest: pin every gear post's cover (durable for visual niches per playbook).
+
+## 30-day validation plan (Oct 4 - Nov 4, 2026)
+
+Budget: 2-3 hrs/day. Purpose: decide whether pastelloclub earns more investment.
+Positioning work shipped Oct 4: About rewrite, hero/tagline sweep, facts canon,
+Pinterest copy, Collective placement.
+
+- Weeks 1-4: run the Trump Account queue (Oct 7/10/14/17) + 1 self-employed
+  money post/week (queue #6, then #7). Pinterest cadence per
+  `pinterest-launch-list.md`.
+- Monetization plumbing (week 1): Amazon/eBay links live; Collective referral
+  in every self-employed post; research Solo 401(k) provider affiliate
+  programs. No display ads until ~10k sessions/mo.
+- Baseline GSC/GA4/Pinterest analytics in week 1 so day-30 reads clean.
+- Lullaby plugs resume only after Play Store approval.
+
+Day-30 go/no-go (Nov 4): organic impressions trending up week-over-week, >=1
+post in top 20 for a target keyword, Pinterest outbound clicks >100/mo, first
+affiliate revenue != $0. Rising trend -> invest more; flat -> kill or pivot.

@@ -40,7 +40,7 @@ If you're also weighing education savings, [we compared the Trump Account agains
 
 Nobody matches your contributions when you're the employer. There's no payroll deduction quietly doing the work. What self-employed families get instead is a genuinely good menu - Solo 401(k)s, SEP plans - and total freedom to ignore it, which is exactly what happens when a baby arrives.
 
-Our own setup, for the curious: an LLC in California taxed as an S corporation, with a Solo 401(k). The best quirk of the arrangement is that the S corp side makes employer contributions into my Solo 401(k) - I match myself. Two hats, one transfer.
+Our own setup, for the curious: an LLC in California taxed as an S corporation, with a Solo 401(k). The best quirk of the arrangement is that the S corp side makes employer contributions into my Solo 401(k) - I match myself. Two hats, one transfer. (The admin for all of it - S corp filing, bookkeeping, payroll, quarterly taxes - runs through [Collective](https://share.collective.com/simplybootstrapped); that's a referral link, and also just the service I've used for five years.)
 
 So: automate something small. Even $50 a month, transferred on the same day, on schedule, before you can see it. The lean months will attack your retirement savings before they attack anything else - that's just how it goes - and the only defense is a transfer that happens without a decision being made.
 
@@ -67,4 +67,4 @@ Count the runway. Claim the credits. Take the free thousand. Automate the future
 
 ---
 
-> **A quiet note:** I'm a parent taking notes, not a financial or tax professional, and nothing here is financial, tax, or investment advice. Credits and rules shift year to year - confirm current details, and let a qualified pro handle the corners of your own situation.
+> **A quiet note:** I'm a parent taking notes, not a financial or tax professional, and nothing here is financial, tax, or investment advice. Some links on this site are affiliate or referral links (including the Collective link above). Credits and rules shift year to year - confirm current details, and let a qualified pro handle the corners of your own situation.

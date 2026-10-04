@@ -12,15 +12,15 @@ Last updated: October 2026
 
 ## Positioning
 
-One sentence: **Honest field notes for working parents from a product builder raising two kids - money moves, gear teardowns, and family logistics.**
+One sentence: **A Bay Area dad and ex-big-tech product manager who replaced his salary with a solo consulting LLC - gear that survives two kids, and the money math for parents who work for themselves.**
 
 What makes us different (be honest with ourselves):
 
-- Not: generic parent advice. Thousands of those sites exist, older and bigger
+- Not: generic parent advice, and not an "honest parent reviews" brand - claiming honesty is what every content mill does. Never claim honest/realness in copy; demonstrate it with specifics from the facts canon (see content-strategy.md)
 - Yes: parent + small business owner + software product background. Two real intersection niches come with that: self-employed parent money (Trump accounts, 529s, variable-income budgeting, childcare tax breaks) and gear reviews written like product teardowns (the Pastello Scale already does this)
-- The site identity should read as "parents who work for themselves, testing things" - not "another baby blog"
+- The site identity should read as "a builder who runs the numbers" - not "another baby blog"
 
-Update the About section to lead with: two kids, a dog, a small business, and a product-building day job. This is also the E-E-A-T story that finance posts need.
+Shipped Oct 4: About rewritten around the receipts (ex-Google/Facebook/Twitter/Discord, solo LLC, income range), byline + author bio box on every post, "Jason" as the named author in JSON-LD.
 
 ## Keyword Rules (the gate every post must pass)
 

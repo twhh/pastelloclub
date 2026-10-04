@@ -547,6 +547,44 @@ nav.primary a:hover { color: var(--accent); }
   border-bottom: none;
 }
 
+/* author bio (post pages) */
+.author-bio {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: var(--panel-bg);
+  border: var(--card-border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+}
+.author-initials {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--cream);
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.author-bio-text {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+.author-bio-text strong {
+  display: block;
+  color: var(--ink);
+  font-size: 1rem;
+  margin-bottom: 0.15rem;
+}
+.post-date .post-author {
+  font-weight: 700;
+}
+
 /* related posts (post pages) */
 .related { margin-top: 3.5rem; }
 .related .post-grid { gap: 1rem; }

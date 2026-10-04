@@ -2,7 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import EmailCapture from '../components/EmailCapture.astro';
-import { SITE } from '../consts';
+import { SITE, AUTHOR } from '../consts';
 import { Image } from 'astro:assets';
 import { crayons } from '../utils/rating';
 
@@ -78,7 +78,8 @@ const reviewNode = review && {
   },
   author: {
     '@type': 'Person',
-    name: SITE.author,
+    name: AUTHOR.name,
+    url: `${SITE.url}${AUTHOR.url}`,
   },
   datePublished: pubDate.toISOString(),
 };
@@ -96,8 +97,9 @@ const schema = {
       dateModified: updatedDate ? updatedDate.toISOString() : pubDate.toISOString(),
       author: {
         '@type': 'Person',
-        name: SITE.author,
+        name: AUTHOR.name,
         email: SITE.email,
+        url: `${SITE.url}${AUTHOR.url}`,
       },
       publisher: {
         '@type': 'Organization',
@@ -133,7 +135,7 @@ const schema = {
   <article class="reading">
     <header class="post-header">
       <div class="post-date">
-        <FormattedDate date={pubDate} />
+        By <a class="post-author" href={AUTHOR.url}>{AUTHOR.name}</a> · <FormattedDate date={pubDate} />
         {readingTime && <span> · {readingTime} min read</span>}
         {updatedDate && <span>, updated <FormattedDate date={updatedDate} /></span>}
       </div>
@@ -146,6 +148,14 @@ const schema = {
     <div class="post-content">
       <slot />
     </div>
+
+    <aside class="author-bio">
+      <span class="author-initials" aria-hidden="true">{AUTHOR.name.charAt(0)}</span>
+      <div class="author-bio-text">
+        <strong>{AUTHOR.name}</strong>
+        <p>{AUTHOR.bio} <a href={AUTHOR.url}>More about pastelloclub →</a></p>
+      </div>
+    </aside>
 
     {tags.length > 0 && (
       <div class="tags">

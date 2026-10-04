@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../consts';
+---
+<BaseLayout title="Privacy Policy" description={`Privacy policy for ${SITE.title}`}>
+  <article class="reading">
+    <header class="post-header">
+      <h1>Privacy Policy</h1>
+      <p class="post-desc">Effective Date: October 2026</p>
+    </header>
+
+    <div class="post-content">
+      <p>
+        This Privacy Policy describes how pastelloclub (&quot;we,&quot;
+        &quot;us,&quot; or &quot;our&quot;) collects, uses, and discloses
+        information when you visit pastelloclub.com (the
+        &quot;Site&quot;). By using the Site, you agree to the practices
+        described in this Policy.
+      </p>
+
+      <h2>1. Information We Collect</h2>
+      <p>
+        <strong>a. Information you provide voluntarily.</strong> If you submit
+        your email address through our signup form, we collect that address for
+        the purpose of sending you the content you requested. Submission is
+        entirely optional.
+      </p>
+      <p>
+        <strong>b. Information collected automatically.</strong> Like most
+        websites, the Site may automatically receive standard technical
+        information from your browser and device, such as IP address, browser
+        type, referring pages, and pages visited. We may use third-party
+        analytics services to measure aggregate site usage. Any future addition
+        of specific analytics or measurement tools will be reflected in this
+        Policy.
+      </p>
+
+      <h2>2. How We Use Information</h2>
+      <p>We use the information we collect to:</p>
+      <ul>
+        <li>Send the emails or updates you requested;</li>
+        <li>Understand, in aggregate, how visitors use the Site; and</li>
+        <li>Operate, maintain, and improve the Site.</li>
+      </ul>
+
+      <h2>3. Sharing of Information</h2>
+      <p>
+        We do not sell, rent, or trade your personal information. We do not
+        share your email address with third parties for their own marketing
+        purposes. Information may be disclosed only where required by law,
+        legal process, or to protect the rights, property, or safety of the
+        Site or its users.
+      </p>
+
+      <h2>4. Affiliate and Referral Links</h2>
+      <p>
+        The Site contains affiliate and referral links to third-party products
+        and services (including, for example, links to Amazon, eBay, and
+        service providers we use). If you make a purchase or sign up through
+        such a link, we may receive a commission or referral credit at no
+        additional cost to you. These third parties operate under their own
+        privacy policies, which govern any information they collect, and we
+        encourage you to review them.
+      </p>
+
+      <h2>5. Children's Privacy</h2>
+      <p>
+        The Site is directed to parents and caregivers and is not directed to
+        children under 13. We do not knowingly collect personal information
+        from children under 13. If you believe a child has provided us
+        personal information, please contact us so we can delete it.
+      </p>
+
+      <h2>6. Your Choices</h2>
+      <p>
+        You may stop receiving our emails at any time by using the unsubscribe
+        link included in any email or by contacting us at the address below,
+        and we will remove your address from our records. You may also decline
+        automatic collection by adjusting your browser settings or using
+        widely available blocking tools.
+      </p>
+
+      <h2>7. California Residents</h2>
+      <p>
+        Under California law, California residents have the right to request
+        disclosure of the categories of personal information collected and to
+        request deletion of their personal information, subject to certain
+        exceptions. Because we do not sell personal information and collect
+        only the information described above, we will honor such requests by
+        deleting the information we hold about you. To make a request, contact
+        us at the address below.
+      </p>
+
+      <h2>8. Changes to This Policy</h2>
+      <p>
+        We may update this Policy from time to time. The
+        &quot;Effective Date&quot; above indicates when the current version
+        took effect. Material changes will be reflected on this page, and
+        continued use of the Site after changes constitutes acceptance of the
+        updated Policy.
+      </p>
+
+      <h2>9. Contact</h2>
+      <p>
+        Questions about this Policy may be directed to{' '}
+        <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+      </p>
+    </div>
+  </article>
+</BaseLayout>
