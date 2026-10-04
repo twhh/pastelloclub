@@ -1,0 +1,16 @@
+name = "pastello-price-watch"
+main = "src/index.ts"
+compatibility_date = "2026-09-01"
+
+# Hourly poll: snapshots accrue even while the public pages are still bare.
+[triggers]
+crons = ["17 * * * *"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "pastello-price-watch"
+database_id = "067ebd53-ad5f-43b8-8be0-dd79d8caf1ba"
+
+[vars]
+# Public by design: ships in every affiliate link on the site.
+AMAZON_PARTNER_TAG = "regle-20"
