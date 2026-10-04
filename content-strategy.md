@@ -22,16 +22,16 @@ Calendar split while authority is zero: 75% pillar 1 / 15% pillar 2 / 10% pillar
 
 ## Queue (scored, build order)
 
-| # | Piece | Type / intent | Notes | Score |
-|---|---|---|---|---|
-| 1 | "Is that Trump Account email real?" - spotting the scam wave | Searchable, awareness | Fake-activation searches spike with each Treasury wave. Ship immediately. | 8.6 |
-| 2 | Trump Account vs UTMA vs Custodial Roth | Searchable, consideration | The comparison gap; natural calculator link | 8.3 |
-| 3 | Front-loading $5,000 for a 17-year-old + the Roth conversion at 18 | Searchable, consideration | New segment (parents of teens). Heaviest tax research: kiddie tax vs dependent standard deduction. Cite Fidelity timing guidance + statute. | 8.1 |
-| 4 | Trump Account claim-rate stats page (curated, refreshed monthly) | Link-earning stat roundup | Citation infrastructure for the news cycle; our best AI-citation asset | 8.0 |
-| 5 | What happens at 18: taking control, Traditional default, Roth election | Searchable | Calculator companion; pairs with #3 | 7.8 |
-| 6 | Build your own benefits package (self-employed parent edition): dependent care FSA, HSA, QBI | Use-case, differentiated | Feeds the email list | 7.6 |
-| 7 | Solo 401k vs SEP IRA after a baby | Searchable, consideration | Sequel to #6 | 7.4 |
-| 8 | Why we bought the Cruz and skipped the Vista | Searchable, consideration | Honest angle: owned Cruz, researched Vista. Never write spec-sheet comparisons of gear we don't own. | 7.2 |
+| # | Piece | Type / intent | Notes | Score | Status |
+|---|---|---|---|---|---|
+| 1 | "Is that Trump Account email real?" - spotting the scam wave | Searchable, awareness | Fake-activation searches spike with each Treasury wave. Ship immediately. | 8.6 | **Shipped** Oct 3 (`trump-account-email-scams`) |
+| 2 | Trump Account vs UTMA vs Custodial Roth | Searchable, consideration | The comparison gap; natural calculator link | 8.3 | Draft ready, release Oct 14 (moved after #5: it links both later posts) |
+| 3 | Front-loading $5,000 for a 17-year-old + the Roth conversion at 18 | Searchable, consideration | New segment (parents of teens). Kiddie-tax catch vs dependent standard deduction; the post corrects the viral version. | 8.1 | Draft ready, release Oct 10 |
+| 4 | Trump Account claim-rate stats page (curated, refreshed monthly) | Link-earning stat roundup | Citation infrastructure for the news cycle; our best AI-citation asset. | 8.0 | Draft ready, release Oct 17 |
+| 5 | What happens at 18: taking control, Traditional default, Roth election | Searchable | Calculator companion; pairs with #3. Releases FIRST - #2, #3, #4 all link to it. | 7.8 | Draft ready, release Oct 7 |
+| 6 | Build your own benefits package (self-employed parent edition): dependent care FSA, HSA, QBI | Use-case, differentiated | Feeds the email list | 7.6 | Queued |
+| 7 | Solo 401k vs SEP IRA after a baby | Searchable, consideration | Sequel to #6 | 7.4 | Queued |
+| 8 | Why we bought the Cruz and skipped the Vista | Searchable, consideration | Honest angle: owned Cruz, researched Vista. Never write spec-sheet comparisons of gear we don't own. | 7.2 | Queued |
 
 Shareable slot, 1/month max: "We returned $800 of the registry" (real numbers,
 Pinterest-friendly).
@@ -54,6 +54,9 @@ fold any contrast into the existing Mini review instead).
 6. The stats page (#4) is infrastructure, not a post: refresh monthly.
 7. Ownership rule: only review or compare gear we own. "The choice we made" framing is
    the honest substitute for two-sided comparisons.
+8. **Dependency check before scheduling:** a post may only link to posts already
+   published or scheduled earlier. Release order follows the link graph
+   (foundations first).
 
 ## Cluster map
 
@@ -70,6 +73,14 @@ GEAR HUB (later): /price-watch/
 |- 7 existing reviews -> price pages
 |- "The choice we made" posts: Cruz-not-Vista (#8)
 ```
+
+## Pinterest distribution
+
+Launched Oct 2026. See `pinterest-launch-list.md` for the two-week starter plan
+(setup steps, boards, pin-by-pin schedule with titles and descriptions). Cadence:
+3-5 fresh pins/week, deep links only, benefit-phrase titles. Money and gear lanes
+pin; everyday essays don't. When the price watch goes live, it generates one
+"biggest drop this week" pin per week from data we already have.
 
 ## Channel notes
 
