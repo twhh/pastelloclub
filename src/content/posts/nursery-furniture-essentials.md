@@ -20,7 +20,7 @@ Now that we're prepping for baby number two, I wanted to share what we learned. 
 
 ## Convertible Crib: The One That Grows With Them
 
-Let's start with the biggest piece. A convertible crib is worth every penny because you're not just buying a crib - you're buying three beds in one. We went with the [Davinci Charlie 4-in-1 Convertible Crib](https://amzn.to/4xysfKk), and it's still going strong at four years old.
+Let's start with the biggest piece. A convertible crib is worth every penny because you're buying three beds in one. We went with the [Davinci Charlie 4-in-1 Convertible Crib](https://amzn.to/4xysfKk), and it's still going strong at four years old.
 
 Here's why convertible matters: you adjust the mattress height as they grow, remove the rails when they're ready for a toddler bed, and eventually convert it to a full bed. Ours is also GREENGUARD Gold Certified, which gave us peace of mind about materials.
 
@@ -44,7 +44,7 @@ Your back will thank you. Those late-night hours are hard enough without an unco
 
 ## The Real Nursery Reality
 
-Here's what nobody tells you: a convertible crib, solid dresser, and comfortable glider will fill most of your nursery anyway. Everything else - rugs, wall decor, bookshelves - is just frosting. We added those pieces gradually as our kid grew and the room evolved.
+A convertible crib, solid dresser, and comfortable glider will fill most of your nursery anyway. Everything else - rugs, wall decor, bookshelves - is just frosting. We added those pieces gradually as our kid grew and the room evolved.
 
 Don't let the pressure to make it perfect steal the joy of getting ready. Focus on the essentials, trust that you'll figure out the rest, and save that Pinterest energy for actually parenting.
 

@@ -50,7 +50,7 @@ Whenever the government moves money, phishers move faster. Three rules that will
 - Nobody legitimate charges a fee to claim $1,000. Anyone selling "claim assistance" is selling you air.
 - Type the web address yourself. The real portal is a .gov. Look at it before you enter anything.
 
-A wave of fake "activate your baby's account" emails is basically guaranteed this fall. Forward anything suspicious straight to delete.
+A wave of fake "activate your baby's account" emails is basically guaranteed this fall. Forward anything suspicious straight to delete. (Update: the wave arrived - [here's how to spot the fakes](/posts/trump-account-email-scams/), from checking the sender address to reading an email's verification receipts.)
 
 ## What Happens If You Do Nothing
 

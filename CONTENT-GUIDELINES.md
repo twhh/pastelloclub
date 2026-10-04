@@ -9,11 +9,26 @@
 - Practical and solution-oriented
 - Not overly polished or perfect
 
+## De-slop Pass (mandatory before publish)
+
+Run every new draft through the **no-ai-slop** skill (detect, then fix flagged lines). Minimum effective edits only - preserve the first-person voice, including self-deprecating asides and honest admissions; the skill's job is removing AI patterns, not flattening personality.
+
+Tells that keep showing up in our drafts, checked mechanically:
+- Throat-clearing and colon reveals: "Here's the thing:", "Here's what nobody tells you:", "The best part:"
+- Faux-insight setups: "what nobody tells you", "the part everyone misses"
+- Binary contrasts: "not just X - it's Y", "The question isn't X, it's Y"
+- Empty phrases: "when it comes to", "in terms of", "at the end of the day"
+- Trailing -ing analysis: "highlighting", "underscoring", "showcasing"
+- Banned words list from the skill (delve, leverage, elevate, robust, seamless, etc.)
+
+Kept on purpose: conversational setup lines that genuinely carry voice (e.g. "The catch, and it's a big one to understand up front:"). When in doubt, ask whether the line could move to any other blog unchanged - if yes, cut it.
+
 ## Formatting Rules
 
 ### Dashes
-- **NO emdashes (—)** - Use regular hyphens with spaces on both sides instead
+- **NO emdashes (—) or en-dashes (–)** - Use regular hyphens with spaces on both sides instead
 - Example: "more time - more leave, more budget" (not "more time—more leave")
+- Number ranges use a plain hyphen: "$50-100"
 - This keeps the formatting simple and consistent
 
 ### Headers

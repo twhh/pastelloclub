@@ -46,7 +46,7 @@ It’s easy to set up and use. Frankly, we didn’t miss having an app on our ph
 
 ## The Low Lights
 
-The only low light is the price. At around $200, the [Infant Optics DXR-8 PRO](https://amzn.to/4vkavQH) costs more than double many non-Wi-Fi baby monitors - though it’s still cheaper than most smart monitors, and there are no subscription fees to pay later. I wish it were $50–100 cheaper, but it still beat out every monitor we tried.
+The only low light is the price. At around $200, the [Infant Optics DXR-8 PRO](https://amzn.to/4vkavQH) costs more than double many non-Wi-Fi baby monitors - though it’s still cheaper than most smart monitors, and there are no subscription fees to pay later. I wish it were $50-100 cheaper, but it still beat out every monitor we tried.
 
 Also worth knowing: it doesn’t have smart features like breathing detection or health tracking. If your baby has health needs that require those, this isn’t the monitor for you.
 

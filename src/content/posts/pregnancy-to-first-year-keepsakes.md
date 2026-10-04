@@ -8,7 +8,7 @@ cover: "/images/posts/pregnancy-to-first-year-keepsakes-cover.jpg"
 coverAlt: "Pastel illustration of an open keepsake box with a heart, a star, and a small photo floating out, captioned keepsakes from pregnancy to year one"
 ---
 
-Here's the thing nobody prepares you for: the baby grows up quicker than you. You spend nine months waiting, then a year surviving, and somewhere in the blur of feedings and laundry and half-finished coffee, a walking, opinionated little person replaces the newborn you just met yesterday.
+The baby grows up quicker than you. You spend nine months waiting, then a year surviving, and somewhere in the blur of feedings and laundry and half-finished coffee, a walking, opinionated little person replaces the newborn you just met yesterday.
 
 Everyone warns you it goes fast. What they don't mention is that your memory simply can't keep up. The fog of new parenthood is real - sleep deprivation files everything under "later" - and later, the details are gone. Which day was her first real laugh? What was that tiny newborn squeak she made while sleeping? You were there for all of it, and you'll still lose most of it.
 

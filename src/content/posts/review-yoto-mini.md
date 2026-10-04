@@ -41,7 +41,7 @@ In addition, the Yoto Mini is advertised as a travel-friendly device for kids th
 - **Audio Cards:** The audio cards are heavy-duty and easily snap into the card slot. They show a pixelated image related to the story on the Yoto Mini display. With the app, you can download the stories from the cards and play them there, so you don’t need to worry about losing the cards.
 - **Speaker:** For a small device, the speaker is pretty good quality. It’s not a low-end speaker and is good for the stories. If you’re not picky about audio quality, then you can use it as a Bluetooth speaker to play music, etc., but it’s not going to replace a higher-end Bluetooth speaker. For travel in public places, you can also plug in headphones.
 - **The Size:** It fits perfectly in the hands of our toddler, and it's the perfect size for traveling so it doesn’t take up much packing space.
-- **The Stories:** Yoto has a ton of variety when it comes to the stories, music, etc. that you can purchase, and they continuously add new ones. It’ll be difficult to run out of new stories for your Yoto as long as you have the budget to purchase them.
+- **The Stories:** Yoto has a ton of variety in stories, music, and so on, and they continuously add new ones. It’ll be difficult to run out of new stories for your Yoto as long as you have the budget to purchase them.
 
 ## The Low Lights
 

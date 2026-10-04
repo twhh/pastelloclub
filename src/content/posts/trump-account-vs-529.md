@@ -65,7 +65,7 @@ For our family, the sequence came out like this:
 
 Your order may differ - a family certain about private school leans 529 even harder; a family with no education worries may skip it entirely. The point of writing the order down is that the debate ends and the transfers start.
 
-Because here's the thing about the first $25: the best account for it is the one that actually receives it. Claim the free thousand this week. Pick the recurring account this month. Then stop researching and let the boring part - time - do its job.
+Because the best account for the first $25 is the one that actually receives it. Claim the free thousand this week. Pick the recurring account this month. Then stop researching and let the boring part - time - do its job.
 
 ---
 

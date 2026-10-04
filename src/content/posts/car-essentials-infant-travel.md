@@ -20,7 +20,7 @@ The surprise bonus: babies love it. Our kid spent whole stretches of highway hap
 
 ## Car Hooks for the Bag Explosion
 
-Here's something nobody tells you: having a kid triples your bag count. Diaper bag, backup bag, your purse or work bag, the bag of snacks, the bag that exists only to hold other bags. And most of it ends up piled on the floor of the passenger seat, one hard brake away from a landslide.
+Having a kid triples your bag count. Diaper bag, backup bag, your purse or work bag, the bag of snacks, the bag that exists only to hold other bags. And most of it ends up piled on the floor of the passenger seat, one hard brake away from a landslide.
 
 A set of [car hooks](https://amzn.to/3Tsd0TZ) that clip onto the headrest posts solved this for us almost instantly. The diaper bag hangs within arm's reach of the backseat instead of rolling around the trunk, and the floor stays clear. It's a five dollar fix for a problem you didn't know would be this annoying.
 

@@ -8,15 +8,22 @@
 - **Naming:** `<post-slug>-cover.jpg` (e.g., `car-essentials-infant-travel-cover.jpg`)
 - **Frontmatter:** set `cover` to the `/images/posts/...` path and write a descriptive `coverAlt`
 
+## Pinterest Pin Variants (Oct 2026+)
+
+Pinterest is a growth channel and the feed favors **2:3 vertical pins (1000x1500)** with a text overlay. Every new post ships a pin alongside its cover:
+
+- **File:** `/public/images/posts/pins/<post-slug>-pin.jpg`
+- **Build:** reuse the cover's illustration/render, recomposed vertically, with the post's key claim in large text near the top third (safe from feed cropping), site name small at the bottom
+- For SVG illustration covers: extend the gradient canvas to 1000x1500, reposition the illustration, set the caption ~64px
+- For 3D render covers: place the render in the upper half, solid pastel background panel below carrying the title text (render tools can't render text reliably; do the text in SVG/sharp)
+- Text overlay rule: **the pin's title text must name the benefit** ("Still worth it after 3 years"), not just the product ("YOYO2 Review")
+- Existing posts get pin variants retrofitted only when Pinterest distribution actually starts (per GROWTH-PLAYBOOK); don't batch-redo covers now.
+
 ## Two Cover Styles
 
 ### 1. 3D Nursery Render (original style)
 
-Photorealistic 3D interior renders (see `nursery-furniture-essentials-cover.jpg`, the review covers). Generated outside this repo with an image tool, then dropped into `/public/images/posts/`. No text overlay needed.
-
-### 2. Pastel Illustration Series (Aug 2026+)
-
-Flat vector illustrations generated in-repo as SVG, rendered to JPG with `sharp`. Used for: `top-25-girl-names-2026-cover.jpg`, `top-25-boy-names-2026-cover.jpg`, `car-essentials-infant-travel-cover.jpg`.
+Photorealistic 3D interior renders (see `nursery-furniture-essentials-cover.jpg`, the review covers). Generated outside this repo with an image tool, then dropped into `/public/images/posts/`. No text overlay needed on the cover itself (the pin variant carries text).
 
 **Series design system:**
 
@@ -64,12 +71,25 @@ sharp(Buffer.from(svg))
 - Rotate blocks around their own center: `transform="rotate(-4 cx cy)"`
 - Scale small shapes with `transform="translate(x y) scale(s)"` on a `<g>` or path
 
+## Text Safe Zones (hard rule)
+
+Text never renders outside these bands - a baseline at the canvas edge clips descenders and half-glyphs:
+
+- **Cover (1200x630):** caption baseline at y 560-590, never lower; all text x 250-950
+- **Pin (1000x1500):** title baseline y 250-460; site name baseline y 1350-1400, never lower
+- Rule of thumb: keep every text baseline at least **40px above the canvas bottom**
+
 ## Verification Checklist
 
 Before calling a cover done:
 
 1. View the generated JPG and check: fonts rendered (no tofu boxes), nothing clipped at edges, no decoration overlapping the caption or main object
-2. If something looks wrong but the SVG math says otherwise, trust the pixels. When re-reading a file with the same name, tools can show a stale cached copy. For certainty, pixel-check with sharp:
+2. **Pixel-check the bottom edge** (cheap and catches clipped captions that eyes miss):
+```js
+const { data, info } = await sharp(file).raw().toBuffer({ resolveWithObject: true });
+// scan the bottom 12 rows; any dark pixel there means clipped text
+```
+3. If something looks wrong but the SVG math says otherwise, trust the pixels. When re-reading a file with the same name, tools can show a stale cached copy. For certainty, pixel-check with sharp:
 
 ```js
 const { data, info } = await sharp(file).raw().toBuffer({ resolveWithObject: true });
