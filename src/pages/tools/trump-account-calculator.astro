@@ -31,6 +31,35 @@ const schema = {
         },
       ],
     },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Who gets the $1,000 Trump Account deposit?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Children born January 1, 2025 through December 31, 2028. The Treasury deposits $1,000 into a Trump Account opened in the child\'s name, but a parent has to claim it - it does not arrive automatically.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Can you have both a Trump Account and a 529?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes, and for most families that is the answer: claim the free $1,000 first, then decide how education savings fits alongside it. The two accounts have different rules on taxes, control, and what the money can be used for.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'What is the maximum Trump Account contribution?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Parents and others can contribute up to $5,000 per year on top of the $1,000 federal seed. Contributions come from money that has already been taxed.',
+          },
+        },
+      ],
+    },
   ],
 };
 ---
@@ -70,8 +99,8 @@ const schema = {
             Assumed return per year
             <output id="return-out" for="return-rate"></output>
           </label>
-          <input type="range" id="return-rate" min="0" max="10" step="0.5" value="6" />
-          <p class="hint">The long-run stock market has averaged roughly 7% before inflation. 6% is a common planning number.</p>
+          <input type="range" id="return-rate" min="0" max="15" step="0.5" value="6" />
+          <p class="hint">The long-run stock market has averaged roughly 7% before inflation. 6% is a common planning number. Recent years have run hotter - that rarely lasts 18.</p>
         </div>
       </div>
 
@@ -118,8 +147,30 @@ const schema = {
         Not financial, tax, or investment advice. Rules reflect the program as it stands
         now and may change. Read the walkthrough in
         <a href="/posts/trump-account-claim-guide/">How to Claim Your Baby's Trump Account</a>,
-        see <a href="/posts/trump-account-vs-529/">how it compares to a 529</a>, or start
-        <a href="/posts/529-plan-for-new-parents/">a 529 from zero</a>.
+        see <a href="/posts/trump-account-vs-529/">how it compares to a 529</a>,
+        <a href="/posts/529-plan-for-new-parents/">start a 529 from zero</a>, or
+        <a href="/tools/529-calculator/">run the 529 numbers</a>.
+      </p>
+    </section>
+
+    <section class="notes">
+      <h2>Common questions</h2>
+      <h3>Who gets the $1,000?</h3>
+      <p>
+        Children born January 1, 2025 through December 31, 2028. The Treasury
+        deposits the $1,000 into a Trump Account opened in the child's name - a
+        parent has to claim it; it doesn't arrive automatically.
+      </p>
+      <h3>Can I have both a Trump Account and a 529?</h3>
+      <p>
+        Yes, and for most families that's the answer - claim the free $1,000
+        first, then decide how education savings fits alongside it. We compared
+        the two accounts <a href="/posts/trump-account-vs-529/">in detail here</a>.
+      </p>
+      <h3>What's the most I can put in?</h3>
+      <p>
+        $5,000 per year in additional contributions, on top of the $1,000 seed.
+        Contributions are after-tax money.
       </p>
     </section>
   </article>

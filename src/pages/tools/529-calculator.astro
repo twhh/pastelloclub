@@ -1,0 +1,556 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { SITE } from '../../consts';
+
+const STATE_NAMES: Record<string, string> = {
+  AL: 'Alabama', AK: 'Alaska', AZ: 'Arizona', AR: 'Arkansas', CA: 'California',
+  CO: 'Colorado', CT: 'Connecticut', DE: 'Delaware', DC: 'Washington, DC',
+  FL: 'Florida', GA: 'Georgia', HI: 'Hawaii', ID: 'Idaho', IL: 'Illinois',
+  IN: 'Indiana', IA: 'Iowa', KS: 'Kansas', KY: 'Kentucky', LA: 'Louisiana',
+  ME: 'Maine', MD: 'Maryland', MA: 'Massachusetts', MI: 'Michigan',
+  MN: 'Minnesota', MS: 'Mississippi', MO: 'Missouri', MT: 'Montana',
+  NE: 'Nebraska', NV: 'Nevada', NH: 'New Hampshire', NJ: 'New Jersey',
+  NM: 'New Mexico', NY: 'New York', NC: 'North Carolina', ND: 'North Dakota',
+  OH: 'Ohio', OK: 'Oklahoma', OR: 'Oregon', PA: 'Pennsylvania',
+  RI: 'Rhode Island', SC: 'South Carolina', SD: 'South Dakota',
+  TN: 'Tennessee', TX: 'Texas', UT: 'Utah', VT: 'Vermont', VA: 'Virginia',
+  WA: 'Washington', WV: 'West Virginia', WI: 'Wisconsin', WY: 'Wyoming',
+};
+
+const title = '529 Calculator';
+const description =
+  'Free 529 calculator: see what monthly contributions become by age 18, how far it stretches against projected college costs, and what your state\'s tax deduction is worth. Runs in your browser.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebApplication',
+      name: '529 Calculator',
+      url: `${SITE.url}/tools/529-calculator/`,
+      applicationCategory: 'FinanceApplication',
+      operatingSystem: 'Any',
+      description,
+      publisher: { '@type': 'Organization', name: SITE.title, url: SITE.url },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: '529 Calculator',
+          item: `${SITE.url}/tools/529-calculator/`,
+        },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'How much should I contribute to a 529?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'There is no single right number. A common approach is to start with whatever fits the budget - even $50 a month - and raise it with each birthday or pay bump. This calculator lets you test different monthly amounts against projected college costs.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Is there a 529 contribution limit?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'There is no federal annual limit on 529 contributions, but anything above the annual gift tax exclusion (about $19,000 per giver per child in 2025) counts against your lifetime gift exemption unless you elect to front-load five years at once. Most states also cap total plan balances, typically $350,000-$550,000 per beneficiary.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'What happens to leftover 529 money?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'You can change the beneficiary to another family member, hold it for graduate school, or - since 2024 - roll up to $35,000 lifetime into the beneficiary\'s Roth IRA, subject to a 15-year account seasoning rule and annual Roth limits.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Does my state give a tax break for 529 contributions?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Most states with an income tax offer a deduction or credit, but the rules vary widely: some require using the in-state plan, some allow any state\'s plan, and nine states offer nothing. Pick your state in the calculator above to see the estimated value.',
+          },
+        },
+      ],
+    },
+  ],
+};
+---
+<BaseLayout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <article class="tool">
+    <header class="tool-header">
+      <span class="chip chip-money">Money Tool</span>
+      <h1>529 calculator: what it becomes by college</h1>
+      <p class="tool-sub">
+        Monthly contributions, compounded to age 18 - then measured against what
+        college might actually cost. Pick your state to see your tax break.
+      </p>
+    </header>
+
+    <section class="calc" aria-label="529 calculator">
+      <div class="calc-inputs">
+        <div class="field">
+          <label for="child-age">Child's current age</label>
+          <select id="child-age"></select>
+          <p class="hint" id="years-hint"></p>
+        </div>
+
+        <div class="field">
+          <label for="starting">
+            Already saved
+            <output id="starting-out" for="starting"></output>
+          </label>
+          <input type="range" id="starting" min="0" max="250000" step="5000" value="10000" />
+          <p class="hint">Grandparent gifts, past contributions, whatever's in there today.</p>
+        </div>
+
+        <div class="field">
+          <label for="monthly">
+            What you add each month
+            <output id="monthly-out" for="monthly"></output>
+          </label>
+          <input type="range" id="monthly" min="0" max="2500" step="25" value="500" />
+          <p class="hint">About <span id="annual-equiv"></span> a year.</p>
+        </div>
+
+        <div class="field">
+          <label for="return-rate">
+            Assumed return per year
+            <output id="return-out" for="return-rate"></output>
+          </label>
+          <input type="range" id="return-rate" min="0" max="15" step="0.5" value="6" />
+          <p class="hint">6% is a common planning number. Age-based portfolios glide more conservative near college, which trims late growth. Recent years have run hotter - that rarely lasts 18.</p>
+        </div>
+
+        <div class="field">
+          <label for="state">
+            Your state<a href="#state-tax-note" aria-label="About state tax estimates">*</a>
+          </label>
+          <select id="state" data-names={JSON.stringify(STATE_NAMES)}></select>
+          <p class="hint">Used only for the state tax estimate below.</p>
+        </div>
+      </div>
+
+      <div class="calc-results" aria-live="polite">
+        <div class="milestones">
+          <div class="milestone">
+            <span class="milestone-age">At 18 <span class="milestone-year" id="year-18"></span></span>
+            <span class="milestone-value" id="value-18"></span>
+            <span class="milestone-note">projected balance</span>
+          </div>
+          <div class="milestone">
+            <span class="milestone-age">4-year public, in-state</span>
+            <span class="milestone-value" id="coverage-public"></span>
+            <span class="milestone-note" id="cost-public"></span>
+          </div>
+          <div class="milestone">
+            <span class="milestone-age">4-year private</span>
+            <span class="milestone-value" id="coverage-private"></span>
+            <span class="milestone-note" id="cost-private"></span>
+          </div>
+        </div>
+
+        <dl class="breakdown">
+          <div><dt>You put in</dt><dd id="row-contrib"></dd></div>
+          <div><dt>Growth does the rest</dt><dd id="row-growth"></dd></div>
+        </dl>
+
+        <p class="comparison" id="tax-line"></p>
+      </div>
+    </section>
+
+    <EmailCapture source="529-calculator" variant="money" />
+
+    <section class="notes">
+      <h2>How this works</h2>
+      <ul>
+        <li>Contributions run monthly from now until your child turns 18, compounding at the rate you set. No inflation adjustment - these are future dollars.</li>
+        <li>There's no federal annual cap on 529 contributions. The number that matters is the gift-tax exclusion: each giver can put in about $19,000 per child per year (2025) with zero gift-tax paperwork, or elect to front-load five years at once - about $95,000 per giver. Since grandparents and relatives each get their own exclusion, "what you add each month" here can be the whole family's combined stream.</li>
+        <li>The college cost comparison uses rough national averages (about $29,000/year public in-state, $62,000/year private, all-in) inflated 5% per year to enrollment. Your number can be very different; treat the percentages as a vibe check, not a quote.</li>
+        <li id="state-tax-note">* State tax figures are approximations, last reviewed October 2026 - caps are per year and some are per child. Rules change every legislative season: confirm with your state's plan or tax authority before making moves.</li>
+        <li>Money in a 529 is for education (with exceptions). Unused balances can move to a sibling, wait for grad school, or roll up to $35,000 into your kid's Roth IRA after 15 years.</li>
+        <li>Projections are illustrations, not promises. Real returns vary year to year.</li>
+      </ul>
+      <p class="disclaimer">
+        Not financial, tax, or investment advice. New here? Read
+        <a href="/posts/529-plan-for-new-parents/">A 529, Explained for New Parents</a>,
+        see <a href="/posts/trump-account-vs-529/">how it compares to the Trump Account</a>,
+        or <a href="/tools/trump-account-calculator/">run the Trump Account numbers</a>.
+      </p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .tool {
+    max-width: 56rem;
+    margin: 0 auto;
+  }
+
+  .tool-header {
+    text-align: center;
+    margin: 1.5rem 0 2.25rem;
+  }
+  .tool-header h1 {
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    line-height: 1.25;
+    margin: 0.8rem 0 0.6rem;
+  }
+  .tool-sub {
+    color: var(--ink-soft);
+    font-size: 1.1rem;
+    max-width: 34rem;
+    margin: 0 auto;
+  }
+
+  /* calculator shell */
+  .calc {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 1.5rem;
+    background: var(--card-bg);
+    border: var(--card-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.75rem;
+  }
+  @media (max-width: 760px) {
+    .calc {
+      grid-template-columns: 1fr;
+      padding: 1.35rem 1.25rem 1.5rem;
+    }
+  }
+
+  /* inputs */
+  .calc-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .field label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+  .field output {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .hint {
+    color: var(--ink-soft);
+    font-size: 0.83rem;
+    line-height: 1.45;
+    margin: 0.45rem 0 0;
+  }
+  select {
+    width: 100%;
+    font: inherit;
+    color: var(--ink);
+    background: var(--panel-bg);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 0.55rem 0.75rem;
+  }
+  input[type='range'] {
+    width: 100%;
+    accent-color: var(--accent);
+    height: 1.75rem;
+  }
+  select:focus-visible,
+  input:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* results */
+  .calc-results {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .milestones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+  @media (max-width: 480px) {
+    .milestones {
+      grid-template-columns: 1fr;
+    }
+  }
+  .milestone {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    background: var(--panel-bg);
+    border-radius: 10px;
+    padding: 0.85rem 0.9rem;
+  }
+  .milestone:first-child {
+    background: var(--peach);
+  }
+  .milestone-age {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .milestone-year {
+    font-weight: 400;
+    opacity: 0.75;
+  }
+  .milestone-value {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+  .milestone-note {
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+  }
+  /* the highlighted (peach) tile keeps dark ink in both modes */
+  .milestone:first-child .milestone-age,
+  .milestone:first-child .milestone-value,
+  .milestone:first-child .milestone-note {
+    color: #3d3934;
+  }
+  .breakdown {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .breakdown div {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.95rem;
+  }
+  .breakdown dt {
+    color: var(--ink-soft);
+  }
+  .breakdown dd {
+    margin: 0;
+    font-weight: 700;
+  }
+  .comparison {
+    margin: 0;
+    padding: 0.75rem 1rem;
+    background: var(--panel-bg);
+    border-radius: 10px;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+  .comparison strong {
+    color: var(--ink);
+  }
+
+  /* notes */
+  .notes {
+    margin-top: 2.75rem;
+  }
+  .notes h2 {
+    font-size: 1.45rem;
+    margin: 0 0 0.75rem;
+  }
+  .notes ul {
+    margin: 0 0 1.25rem;
+    padding-left: 1.2rem;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+  .notes li {
+    margin-bottom: 0.35rem;
+  }
+  .disclaimer {
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+</style>
+
+<script>
+  // State 529 tax treatment, approximated. Caps are single-filer, per year,
+  // last reviewed Oct 2026 - verify before acting. cap 0 = effectively uncapped.
+  // rate: approximated state marginal rate used only for the savings estimate.
+  type Benefit =
+    | { type: 'none' }
+    | { type: 'ded'; capS: number; capJ: number; inOnly: boolean; rate: number; note?: string }
+    | { type: 'cred'; amount: number; inOnly: boolean; note?: string };
+
+  const STATES: Record<string, Benefit> = {
+    AL: { type: 'ded', capS: 5000, capJ: 10000, inOnly: false, rate: 0.05 },
+    AK: { type: 'none' },
+    AZ: { type: 'ded', capS: 2000, capJ: 4000, inOnly: false, rate: 0.025 },
+    AR: { type: 'ded', capS: 5000, capJ: 10000, inOnly: true, rate: 0.04 },
+    CA: { type: 'none' },
+    CO: { type: 'ded', capS: 26000, capJ: 52000, inOnly: true, rate: 0.044 },
+    CT: { type: 'ded', capS: 5000, capJ: 10000, inOnly: true, rate: 0.045 },
+    DE: { type: 'ded', capS: 1000, capJ: 2000, inOnly: true, rate: 0.045 },
+    DC: { type: 'ded', capS: 4000, capJ: 8000, inOnly: true, rate: 0.06 },
+    FL: { type: 'none' },
+    GA: { type: 'ded', capS: 2000, capJ: 4000, inOnly: true, rate: 0.05 },
+    HI: { type: 'none' },
+    ID: { type: 'ded', capS: 4000, capJ: 8000, inOnly: true, rate: 0.05 },
+    IL: { type: 'ded', capS: 10000, capJ: 20000, inOnly: true, rate: 0.05 },
+    IN: { type: 'cred', amount: 1500, inOnly: true },
+    IA: { type: 'ded', capS: 3800, capJ: 7600, inOnly: false, rate: 0.045 },
+    KS: { type: 'ded', capS: 3000, capJ: 6000, inOnly: true, rate: 0.05, note: 'per child' },
+    KY: { type: 'ded', capS: 3800, capJ: 7600, inOnly: false, rate: 0.04 },
+    LA: { type: 'ded', capS: 2400, capJ: 2400, inOnly: true, rate: 0.04, note: 'per child' },
+    ME: { type: 'ded', capS: 1250, capJ: 2500, inOnly: false, rate: 0.06 },
+    MD: { type: 'ded', capS: 2500, capJ: 5000, inOnly: true, rate: 0.05 },
+    MA: { type: 'ded', capS: 1000, capJ: 2000, inOnly: false, rate: 0.05 },
+    MI: { type: 'ded', capS: 5000, capJ: 10000, inOnly: true, rate: 0.0425 },
+    MN: { type: 'cred', amount: 500, inOnly: false, note: 'income-limited' },
+    MS: { type: 'ded', capS: 10000, capJ: 20000, inOnly: true, rate: 0.045 },
+    MO: { type: 'ded', capS: 8000, capJ: 16000, inOnly: false, rate: 0.047 },
+    MT: { type: 'ded', capS: 3000, capJ: 6000, inOnly: true, rate: 0.05 },
+    NE: { type: 'ded', capS: 5000, capJ: 10000, inOnly: true, rate: 0.055 },
+    NV: { type: 'none' },
+    NH: { type: 'none' },
+    NJ: { type: 'ded', capS: 10000, capJ: 20000, inOnly: true, rate: 0.05, note: 'income-capped' },
+    NM: { type: 'ded', capS: 4000, capJ: 8000, inOnly: true, rate: 0.05 },
+    NY: { type: 'ded', capS: 5000, capJ: 10000, inOnly: true, rate: 0.06 },
+    NC: { type: 'ded', capS: 25000, capJ: 50000, inOnly: false, rate: 0.045, note: 'per child' },
+    ND: { type: 'ded', capS: 5000, capJ: 10000, inOnly: true, rate: 0.025 },
+    OH: { type: 'ded', capS: 4000, capJ: 8000, inOnly: false, rate: 0.04, note: 'per child' },
+    OK: { type: 'ded', capS: 10000, capJ: 20000, inOnly: true, rate: 0.045 },
+    OR: { type: 'ded', capS: 4900, capJ: 9800, inOnly: true, rate: 0.08 },
+    PA: { type: 'ded', capS: 18000, capJ: 36000, inOnly: false, rate: 0.031, note: 'per child, gift-limit level' },
+    RI: { type: 'ded', capS: 1000, capJ: 2000, inOnly: true, rate: 0.05 },
+    SC: { type: 'ded', capS: 0, capJ: 0, inOnly: true, rate: 0.06, note: 'no dollar cap' },
+    SD: { type: 'none' },
+    TN: { type: 'none' },
+    TX: { type: 'none' },
+    UT: { type: 'none' },
+    VT: { type: 'cred', amount: 250, inOnly: false, note: 'per child' },
+    VA: { type: 'ded', capS: 4000, capJ: 4000, inOnly: true, rate: 0.057, note: 'per account' },
+    WA: { type: 'none' },
+    WV: { type: 'ded', capS: 0, capJ: 0, inOnly: true, rate: 0.05, note: 'no dollar cap' },
+    WI: { type: 'ded', capS: 3600, capJ: 7200, inOnly: true, rate: 0.06 },
+    WY: { type: 'none' },
+  };
+
+  const COLLEGE_NOW = { public: 29000, private: 62000 }; // per year, all-in, rough
+  const COLLEGE_INFLATION = 0.05;
+
+  const $ = (id: string) => document.getElementById(id)!;
+  const usd = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 0,
+  });
+
+  const childAge = $('child-age') as HTMLSelectElement;
+  const starting = $('starting') as HTMLInputElement;
+  const monthly = $('monthly') as HTMLInputElement;
+  const returnRate = $('return-rate') as HTMLInputElement;
+  const stateSel = $('state') as HTMLSelectElement;
+
+  for (let a = 0; a <= 17; a++) {
+    const opt = document.createElement('option');
+    opt.value = String(a);
+    opt.textContent = a === 0 ? 'Newborn (0)' : String(a);
+    childAge.appendChild(opt);
+  }
+  childAge.value = '4';
+
+  const stateNames: Record<string, string> = JSON.parse(stateSel.dataset.names!);
+  for (const [code, name] of Object.entries(stateNames)) {
+    const opt = document.createElement('option');
+    opt.value = code;
+    opt.textContent = name;
+    stateSel.appendChild(opt);
+  }
+  stateSel.value = 'CA';
+
+  function balanceAt18() {
+    const years = 18 - Number(childAge.value);
+    const months = years * 12;
+    const r = Number(returnRate.value) / 100 / 12;
+    const grown = starting ? Math.pow(1 + r, months) : 1;
+    const startFV = Number(starting.value) * grown;
+    const contribFV = r === 0
+      ? Number(monthly.value) * months
+      : Number(monthly.value) * ((Math.pow(1 + r, months) - 1) / r);
+    return { total: startFV + contribFV, contributed: Number(monthly.value) * months + Number(starting.value) };
+  }
+
+  function fourYearCost(which: 'public' | 'private') {
+    const years = 18 - Number(childAge.value);
+    const base = COLLEGE_NOW[which];
+    let sum = 0;
+    for (let i = 0; i < 4; i++) {
+      sum += base * Math.pow(1 + COLLEGE_INFLATION, years + i);
+    }
+    return sum;
+  }
+
+  function taxLine() {
+    const b = STATES[stateSel.value];
+    const name = stateNames[stateSel.value];
+    if (b.type === 'none') {
+      return `<strong>${name} offers no state deduction for 529 contributions.</strong> That's our situation in California too - with no in-state tax break to protect, you're free to shop any state's plan on fees and fund quality.`;
+    }
+    if (b.type === 'cred') {
+      return `<strong>${name}: up to about ${usd.format(b.amount)}/year back as a credit</strong> (${b.inOnly ? 'in-state plan required' : 'any state\'s plan qualifies'}${b.note ? ', ' + b.note : ''}). Credits come off your tax bill dollar for dollar.`;
+    }
+    const cap = b.capS > 0 ? `up to about ${usd.format(b.capS)}/year (${usd.format(b.capJ)} filing jointly)` : 'with no dollar cap';
+    const est = b.capS > 0 ? Math.round(b.capS * b.rate) : Math.round(18000 * b.rate);
+    return `<strong>${name}: deduct ${cap}${b.inOnly ? ', in-state plan only' : ''}${b.note ? ' - ' + b.note : ''}.</strong> At roughly a ${(b.rate * 100).toFixed(1)}% state rate that's about <strong>${usd.format(est)}/year</strong> back. Approximate - check your state's current rules.`;
+  }
+
+  function render() {
+    const years = 18 - Number(childAge.value);
+    $('years-hint').textContent = years + ' years of compounding before 18.';
+    $('starting-out').textContent = usd.format(Number(starting.value));
+    $('monthly-out').textContent = usd.format(Number(monthly.value)) + '/mo';
+    $('annual-equiv').textContent = usd.format(Number(monthly.value) * 12);
+    $('return-out').textContent = returnRate.value + '%';
+
+    const { total, contributed } = balanceAt18();
+    $('value-18').textContent = usd.format(Math.round(total));
+    $('year-18').textContent = 'in ' + (new Date().getFullYear() + years);
+    $('row-contrib').textContent = usd.format(contributed);
+    $('row-growth').textContent = usd.format(Math.max(0, Math.round(total - contributed)));
+
+    const pub = fourYearCost('public');
+    const priv = fourYearCost('private');
+    $('coverage-public').textContent = Math.round((total / pub) * 100) + '%';
+    $('cost-public').textContent = 'of ' + usd.format(Math.round(pub)) + ' projected';
+    $('coverage-private').textContent = Math.round((total / priv) * 100) + '%';
+    $('cost-private').textContent = 'of ' + usd.format(Math.round(priv)) + ' projected';
+
+    $('tax-line').innerHTML = taxLine();
+  }
+
+  [childAge, starting, monthly, returnRate, stateSel].forEach((el) =>
+    el.addEventListener('input', render),
+  );
+  render();
+</script>

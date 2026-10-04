@@ -26,6 +26,9 @@ Facts approved for use in copy:
 - Taxes: quarterly, accounting outsourced to Collective (referral:
   https://share.collective.com/simplybootstrapped). Health insurance through
   spouse's employer.
+- Housing: bought a Bay Area home in 2020. Mortgages/rent-vs-buy content is
+  parked - generic versions are head terms we can't win, and the self-employed
+  mortgage angle isn't our lived story (bought pre-LLC).
 - Gear: mostly from the 4-year-old, bought ourselves. Durability
   retrospectives are the review format. Don't claim "no sponsored posts / no
   free gear" as policy - state self-bought as present fact only, keep options
@@ -63,7 +66,7 @@ Calendar split while authority is zero: 75% pillar 1 / 15% pillar 2 / 10% pillar
 | 3 | Front-loading $5,000 for a 17-year-old + the Roth conversion at 18 | Searchable, consideration | New segment (parents of teens). Kiddie-tax catch vs dependent standard deduction; the post corrects the viral version. | 8.1 | Draft ready, release Oct 10 |
 | 4 | Trump Account claim-rate stats page (curated, refreshed monthly) | Link-earning stat roundup | Citation infrastructure for the news cycle; our best AI-citation asset. | 8.0 | Draft ready, release Oct 17 |
 | 5 | What happens at 18: taking control, Traditional default, Roth election | Searchable | Calculator companion; pairs with #3. Releases FIRST - #2, #3, #4 all link to it. | 7.8 | Draft ready, release Oct 7 |
-| 6 | Build your own benefits package (self-employed parent edition): dependent care FSA, HSA, QBI | Use-case, differentiated | Feeds the email list | 7.6 | Queued |
+| 6 | The self-employed parent's benefits decision: build, buy, or use a spouse's plan | Use-case, differentiated | Reframed Oct 4: our real answer was "mostly the spouse's employer plan." Compare paths (marketplace/HSA vs spouse coverage), keep Solo 401(k)/QBI as the build-it-yourself remainder. Feeds the email list | 7.6 | Queued |
 | 7 | Solo 401k vs SEP IRA after a baby | Searchable, consideration | Sequel to #6 | 7.4 | Queued |
 | 8 | Why we bought the Cruz and skipped the Vista | Searchable, consideration | Honest angle: owned Cruz, researched Vista. Never write spec-sheet comparisons of gear we don't own. | 7.2 | Queued |
 
@@ -95,7 +98,7 @@ fold any contrast into the existing Mini review instead).
 ## Cluster map
 
 ```
-MONEY HUB: /tools/trump-account-calculator/
+MONEY HUB: /tools/trump-account-calculator/ + /tools/529-calculator/
 |- Claim guide <-> Scam guide (#1)        [timely wave]
 |- Trump vs 529 <-> 529 from zero
 |- Trump vs UTMA vs Roth (#2)
@@ -125,6 +128,11 @@ pin; everyday essays don't. When the price watch goes live, it generates one
 - Email capture is on every post + calculator, source-tagged per page in the
   "pastelloclub-emails" sheet. Review the Source column monthly to learn which
   lanes convert.
+- 529 calculator shipped Oct 4 (state tax lookup + college-cost coverage +
+  FAQ schema). Maintenance: the state tax table is approximated from memory,
+  last reviewed Oct 2026 - spot-check the big states (NY, IL, PA, CO, IN)
+  before promoting the state angle, and refresh with the monthly stats pass.
+  Same cadence for the college-cost averages.
 - Pinterest: pin every gear post's cover (durable for visual niches per playbook).
 
 ## 30-day validation plan (Oct 4 - Nov 4, 2026)
