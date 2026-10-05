@@ -13,7 +13,7 @@ Somewhere in a Treasury database, there is now an account with your baby's name 
 
 Here's the short version of how we got here. The big tax law passed in July 2025 created Trump Accounts - starter savings accounts for kids, seeded by the government. For children born between January 1, 2025 and December 31, 2028, the federal government will deposit $1,000, once. The original signup involved filing a form with your tax return, and fewer than one in twelve eligible families did it. So in late September, the Treasury stopped waiting: it began auto-opening accounts for tens of millions of eligible kids.
 
-Auto-opened is not the same as claimed. The $1,000 still waits on a parent to activate the account and say yes. One of our kids qualifies, so this stopped being hypothetical at our house a few weeks back - this note is everything we've learned. The claim itself runs about twenty minutes, and most of that is making sure you're on the real website.
+Auto-opened is not the same as claimed. The $1,000 still waits on a parent to activate the account and say yes. One of our kids qualifies - the infant - so this stopped being hypothetical at our house: we're getting our documents in order to run her claim right now, and this note is everything we've learned so far. The claim itself runs about twenty minutes, and most of that is making sure you're on the real website.
 
 ## What the Account Actually Is
 

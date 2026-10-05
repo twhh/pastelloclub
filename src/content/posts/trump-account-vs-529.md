@@ -60,7 +60,7 @@ Again - the wall is the product. The entire bet is that money nobody can touch f
 For our family, the sequence came out like this:
 
 1. **Claim the Trump Account for every kid who qualifies.** Free $1,000 outranks every strategy ever devised. Twenty minutes, no contribution required.
-2. **Education dollars go to the 529 first.** If your state gives a deduction, this ordering is close to automatic. Ours doesn't - California offers no deduction for ScholarShare - so for us it's the flexibility that tips it: the 529 fits the way life actually goes with kids. If your state also skips the deduction, this is still the order we'd use, just with less margin.
+2. **Education dollars go to the 529 first.** If your state gives a deduction, this ordering is close to automatic. Ours doesn't - California offers no deduction for ScholarShare - so for us it's the flexibility that tips it: the 529 fits the way life actually goes with kids. (Ours, opened in 2022, is up more than 65% - a number that changes none of this advice and delights us constantly.) If your state also skips the deduction, this is still the order we'd use, just with less margin.
 3. **Small monthly dollars into the Trump Account when there's room.** Not every month. It's the kid's "start," not our savings plan. ([Run your numbers in the calculator](/tools/trump-account-calculator/) before deciding on an amount.)
 
 Your order may differ - a family certain about private school leans 529 even harder; a family with no education worries may skip it entirely. The point of writing the order down is that the debate ends and the transfers start.

@@ -1,10 +1,10 @@
 ---
 title: "What Happens to a Trump Account at 18: The IRA Default, the Roth Election, and the Rules After"
 description: "The lock ends the year your child turns 18, but the account doesn't hand over cash - it becomes an IRA. How the automatic Traditional conversion works, the Roth election, withdrawal rules, and what your kid actually controls."
-pubDate: 2026-10-07
+pubDate: 2026-10-05
 tags: ["money", "trump-accounts", "teens", "investing"]
 type: money
-draft: true
+draft: false
 cover: "/images/posts/trump-account-what-happens-at-18-cover.jpg"
 coverAlt: "Pastel illustration of a box with a number 18 block floating above it, captioned the box changes shape"
 ---

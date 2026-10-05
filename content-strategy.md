@@ -12,17 +12,20 @@ Facts approved for use in copy:
 
 - Jason. Bay Area, CA. Kids: 4-year-old + infant (no names, no faces). 75-lb
   bernedoodle (5).
-- Ex-product manager: Google, Facebook, Twitter, Discord; early employee at two
-  startups acquired (by Twitter, Discord).
+- Career: Engineer and Data Scientist at Google (incl. Gmail spam/phishing
+  detection - referenced in the scam guide), Engineer at Facebook, Data
+  Scientist and PM at Twitter, PM at Discord. Early employee at two startups
+  acquired (by Twitter, Discord).
 - Solo LLC, 5 years, product management consulting (pre-seed to Fortune 500);
   replaced full-time tech salary. Actual revenue swings $10-55K/mo, but publish
   softened ("six figures a year, with swings"). Expanding to a team this year.
   LLC taxed as S corp in California.
 - Retirement: Solo 401(k) only; S corp side makes employer contributions (I
   match myself).
-- 529 (California ScholarShare) for the older kid: contribute monthly, near the
-  annual gifting max until kid was ~3-4, >60% 3-year return. Will open one for
-  the infant. Researching/opening a Trump Account for the infant now.
+- 529 (California ScholarShare) for the older kid: opened 2022, contributed
+  monthly near the annual gifting max until she was ~3, >65% total return /
+  >20% annualized (as of Oct 2026). Will open one for the infant.
+  Researching/opening a Trump Account for the infant now.
 - Taxes: quarterly, accounting outsourced to Collective (referral:
   https://share.collective.com/simplybootstrapped). Health insurance through
   spouse's employer.
@@ -62,13 +65,13 @@ Calendar split while authority is zero: 75% pillar 1 / 15% pillar 2 / 10% pillar
 | # | Piece | Type / intent | Notes | Score | Status |
 |---|---|---|---|---|---|
 | 1 | "Is that Trump Account email real?" - spotting the scam wave | Searchable, awareness | Fake-activation searches spike with each Treasury wave. Ship immediately. | 8.6 | **Shipped** Oct 3 (`trump-account-email-scams`) |
-| 2 | Trump Account vs UTMA vs Custodial Roth | Searchable, consideration | The comparison gap; natural calculator link | 8.3 | Draft ready, release Oct 14 (moved after #5: it links both later posts) |
-| 3 | Front-loading $5,000 for a 17-year-old + the Roth conversion at 18 | Searchable, consideration | New segment (parents of teens). Kiddie-tax catch vs dependent standard deduction; the post corrects the viral version. | 8.1 | Draft ready, release Oct 10 |
-| 4 | Trump Account claim-rate stats page (curated, refreshed monthly) | Link-earning stat roundup | Citation infrastructure for the news cycle; our best AI-citation asset. | 8.0 | Draft ready, release Oct 17 |
-| 5 | What happens at 18: taking control, Traditional default, Roth election | Searchable | Calculator companion; pairs with #3. Releases FIRST - #2, #3, #4 all link to it. | 7.8 | Draft ready, release Oct 7 |
-| 6 | The self-employed parent's benefits decision: build, buy, or use a spouse's plan | Use-case, differentiated | Reframed Oct 4: our real answer was "mostly the spouse's employer plan." Compare paths (marketplace/HSA vs spouse coverage), keep Solo 401(k)/QBI as the build-it-yourself remainder. Feeds the email list | 7.6 | Queued |
+| 5 | What happens at 18: taking control, Traditional default, Roth election | Searchable | Calculator companion; pairs with #3. Releases FIRST of the drafts - #2, #3, #4 all link to it. | 7.8 | **Next**: flip draft Oct 5 |
+| 3 | Front-loading $5,000 for a 17-year-old + the Roth conversion at 18 | Searchable, consideration | New segment (parents of teens). Kiddie-tax catch vs dependent standard deduction; the post corrects the viral version. | 8.1 | Draft ready, release Oct 7 |
+| 2 | Trump Account vs UTMA vs Custodial Roth | Searchable, consideration | The comparison gap; natural calculator link | 8.3 | Draft ready, release Oct 9 (moved after #5: it links both later posts) |
+| 4 | Trump Account claim-rate stats page (curated, refreshed monthly) | Link-earning stat roundup | Citation infrastructure for the news cycle; our best AI-citation asset. Pitch writers once live. | 8.0 | Draft ready, release Oct 11 |
+| 6 | The self-employed parent's benefits decision: build, buy, or use a spouse's plan | Use-case, differentiated | Reframed Oct 4: our real answer was "mostly the spouse's employer plan." Compare paths (marketplace/HSA vs spouse coverage), keep Solo 401(k)/QBI as the build-it-yourself remainder. Feeds the email list | 7.6 | Draft ready (`self-employed-benefits-decision`), release Oct 14; needs cover |
 | 7 | Solo 401k vs SEP IRA after a baby | Searchable, consideration | Sequel to #6 | 7.4 | Queued |
-| 8 | Why we bought the Cruz and skipped the Vista | Searchable, consideration | Honest angle: owned Cruz, researched Vista. Never write spec-sheet comparisons of gear we don't own. | 7.2 | Queued |
+| 8 | Why we bought the Cruz and skipped the Vista | Searchable, consideration | Owned Cruz, researched Vista - "the choice we made" framing. Never write spec-sheet comparisons of gear we don't own. | 7.2 | Queued |
 
 Shareable slot, 1/month max: "We returned $800 of the registry" (real numbers,
 Pinterest-friendly).
@@ -153,3 +156,16 @@ Pinterest copy, Collective placement.
 Day-30 go/no-go (Nov 4): organic impressions trending up week-over-week, >=1
 post in top 20 for a target keyword, Pinterest outbound clicks >100/mo, first
 affiliate revenue != $0. Rising trend -> invest more; flat -> kill or pivot.
+
+## Distribution adds (Oct 2026)
+
+- Reddit participation, not profile-building: when Trump Account questions
+  land in r/personalfinance, r/newparents, r/BayArea and similar, answer them
+  properly and link the relevant post only where sub rules allow. Reddit
+  threads themselves rank; being the sourced answer there is a SERP.
+- Oct 17 stats page launch = the link play. Ship it, then pitch 15-20
+  personal-finance writers/newsletters covering Trump Accounts with the
+  sourced-numbers angle. Zero-backlink domains don't rank without this step.
+- LinkedIn only for self-employed money posts (Jason's real network is tech
+  PMs who went solo - the exact reader). No X/IG/FB/YouTube this quarter: they
+  need an audience we don't have yet and don't compound with our lanes.

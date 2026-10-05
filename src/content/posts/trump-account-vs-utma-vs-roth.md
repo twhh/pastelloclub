@@ -1,7 +1,7 @@
 ---
 title: "Trump Account vs UTMA vs Custodial Roth: Which First Account for Your Kid?"
 description: "Three ways to invest for a child, compared honestly: the new Trump Account, the old UTMA custodial account, and a custodial Roth IRA. Who controls the money, when the kid gets it, the tax bill, and the order we'd fund them."
-pubDate: 2026-10-14
+pubDate: 2026-10-09
 tags: ["money", "new-parents", "trump-accounts", "investing"]
 type: money
 draft: true

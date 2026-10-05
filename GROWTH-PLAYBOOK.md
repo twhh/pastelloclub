@@ -12,7 +12,12 @@ Last updated: October 2026
 
 ## Positioning
 
-One sentence: **A Bay Area dad and ex-big-tech product manager who replaced his salary with a solo consulting LLC - gear that survives two kids, and the money math for parents who work for themselves.**
+One sentence: **A Bay Area dad and ex-big-tech engineer-turned-PM who replaced his salary with a solo consulting LLC - gear that survives two kids, and the money math for parents who work for themselves.**
+
+Target reader: self-employed parents, with tech-trained solos (engineers, PMs,
+designers who went independent) as the sharpest sub-segment for LinkedIn
+distribution. Not "PMs going solo" (too small) and not FIRE (head space we
+can't win, and not our story - we work).
 
 What makes us different (be honest with ourselves):
 

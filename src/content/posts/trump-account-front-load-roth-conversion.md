@@ -1,7 +1,7 @@
 ---
 title: "The $5,000-at-17 Trump Account Move, and the Tax Catch Everyone Misses"
 description: "Parents of teenagers are front-loading $5,000 into a Trump Account and converting it to a Roth IRA at 18. The move is real - but the viral version ignores the kiddie tax, and that's where it gets expensive."
-pubDate: 2026-10-10
+pubDate: 2026-10-07
 tags: ["money", "trump-accounts", "teens", "taxes"]
 type: money
 draft: true

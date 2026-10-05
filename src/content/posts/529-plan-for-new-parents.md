@@ -11,7 +11,7 @@ coverAlt: "Pastel illustration of a seedling sprouting from a gold coin planted 
 
 The 529 is the only financial product that gets recommended to you before your baby can hold their own head up. A grandparent mentions it at the shower. A hospital packet lists it between cord blood banking and life insurance. An uncle who read one article asks if you've "started the 529 yet," and everyone nods as if we all know what that means.
 
-So here's the guide we wish someone had handed us. We're two kids in, one ScholarShare account open, and this is the 529 explained the way a parent needs it - what it does, who controls it, what happens when life doesn't follow the savings plan, and how it fits next to the brand-new federal Trump Account.
+So here's the guide we wish someone had handed us. We're two kids in, one ScholarShare account in - opened in 2022 for our first, funded monthly near the annual gifting max until she was about three, and up more than 65% since. That's over 20% a year, a four-year run we're grateful for and don't budget on repeating. This is the 529 explained the way a parent needs it - what it does, who controls it, what happens when life doesn't follow the savings plan, and how it fits next to the brand-new federal Trump Account.
 
 The two-minute version, if you're reading one-handed: a 529 is an account for education costs. Money goes in after tax, grows untaxed, and comes out untaxed for qualified education expenses. You, the parent, stay in control forever. Most states sweeten it with a tax deduction (ours, California, doesn't). And it stacks neatly with the Trump Account's free $1,000, which you should [claim first no matter what](/posts/trump-account-claim-guide/) - [here's what it can grow into](/tools/trump-account-calculator/).
 
@@ -69,6 +69,8 @@ The doing is the easiest part:
 2. **Choose the direct-sold version**, not the advisor-sold one. Same account, lower fees, nobody taking a cut.
 3. **Pick an age-based index option.** It starts aggressive and shifts conservative as college approaches, automatically. You will never need to think about it again.
 4. **Automate $25 a month** and forget it exists. The dollar amount matters far less than the automation.
+
+Our version was lopsided on purpose: contributions close to the annual gifting max for the first three years, tapered after - the early dollars have the longest runway. If front-loading that hard isn't in the budget, the $25 version does the same job, just quieter.
 
 Grandparents want to help? They can contribute to yours or open their own. Since the 2024 federal aid overhaul, grandparent-owned 529 distributions no longer count against financial aid eligibility at all. And a grandparent feeling generous can front-load five years of gifts at once - up to $95,000 per giver, $190,000 per couple, election and all - which is estate planning we won't pretend to be experts on, but the grandparents' accountant will smile.
 

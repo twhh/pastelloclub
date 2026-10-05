@@ -1,7 +1,7 @@
 ---
 title: "Trump Account Statistics: Enrollment, Claim Rates, and the $1,000 Gap"
 description: "Every meaningful Trump Account number in one place, each with its source: how many accounts exist, how many kids are being auto-enrolled, what the $1,000 seed costs, and the claim-rate gap. Updated monthly."
-pubDate: 2026-10-17
+pubDate: 2026-10-11
 tags: ["money", "trump-accounts", "statistics", "new-parents"]
 type: money
 draft: true

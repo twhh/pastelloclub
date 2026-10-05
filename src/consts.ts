@@ -15,6 +15,6 @@ export const SITE = {
 
 export const AUTHOR = {
   name: 'Jason',
-  bio: 'Product manager for a decade - Google, Facebook, Twitter, Discord - now five years into running a solo consulting LLC and raising two kids in the Bay Area.',
+  bio: 'Engineer and data scientist turned product lead - Google, Facebook, Twitter, Discord - now five years into running a solo consulting LLC and raising two kids in the Bay Area.',
   url: '/about/',
 } as const;
