@@ -4,7 +4,7 @@ description: "Parents of teenagers are front-loading $5,000 into a Trump Account
 pubDate: 2026-10-07
 tags: ["money", "trump-accounts", "teens", "taxes"]
 type: money
-draft: true
+draft: false
 cover: "/images/posts/trump-account-front-load-roth-conversion-cover.jpg"
 coverAlt: "Pastel illustration of a gold dollar coin beside an upward arrow, captioned one shot at 5,000 dollars"
 ---
