@@ -41,6 +41,7 @@ Photorealistic 3D interior renders (see `nursery-furniture-essentials-cover.jpg`
 | girl names 2026 | `#FFF7F1` to `#FBDCE6` | blush pink | `#B07588` |
 | boy names 2026 | `#F5FAF3` to `#D7EBDD` | sage mint | `#5F8A79` |
 | car essentials | `#FFF9F1` to `#FBE3CC` | warm peach | `#C08A5E` |
+| solo 401k vs sep | `#F5FAFC` to `#D3E5EE` | sky blue | `#5E8AA0` |
 
 Other useful fills: wooden blocks `#F6DCB4` face / `#DCA96F` edge / `#8A5A33` letters; gold stars `#E8C36A`; hearts `#E8A0B4`.
 

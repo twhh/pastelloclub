@@ -521,6 +521,59 @@ nav.primary a:hover { color: var(--accent); }
 .post-content {
   font-size: 1.05rem;
 }
+
+/* comparison tables: styled, wider than the prose column */
+.post-content table {
+  --table-breakout-left: 5.5rem;
+  --table-breakout-right: 5.5rem;
+  width: calc(100% + var(--table-breakout-left) + var(--table-breakout-right));
+  margin: 2rem calc(-1 * var(--table-breakout-right)) 2.25rem calc(-1 * var(--table-breakout-left));
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  background: var(--card-bg);
+  border: var(--card-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+/* fixed email rail sits at 50% + 20rem on wide screens; keep tables clear of it */
+@media (min-width: 1200px) {
+  .post-content table {
+    --table-breakout-right: 1.25rem;
+  }
+}
+.post-content th,
+.post-content td {
+  padding: 0.6rem 0.95rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--rule);
+}
+.post-content thead th {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: var(--cream-2);
+}
+.post-content tbody tr:last-child th,
+.post-content tbody tr:last-child td {
+  border-bottom: none;
+}
+.post-content tbody td:first-child {
+  font-weight: 700;
+}
+@media (max-width: 830px) {
+  .post-content table {
+    width: 100%;
+    margin: 2rem 0 2.25rem;
+    display: block;
+    overflow-x: auto;
+  }
+}
 .post-content p:first-of-type::first-letter {
   font-family: var(--font-serif);
   font-weight: 600;

@@ -4,7 +4,7 @@ description: "Three ways to invest for a child, compared honestly: the new Trump
 pubDate: 2026-10-09
 tags: ["money", "new-parents", "trump-accounts", "investing"]
 type: money
-draft: true
+draft: false
 cover: "/images/posts/trump-account-vs-utma-vs-roth-cover.jpg"
 coverAlt: "Pastel illustration of three rounded blocks each marked with a dollar sign, captioned three accounts, one kid"
 ---

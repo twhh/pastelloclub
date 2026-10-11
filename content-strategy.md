@@ -64,13 +64,13 @@ Calendar split while authority is zero: 75% pillar 1 / 15% pillar 2 / 10% pillar
 
 | # | Piece | Type / intent | Notes | Score | Status |
 |---|---|---|---|---|---|
-| 1 | "Is that Trump Account email real?" - spotting the scam wave | Searchable, awareness | Fake-activation searches spike with each Treasury wave. Ship immediately. | 8.6 | **Shipped** Oct 3 (`trump-account-email-scams`) |
-| 5 | What happens at 18: taking control, Traditional default, Roth election | Searchable | Calculator companion; pairs with #3. Releases FIRST of the drafts - #2, #3, #4 all link to it. | 7.8 | **Next**: flip draft Oct 5 |
-| 3 | Front-loading $5,000 for a 17-year-old + the Roth conversion at 18 | Searchable, consideration | New segment (parents of teens). Kiddie-tax catch vs dependent standard deduction; the post corrects the viral version. | 8.1 | Draft ready, release Oct 7 |
-| 2 | Trump Account vs UTMA vs Custodial Roth | Searchable, consideration | The comparison gap; natural calculator link | 8.3 | Draft ready, release Oct 9 (moved after #5: it links both later posts) |
-| 4 | Trump Account claim-rate stats page (curated, refreshed monthly) | Link-earning stat roundup | Citation infrastructure for the news cycle; our best AI-citation asset. Pitch writers once live. | 8.0 | Draft ready, release Oct 11 |
-| 6 | The self-employed parent's benefits decision: build, buy, or use a spouse's plan | Use-case, differentiated | Reframed Oct 4: our real answer was "mostly the spouse's employer plan." Compare paths (marketplace/HSA vs spouse coverage), keep Solo 401(k)/QBI as the build-it-yourself remainder. Feeds the email list | 7.6 | Draft ready (`self-employed-benefits-decision`), release Oct 14; needs cover |
-| 7 | Solo 401k vs SEP IRA after a baby | Searchable, consideration | Sequel to #6 | 7.4 | Queued |
+| 1 | "Is that Trump Account email real?" - spotting the scam wave | Searchable, awareness | Fake-activation searches spike with each Treasury wave. | 8.6 | **Shipped** Oct 3 (`trump-account-email-scams`) |
+| 5 | What happens at 18: taking control, Traditional default, Roth election | Searchable | Calculator companion; pairs with #3. | 7.8 | **Shipped** Oct 5 (`trump-account-what-happens-at-18`) |
+| 3 | Front-loading $5,000 for a 17-year-old + the Roth conversion at 18 | Searchable, consideration | New segment (parents of teens). Kiddie-tax catch vs dependent standard deduction; the post corrects the viral version. | 8.1 | **Shipped** Oct 7 (`trump-account-front-load-roth-conversion`) |
+| 2 | Trump Account vs UTMA vs Custodial Roth | Searchable, consideration | The comparison gap; natural calculator link | 8.3 | **Shipped** Oct 9 (`trump-account-vs-utma-vs-roth`) |
+| 4 | Trump Account claim-rate stats page (curated, refreshed monthly) | Link-earning stat roundup | Citation infrastructure for the news cycle; our best AI-citation asset. Pitch writers once live. | 8.0 | **Shipped** Oct 11 (`trump-account-statistics`) |
+| 6 | The self-employed parent's benefits decision: build, buy, or use a spouse's plan | Use-case, differentiated | Our real answer was "mostly the spouse's employer plan." Feeds the email list | 7.6 | Draft ready (`self-employed-benefits-decision`), release Oct 14; needs cover |
+| 7 | Solo 401(k) vs SEP IRA: why the complicated one won | Searchable, consideration | Sequel to #6. Broad sole-prop framing + our S-corp case study; Vanguard-to-Ascensus vendor story is the differentiator. Collective plug. Primary keyword: solo 401k vs sep ira | 7.4 | Draft ready (`solo-401k-vs-sep-ira`), release Oct 16; needs cover + pin |
 | 8 | Why we bought the Cruz and skipped the Vista | Searchable, consideration | Owned Cruz, researched Vista - "the choice we made" framing. Never write spec-sheet comparisons of gear we don't own. | 7.2 | Queued |
 
 Shareable slot, 1/month max: "We returned $800 of the registry" (real numbers,

@@ -4,7 +4,7 @@ description: "Every meaningful Trump Account number in one place, each with its 
 pubDate: 2026-10-11
 tags: ["money", "trump-accounts", "statistics", "new-parents"]
 type: money
-draft: true
+draft: false
 cover: "/images/posts/trump-account-statistics-cover.jpg"
 coverAlt: "Pastel illustration of three rising bar chart columns with a dotted trend line, captioned the real numbers"
 ---
