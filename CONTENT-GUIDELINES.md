@@ -46,6 +46,14 @@ Kept on purpose: conversational setup lines that genuinely carry voice (e.g. "Th
 - Use for the affiliate disclaimer at the end of each post
 - Format: `> **A quiet note:** Some of the links in my journal are affiliate links...`
 
+### Tables
+- Markdown tables are styled site-wide (row lines, header band, breakout wider than the prose column; horizontal scroll under 830px) - use them freely in comparison posts
+- Frame as "the table I built for myself"; label researched columns as research when we don't own the product (ownership rule still applies to reviews/comparisons)
+
+### Referral-code posts (Pampers, Rakuten, Collective, etc.)
+- Receipts-first framing, same as gear reviews: real amounts saved, real process, product in service of the story - never deal-blog formatting (coupon lists, "hacks!!", countdown language)
+- Disclose referral links in the quiet note alongside affiliate links
+
 ## SEO Best Practices
 
 ### Titles

@@ -104,6 +104,8 @@ Instagram: optional layer on top, never a dependency. The low-effort version is 
 
 Track monthly: GSC impressions by cluster (impressions move months before clicks), Pinterest outbound clicks, email subscribers, affiliate clicks.
 
+Visit-level layer (live since Oct 11, 2026): Cloudflare Web Analytics, edge-based and cookieless ("excluding visitor data in the EU" - no consent banner). It counts only traffic transiting the Cloudflare proxy - the apex A records are proxied (orange cloud) for this reason; if visits ever look missing again, check that first. Use it for: visits by page, referrers (pinterest vs reddit vs direct), countries. GA4/Plausible deliberately skipped until traffic justifies event-level analysis; email signups are already source-tagged in the pastelloclub-emails sheet.
+
 - **Gate 1 (8-10 weeks after the finance cluster + calculator launch):** if the money/tool posts accumulate impressions while gear posts stay flat, money becomes the primary lane. If nothing moves anywhere, the binding constraint is domain authority - shift effort from content volume to link acquisition (tool outreach)
 - **Gate 2 (6 months):** if impressions are still near zero across the board, make a deliberate keep/kill/pivot decision rather than continuing by default
 

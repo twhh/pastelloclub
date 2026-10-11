@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
+import CalculatorMeta from '../../components/CalculatorMeta.astro';
 import { SITE } from '../../consts';
 
 const title = 'Trump Account Calculator';
@@ -143,6 +144,7 @@ const schema = {
         <li>In the year your child turns 18, the account automatically becomes a Traditional IRA in their name and they take control. They can instead elect to convert it to a Roth IRA, which can be tax-free while the balance is under their standard deduction. Either way the money stays invested - the projections above don't change.</li>
         <li>Projections are illustrations, not promises. Real returns vary year to year.</li>
       </ul>
+      <CalculatorMeta updated="October 2026" sources={[{ name: 'Trump Account rules and claim statistics (our curated, monthly-refreshed source list)', url: '/posts/trump-account-statistics/' }]} />
       <p class="disclaimer">
         Not financial, tax, or investment advice. Rules reflect the program as it stands
         now and may change. Read the walkthrough in

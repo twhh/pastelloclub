@@ -9,7 +9,10 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "queue": "node scripts/release.mjs",
+    "release": "node scripts/release.mjs",
+    "pin": "node scripts/release.mjs"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.11",

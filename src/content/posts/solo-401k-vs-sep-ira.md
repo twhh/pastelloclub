@@ -71,7 +71,7 @@ At **$100,000 of net self-employment income**, a sole proprietor contributes:
 
 Run it as an **S corp paying $100,000 in W-2 wages** and it's **$25,000** against **$49,500**.
 
-That $24,500 gap is the decision. At a combined federal-plus-California marginal rate in the low 30s, it's roughly **$8,000 a year** of tax deferred - money that stays invested instead of going to Sacramento and Washington in April.
+That $24,500 gap is the decision. At a combined federal-plus-California marginal rate in the low 30s, it's roughly **$8,000 a year** of tax deferred - money that stays invested instead of going to Sacramento and Washington in April. To see the gap at *your* income and entity, [the calculator runs both maximums](/tools/solo-401k-calculator/).
 
 The gap closes as income climbs. Both plans cap at $72,000: the SEP needs roughly $380,000 of sole-prop profit to get there, the Solo 401(k) around $250,000. Under that line, the 401(k) shelters more at every income. Above it, they tie, and the SEP's simplicity starts winning on points.
 

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
+import CalculatorMeta from '../../components/CalculatorMeta.astro';
 import { SITE } from '../../consts';
 
 const STATE_NAMES: Record<string, string> = {
@@ -183,6 +184,7 @@ const schema = {
         <li>Money in a 529 is for education (with exceptions). Unused balances can move to a sibling, wait for grad school, or roll up to $35,000 into your kid's Roth IRA after 15 years.</li>
         <li>Projections are illustrations, not promises. Real returns vary year to year.</li>
       </ul>
+      <CalculatorMeta updated="October 2026" />
       <p class="disclaimer">
         Not financial, tax, or investment advice. New here? Read
         <a href="/posts/529-plan-for-new-parents/">A 529, Explained for New Parents</a>,

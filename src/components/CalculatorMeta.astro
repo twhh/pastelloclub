@@ -1,0 +1,48 @@
+---
+interface Source {
+  name: string;
+  url: string;
+}
+interface Props {
+  updated: string;
+  sources?: Source[];
+}
+const { updated, sources = [] } = Astro.props;
+---
+<footer class="calc-meta">
+  <p class="calc-updated">
+    Limits last updated {updated}. These numbers change most years - we refresh
+    them when the IRS announces the new cost-of-living adjustments.
+  </p>
+  {sources.length > 0 && (
+    <ul class="calc-sources">
+      {sources.map((s) => (
+        <li><a href={s.url} rel="noopener">{s.name}</a></li>
+      ))}
+    </ul>
+  )}
+</footer>
+
+<style>
+  .calc-meta {
+    margin-top: 1.25rem;
+    padding-top: 0.9rem;
+    border-top: 1px dashed var(--rule);
+  }
+  .calc-updated {
+    margin: 0;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+  .calc-sources {
+    list-style: none;
+    margin: 0.5rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .calc-sources a {
+    font-size: 0.82rem;
+  }
+</style>

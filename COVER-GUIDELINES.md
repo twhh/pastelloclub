@@ -42,6 +42,7 @@ Photorealistic 3D interior renders (see `nursery-furniture-essentials-cover.jpg`
 | boy names 2026 | `#F5FAF3` to `#D7EBDD` | sage mint | `#5F8A79` |
 | car essentials | `#FFF9F1` to `#FBE3CC` | warm peach | `#C08A5E` |
 | solo 401k vs sep | `#F5FAFC` to `#D3E5EE` | sky blue | `#5E8AA0` |
+| cruz vs vista | `#FAF6FC` to `#E6D9F2` | lavender | `#8A76B0` |
 
 Other useful fills: wooden blocks `#F6DCB4` face / `#DCA96F` edge / `#8A5A33` letters; gold stars `#E8C36A`; hearts `#E8A0B4`.
 
@@ -68,6 +69,7 @@ sharp(Buffer.from(svg))
 **SVG tips learned the hard way:**
 
 - Fonts: use `Georgia, 'Times New Roman', serif` - reliably present on macOS via sharp/librsvg
+- Draw characters front-facing (two eyes, centered snout/face) - profile view reads as "one-eyed and strange" even when anatomically correct
 - Keep all text inside x 250-950 and clear of the caption zone (y 460-530)
 - Rotate blocks around their own center: `transform="rotate(-4 cx cy)"`
 - Scale small shapes with `transform="translate(x y) scale(s)"` on a `<g>` or path

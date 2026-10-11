@@ -1,0 +1,447 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import CalculatorMeta from '../../components/CalculatorMeta.astro';
+import { TAX_LIMITS, TAX_SOURCES } from '../../data/tax-limits';
+
+const title = 'Solo 401(k) Calculator';
+const description =
+  'How much can you put away this year? Enter your self-employment income and see your maximum Solo 401(k) contribution next to the SEP IRA maximum - the gap is the decision.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebApplication',
+      name: 'Solo 401(k) vs SEP IRA Calculator',
+      applicationCategory: 'FinanceApplication',
+      operatingSystem: 'Web',
+      description,
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'How much can I contribute to a Solo 401(k) in 2026?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'For 2026, the employee deferral is $24,500 plus an employer contribution of 25% of W-2 wages (S corp) or about 20% of net self-employment income (sole proprietor). Combined, they cap at $72,000, plus catch-up contributions of $8,000 at age 50+ or $11,250 for ages 60-63.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How much can a SEP IRA receive in 2026?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'A SEP IRA takes employer contributions only: 25% of W-2 compensation or about 20% of net self-employment income, capped at $72,000 for 2026. There is no employee deferral and no catch-up.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Is a Solo 401(k) better than a SEP IRA?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'At incomes below roughly $250,000 of profit, the Solo 401(k) shelters more because it stacks the $24,500 employee deferral on top of the same employer contribution a SEP would allow. It also allows Roth deferrals; a SEP does not. The SEP wins on simplicity: one form, no annual filing, and you can fund it up to your tax deadline.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'What is the employer contribution formula for a Solo 401(k)?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'If your business is an S corporation, the employer side is 25% of your W-2 wages. As a sole proprietor or single-member LLC, it is 20% of net self-employment earnings after deducting half of self-employment tax - about 18.6% of the top line.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'When does a Solo 401(k) need to file Form 5500-EZ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Once plan assets exceed $250,000 at the end of a plan year, you file Form 5500-EZ annually. Below that threshold there is no annual filing.',
+          },
+        },
+      ],
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pastelloclub.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Tools', item: 'https://pastelloclub.com/tools/' },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: 'Solo 401(k) Calculator',
+          item: 'https://pastelloclub.com/tools/solo-401k-calculator/',
+        },
+      ],
+    },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <article class="tool">
+    <header class="tool-header">
+      <span class="chip chip-money">Money Tool</span>
+      <h1>Solo 401(k) calculator: your max vs the SEP</h1>
+      <p class="tool-sub">
+        Both plans share the same employer contribution. The Solo 401(k) stacks
+        an employee deferral on top - this shows how much that's worth at
+        {TAX_LIMITS.effectiveYear} limits, for your income and entity.
+      </p>
+    </header>
+
+    <section class="calc" aria-label="Solo 401(k) vs SEP IRA calculator" id="solo-calc" data-limits={JSON.stringify(TAX_LIMITS)}>
+      <div class="calc-inputs">
+        <div class="field">
+          <label for="entity">How your business is taxed</label>
+          <select id="entity">
+            <option value="sole" selected>Sole proprietor / LLC (default)</option>
+            <option value="scorp">S corp (LLC taxed as S-corp - I take W-2 wages)</option>
+          </select>
+          <p class="hint">Sole props have no salary - all profit is yours. S-corps must pay a reasonable W-2 salary; the employer contribution uses that salary only, not owner distributions.</p>
+        </div>
+
+        <div class="field">
+          <label for="income">
+            <span id="income-label">Net self-employment income</span>
+            <output id="income-out" for="income"></output>
+          </label>
+          <input type="range" id="income" min="20000" max="500000" step="5000" value="120000" />
+          <p class="hint" id="income-hint">Profit for the year, before the employer contribution - round is fine.</p>
+        </div>
+
+        <div class="field">
+          <label for="age">Your age</label>
+          <select id="age">
+            <option value="u50" selected>Under 50</option>
+            <option value="a50">50-59</option>
+            <option value="a6063">60-63</option>
+            <option value="a64">64+</option>
+          </select>
+          <p class="hint">Catch-up contributions only apply to the Solo 401(k) - the SEP has none.</p>
+        </div>
+
+        <div class="field">
+          <label for="rate">Marginal tax rate</label>
+          <select id="rate">
+            <option value="22">22%</option>
+            <option value="24">24%</option>
+            <option value="32" selected>32%</option>
+            <option value="35">35%</option>
+            <option value="37">37%</option>
+          </select>
+          <p class="hint">Rough federal bracket, used only for the tax-deferred estimate. State not included.</p>
+        </div>
+      </div>
+
+      <div class="calc-results" aria-live="polite">
+        <div class="milestones">
+          <div class="milestone">
+            <span class="milestone-age">Solo 401(k) max</span>
+            <span class="milestone-value" id="value-solo"></span>
+            <span class="milestone-note">employee deferral + employer</span>
+          </div>
+          <div class="milestone">
+            <span class="milestone-age">SEP IRA max</span>
+            <span class="milestone-value" id="value-sep"></span>
+            <span class="milestone-note">employer contribution only</span>
+          </div>
+          <div class="milestone">
+            <span class="milestone-age">The gap</span>
+            <span class="milestone-value" id="value-gap"></span>
+            <span class="milestone-note" id="note-gap"></span>
+          </div>
+        </div>
+
+        <dl class="breakdown">
+          <div><dt>Employee deferral</dt><dd id="row-deferral"></dd></div>
+          <div><dt>Catch-up (if any)</dt><dd id="row-catchup"></dd></div>
+          <div><dt>Employer contribution</dt><dd id="row-employer"></dd></div>
+          <div><dt>Combined cap check</dt><dd id="row-cap"></dd></div>
+        </dl>
+
+        <p class="comparison" id="verdict"></p>
+      </div>
+    </section>
+
+    <EmailCapture source="solo-401k-calculator" variant="money" />
+
+    <section class="notes">
+      <h2>How this works</h2>
+      <ul>
+        <li>The employer side is the same formula for both plans: 25% of W-2 wages for an S corp, or 20% of net self-employment income (profit minus half the SE tax) as a sole proprietor. The SEP gets that and nothing else; the Solo 401(k) adds the employee deferral on top.</li>
+        <li>The deferral is limited to your earned income, and the deferral-plus-employer total caps at $72,000 for 2026. Catch-ups sit outside that cap.</li>
+        <li>Self-employment tax here uses the 2026 Social Security wage base ($184,500) and ignores the 0.9% additional Medicare tax above $200,000 - it shifts the employer number by a rounding error, not a decision.</li>
+        <li>The Roth split, Form 5500-EZ past $250,000 in plan assets, and what happens when you hire W-2 employees are covered in <a href="/posts/solo-401k-vs-sep-ira/">the full Solo 401(k) vs SEP IRA comparison</a>.</li>
+        <li>Estimates for planning, not tax advice. Your accountant's numbers win.</li>
+      </ul>
+      <CalculatorMeta updated={TAX_LIMITS.updated} sources={TAX_SOURCES} />
+      <p class="disclaimer">
+        Not financial, tax, or investment advice. New here? Read
+        <a href="/posts/solo-401k-vs-sep-ira/">why we picked the complicated one</a>,
+        the <a href="/posts/self-employed-benefits-decision/">self-employed benefits decision</a>,
+        or <a href="/tools/529-calculator/">run the 529 numbers</a>.
+      </p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .tool {
+    max-width: 56rem;
+    margin: 0 auto;
+  }
+
+  .tool-header {
+    text-align: center;
+    margin: 1.5rem 0 2.25rem;
+  }
+  .tool-header h1 {
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    line-height: 1.25;
+    margin: 0.8rem 0 0.6rem;
+  }
+  .tool-sub {
+    color: var(--ink-soft);
+    font-size: 1.1rem;
+    max-width: 34rem;
+    margin: 0 auto;
+  }
+
+  /* calculator shell */
+  .calc {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 1.5rem;
+    background: var(--card-bg);
+    border: var(--card-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.75rem;
+  }
+  @media (max-width: 760px) {
+    .calc {
+      grid-template-columns: 1fr;
+      padding: 1.35rem 1.25rem 1.5rem;
+    }
+  }
+
+  /* inputs */
+  .calc-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .field label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+  .field output {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .hint {
+    color: var(--ink-soft);
+    font-size: 0.83rem;
+    line-height: 1.45;
+    margin: 0.45rem 0 0;
+  }
+  select {
+    width: 100%;
+    font: inherit;
+    color: var(--ink);
+    background: var(--panel-bg);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 0.55rem 0.75rem;
+  }
+  input[type='range'] {
+    width: 100%;
+    accent-color: var(--accent);
+    height: 1.75rem;
+  }
+  select:focus-visible,
+  input:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* results */
+  .calc-results {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .milestones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+  @media (max-width: 480px) {
+    .milestones {
+      grid-template-columns: 1fr;
+    }
+  }
+  .milestone {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    background: var(--panel-bg);
+    border-radius: 10px;
+    padding: 0.85rem 0.9rem;
+  }
+  .milestone:first-child {
+    background: var(--peach);
+  }
+  .milestone-age {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .milestone-value {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+  .milestone-note {
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+  }
+  /* the highlighted (peach) tile keeps dark ink in both modes */
+  .milestone:first-child .milestone-age,
+  .milestone:first-child .milestone-value,
+  .milestone:first-child .milestone-note {
+    color: #3d3934;
+  }
+  .breakdown {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .breakdown div {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.95rem;
+  }
+  .breakdown dt {
+    color: var(--ink-soft);
+  }
+  .comparison {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: var(--panel-bg);
+    border-radius: 10px;
+    padding: 0.75rem 0.9rem;
+  }
+
+  .notes {
+    margin-top: 2.5rem;
+  }
+  .notes h2 {
+    font-size: 1.25rem;
+  }
+  .notes ul {
+    padding-left: 1.1rem;
+  }
+  .notes li {
+    margin-bottom: 0.5rem;
+    color: var(--ink-soft);
+  }
+  .disclaimer {
+    margin-top: 1.25rem;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+</style>
+
+<script>
+  const limits = JSON.parse(document.getElementById('solo-calc').dataset.limits);
+  const $ = (id) => document.getElementById(id);
+  const usd = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 0,
+  });
+
+  function compute() {
+    const L = limits;
+    const entity = $('entity').value;
+    const income = Number($('income').value);
+    const age = $('age').value;
+    const rate = Number($('rate').value) / 100;
+
+    const catchup = age === 'a50' || age === 'a64' ? L.catchup50 : age === 'a6063' ? L.catchup60to63 : 0;
+
+    let employer;
+    let comp;
+    if (entity === 'scorp') {
+      comp = income;
+      employer = 0.25 * income;
+    } else {
+      const seBase = income * L.seFactor;
+      const ss = Math.min(seBase, L.ssWageBase) * 0.124;
+      const med = seBase * L.medicareRate;
+      const seTax = ss + med;
+      comp = income - seTax / 2;
+      employer = 0.2 * comp;
+    }
+    employer = Math.min(employer, L.total415c);
+
+    const deferral = Math.min(L.deferral, Math.max(comp, 0));
+    const soloTotal = Math.min(deferral + employer, L.total415c) + catchup;
+    const sepTotal = employer;
+    const gap = soloTotal - sepTotal;
+    const taxSaved = gap * rate;
+
+    $('income-out').textContent = usd.format(income);
+    $('income-label').textContent =
+      entity === 'scorp' ? 'W-2 wages the S corp pays you' : 'Net self-employment income';
+    $('income-hint').textContent =
+      entity === 'scorp'
+        ? 'Reasonable salary only - owner distributions on top of this do not count.'
+        : 'Profit for the year, before the employer contribution - round is fine.';
+
+    $('value-solo').textContent = usd.format(soloTotal);
+    $('value-sep').textContent = usd.format(sepTotal);
+    $('value-gap').textContent = usd.format(gap);
+    $('note-gap').textContent =
+      gap > 0 ? `about ${usd.format(taxSaved)} of tax deferred this year` : 'both plans max out here';
+
+    $('row-deferral').textContent = usd.format(deferral);
+    $('row-catchup').textContent = catchup ? usd.format(catchup) : 'none yet';
+    $('row-employer').textContent = usd.format(employer);
+    $('row-cap').textContent =
+      deferral + employer > L.total415c
+        ? `capped at ${usd.format(L.total415c)} + catch-up`
+        : `${usd.format(L.total415c - deferral - employer)} of headroom`;
+
+    $('verdict').textContent =
+      gap > 0
+        ? `At ${usd.format(income)} of ${entity === 'scorp' ? 'W-2 wages' : 'profit'}, the Solo 401(k) shelters ${usd.format(gap)} more than the SEP - all of it from the employee deferral the SEP doesn't have.`
+        : `At ${usd.format(income)}, both plans hit the ${usd.format(L.total415c)} cap. The tie goes to whichever plan's paperwork you prefer - the SEP's is one page.`;
+  }
+
+  ['entity', 'income', 'age', 'rate'].forEach((id) => {
+    $(id).addEventListener('input', compute);
+  });
+  compute();
+</script>
