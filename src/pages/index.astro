@@ -2,9 +2,9 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FormattedDate from '../components/FormattedDate.astro';
+import PostCard from '../components/PostCard.astro';
 import { SITE } from '../consts';
 import { Image } from 'astro:assets';
-import { crayons } from '../utils/rating';
 
 const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
@@ -21,6 +21,11 @@ const chip = (post: (typeof posts)[number]) =>
     : post.data.type === 'money'
       ? { class: 'chip chip-money', label: 'Money Note' }
       : { class: 'chip chip-note', label: 'Note' };
+
+// totals for the lane strip include the featured post's lane
+const totalMoney = posts.filter((p) => p.data.type === 'money').length;
+const totalReviews = posts.filter((p) => p.data.type === 'review').length;
+const totalNotes = posts.filter((p) => p.data.type === 'post').length;
 ---
 
 <BaseLayout title="Baby Gear Reviews & Money Notes for Working Parents">
@@ -35,6 +40,24 @@ const chip = (post: (typeof posts)[number]) =>
       bernedoodle, and the Bay Area.
     </p>
   </section>
+
+  <nav class="lane-strip" aria-label="Browse by topic">
+    <a class="lane-card" href="/money/">
+      <span class="chip chip-money">Money Notes</span>
+      <span class="lane-desc">Solo business math, real numbers, kid accounts</span>
+      <span class="lane-count">{totalMoney} notes <span aria-hidden="true">→</span></span>
+    </a>
+    <a class="lane-card" href="/reviews/">
+      <span class="chip chip-review">Gear Reviews</span>
+      <span class="lane-desc">Years-owned teardowns, nothing borrowed</span>
+      <span class="lane-count">{totalReviews} reviews <span aria-hidden="true">→</span></span>
+    </a>
+    <a class="lane-card" href="/notes/">
+      <span class="chip chip-note">Everyday Notes</span>
+      <span class="lane-desc">The unglamorous middle of parenting</span>
+      <span class="lane-count">{totalNotes} notes <span aria-hidden="true">→</span></span>
+    </a>
+  </nav>
 
   {featured && (
     <a class="featured-card" href={`/posts/${featured.id}/`}>
@@ -68,34 +91,11 @@ const chip = (post: (typeof posts)[number]) =>
       <div class="section-head">
         <h2>Money Notes</h2>
         <span class="section-rule" aria-hidden="true"></span>
+        <a class="section-more" href="/money/">See all {totalMoney} <span aria-hidden="true">→</span></a>
       </div>
-      <a class="tool-banner" href="/tools/trump-account-calculator/">
-        <span class="tool-banner-label">New tool</span>
-        <span class="tool-banner-text">Trump Account Calculator: see what the $1,000 becomes by 18, 21, and 30</span>
-        <span class="tool-banner-cta" aria-hidden="true">→</span>
-      </a>
       <ul class="post-grid">
-        {money.map((post) => (
-          <li>
-            <a class="post-card" href={`/posts/${post.id}/`}>
-              <span class="card-media">
-                {post.data.cover && (
-                  <Image
-                    src={post.data.cover}
-                    alt={post.data.coverAlt || ''}
-                    width={640}
-                    height={400}
-                    loading="lazy"
-                  />
-                )}
-              </span>
-              <span class="card-body">
-                <span class="card-date"><FormattedDate date={post.data.pubDate} /></span>
-                <span class="card-title">{post.data.title}</span>
-                {post.data.description && <span class="card-desc">{post.data.description}</span>}
-              </span>
-            </a>
-          </li>
+        {money.slice(0, 4).map((post) => (
+          <li><PostCard post={post} /></li>
         ))}
       </ul>
     </section>
@@ -106,34 +106,11 @@ const chip = (post: (typeof posts)[number]) =>
       <div class="section-head">
         <h2>Baby Gear Reviews</h2>
         <span class="section-rule" aria-hidden="true"></span>
+        <a class="section-more" href="/reviews/">See all {totalReviews} <span aria-hidden="true">→</span></a>
       </div>
       <ul class="post-grid">
-        {reviews.map((post) => (
-          <li>
-            <a class="post-card" href={`/posts/${post.id}/`}>
-              <span class="card-media">
-                {post.data.cover && (
-                  <Image
-                    src={post.data.cover}
-                    alt={post.data.coverAlt || ''}
-                    width={640}
-                    height={400}
-                    loading="lazy"
-                  />
-                )}
-              </span>
-              <span class="card-body">
-                <span class="card-date">
-                  <FormattedDate date={post.data.pubDate} />
-                  {typeof post.data.rating === 'number' && (
-                    <span> · {crayons(post.data.rating)} {post.data.rating}/5</span>
-                  )}
-                </span>
-                <span class="card-title">{post.data.title}</span>
-                {post.data.description && <span class="card-desc">{post.data.description}</span>}
-              </span>
-            </a>
-          </li>
+        {reviews.slice(0, 4).map((post) => (
+          <li><PostCard post={post} /></li>
         ))}
       </ul>
     </section>
@@ -144,31 +121,70 @@ const chip = (post: (typeof posts)[number]) =>
       <div class="section-head">
         <h2>Everyday Notes</h2>
         <span class="section-rule" aria-hidden="true"></span>
+        <a class="section-more" href="/notes/">See all {totalNotes} <span aria-hidden="true">→</span></a>
       </div>
       <ul class="post-grid">
-        {notes.map((post) => (
-          <li>
-            <a class="post-card" href={`/posts/${post.id}/`}>
-              <span class="card-media">
-                {post.data.cover && (
-                  <Image
-                    src={post.data.cover}
-                    alt={post.data.coverAlt || ''}
-                    width={640}
-                    height={400}
-                    loading="lazy"
-                  />
-                )}
-              </span>
-              <span class="card-body">
-                <span class="card-date"><FormattedDate date={post.data.pubDate} /></span>
-                <span class="card-title">{post.data.title}</span>
-                {post.data.description && <span class="card-desc">{post.data.description}</span>}
-              </span>
-            </a>
-          </li>
+        {notes.slice(0, 4).map((post) => (
+          <li><PostCard post={post} /></li>
         ))}
       </ul>
     </section>
   )}
 </BaseLayout>
+
+<style>
+  .lane-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 0.5rem 0 2.5rem;
+  }
+  @media (max-width: 680px) {
+    .lane-strip {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+  }
+  .lane-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1.05rem 1.15rem 0.95rem;
+    background: var(--card-bg);
+    border: var(--card-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    color: var(--ink);
+    border-bottom: none;
+    transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
+  }
+  .lane-card:hover {
+    color: var(--ink);
+    border-bottom: none;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lift);
+  }
+  .lane-desc {
+    font-size: 0.9rem;
+    line-height: 1.45;
+    color: var(--ink-soft);
+  }
+  .lane-count {
+    margin-top: 0.15rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .section-more {
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+    border-bottom: none;
+  }
+  .section-more:hover {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+  }
+</style>

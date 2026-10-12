@@ -1,0 +1,141 @@
+---
+import { Image } from 'astro:assets';
+import FormattedDate from './FormattedDate.astro';
+import { crayons } from '../utils/rating';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+  /** archive rows: small thumbnail left, text right (lane pages) */
+  compact?: boolean;
+}
+const { post, compact = false } = Astro.props;
+---
+
+{compact ? (
+  <a class="post-row" href={`/posts/${post.id}/`}>
+    <span class="row-media">
+      {post.data.cover && (
+        <Image
+          src={post.data.cover}
+          alt={post.data.coverAlt || ''}
+          width={160}
+          height={100}
+          loading="lazy"
+        />
+      )}
+    </span>
+    <span class="row-body">
+      <span class="row-date">
+        <FormattedDate date={post.data.pubDate} />
+        {typeof post.data.rating === 'number' && (
+          <span> · {crayons(post.data.rating)} {post.data.rating}/5</span>
+        )}
+      </span>
+      <span class="row-title">{post.data.title}</span>
+      {post.data.description && <span class="row-desc">{post.data.description}</span>}
+    </span>
+    <span class="row-cta" aria-hidden="true">→</span>
+  </a>
+) : (
+  <a class="post-card" href={`/posts/${post.id}/`}>
+    <span class="card-media">
+      {post.data.cover && (
+        <Image
+          src={post.data.cover}
+          alt={post.data.coverAlt || ''}
+          width={640}
+          height={400}
+          loading="lazy"
+        />
+      )}
+    </span>
+    <span class="card-body">
+      <span class="card-date">
+        <FormattedDate date={post.data.pubDate} />
+        {typeof post.data.rating === 'number' && (
+          <span> · {crayons(post.data.rating)} {post.data.rating}/5</span>
+        )}
+      </span>
+      <span class="card-title">{post.data.title}</span>
+      {post.data.description && <span class="card-desc">{post.data.description}</span>}
+    </span>
+  </a>
+)}
+
+<style>
+  .post-row {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    padding: 0.85rem 0.6rem;
+    color: var(--ink);
+    border-bottom: none;
+    border-top: 1px dashed var(--rule);
+    transition: background 160ms var(--ease);
+  }
+  .post-row:hover {
+    color: var(--ink);
+    background: var(--panel-bg);
+    border-bottom: none;
+  }
+  .post-row:hover .row-title {
+    color: var(--accent);
+  }
+  .row-media {
+    flex: none;
+    width: 120px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .row-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .row-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+  }
+  .row-date {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--ink-soft);
+  }
+  .row-title {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 1.08rem;
+    line-height: 1.3;
+    transition: color 160ms var(--ease);
+  }
+  .row-desc {
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: var(--ink-soft);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .row-cta {
+    flex: none;
+    margin-left: auto;
+    color: var(--accent);
+    opacity: 0;
+    transition: opacity 160ms var(--ease);
+  }
+  .post-row:hover .row-cta {
+    opacity: 1;
+  }
+  @media (max-width: 560px) {
+    .row-media {
+      width: 88px;
+    }
+    .row-desc {
+      display: none;
+    }
+  }
+</style>

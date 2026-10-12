@@ -3,9 +3,10 @@ interface Props {
   source: string;
   variant?: 'money' | 'general';
   rail?: boolean;
+  stacked?: boolean;
 }
 
-const { source, variant = 'general', rail = false } = Astro.props;
+const { source, variant = 'general', rail = false, stacked = false } = Astro.props;
 
 const copy =
   variant === 'money'
@@ -21,7 +22,7 @@ const copy =
 const fieldId = `capture-email-${source.replace(/[^a-z0-9-]/gi, '')}`;
 ---
 
-<section class:list={['email-capture', { rail }]} data-source={source}>
+<section class:list={['email-capture', { rail, stacked }]} data-source={source}>
   <div class="capture-copy">
     <h2>{copy.heading}</h2>
     <p>{copy.body}</p>
@@ -75,6 +76,10 @@ const fieldId = `capture-email-${source.replace(/[^a-z0-9-]/gi, '')}`;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     padding: 1.6rem 1.75rem;
+  }
+  /* stacked variant: copy above form, for narrow (reading-column) contexts */
+  .email-capture.stacked {
+    grid-template-columns: 1fr;
   }
   @media (max-width: 760px) {
     .email-capture {

@@ -1,0 +1,213 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import EmailCapture from '../components/EmailCapture.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import { Image } from 'astro:assets';
+import { SITE } from '../consts';
+import { LANES } from '../data/lanes';
+
+export function getStaticPaths() {
+  return LANES.map((lane) => ({ params: { lane: lane.slug } }));
+}
+
+const { lane } = Astro.params;
+const meta = LANES.find((l) => l.slug === lane)!;
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft))
+  .filter((post) => post.data.type === meta.type)
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+const [newest, ...archive] = posts;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      name: meta.title,
+      description: meta.description,
+      url: `${SITE.url}/${meta.slug}/`,
+    },
+    {
+      '@type': 'ItemList',
+      itemListElement: posts.map((post, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: new URL(`/posts/${post.id}/`, SITE.url).toString(),
+        name: post.data.title,
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout title={meta.metaTitle} description={meta.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <article class="reading">
+    <header class="post-header">
+      <span class={meta.chipClass}>{meta.chipLabel}</span>
+      <h1>{meta.title}</h1>
+      <p class="post-desc">{meta.intro}</p>
+    </header>
+
+    {meta.tools && (
+      <div class="lane-tools">
+        <a class="tool-card" href="/tools/trump-account-calculator/">
+          <span class="tool-card-name">Trump Account Calculator</span>
+          <span class="tool-card-desc">The $1,000 seed by 18, 21, and 30</span>
+          <span class="tool-card-cta" aria-hidden="true">Run it →</span>
+        </a>
+        <a class="tool-card" href="/tools/solo-401k-calculator/">
+          <span class="tool-card-name">Solo 401(k) Calculator</span>
+          <span class="tool-card-desc">Your max contribution vs the SEP IRA</span>
+          <span class="tool-card-cta" aria-hidden="true">Run it →</span>
+        </a>
+        <a class="tool-card" href="/tools/529-calculator/">
+          <span class="tool-card-name">529 Calculator</span>
+          <span class="tool-card-desc">Monthly saving by college</span>
+          <span class="tool-card-cta" aria-hidden="true">Run it →</span>
+        </a>
+      </div>
+    )}
+
+    {newest && (
+      <a class="featured-card" href={`/posts/${newest.id}/`}>
+        <span class="featured-media">
+          {newest.data.cover && (
+            <Image
+              src={newest.data.cover}
+              alt={newest.data.coverAlt || ''}
+              width={1200}
+              height={750}
+              loading="eager"
+            />
+          )}
+        </span>
+        <span class="featured-body">
+          <span class={meta.chipClass}>{meta.chipLabel}</span>
+          <span class="featured-date"><FormattedDate date={newest.data.pubDate} /></span>
+          <span class="featured-title">{newest.data.title}</span>
+          {newest.data.description && (
+            <span class="featured-desc">{newest.data.description}</span>
+          )}
+          <span class="featured-cta">Read the note <span aria-hidden="true">→</span></span>
+        </span>
+      </a>
+    )}
+
+    {archive.length > 0 && (
+      <ul class="lane-grid post-rows">
+        {archive.map((post) => (
+          <li><PostCard post={post} compact /></li>
+        ))}
+      </ul>
+    )}
+
+    <EmailCapture source={`${meta.slug}-lane`} variant={meta.variant} stacked />
+  </article>
+</BaseLayout>
+
+<style>
+  .post-header {
+    text-align: center;
+    margin: 2rem 0 2.5rem;
+  }
+  .post-header h1 {
+    margin-top: 0.5rem;
+    font-weight: 500;
+    line-height: 1.25;
+  }
+  .post-header .post-desc {
+    color: var(--ink-soft);
+    font-size: 1.1rem;
+    max-width: 36rem;
+    margin: 0.5rem auto 0;
+    text-align: center;
+  }
+  .lane-tools {
+    --lane-breakout: 11rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin: 0 0 2rem calc(-1 * var(--lane-breakout));
+    width: calc(100% + 2 * var(--lane-breakout));
+    max-width: calc(36rem + 2 * var(--lane-breakout));
+  }
+  @media (max-width: 960px) {
+    .lane-tools {
+      --lane-breakout: 0rem;
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+  @media (max-width: 680px) {
+    .lane-tools {
+      grid-template-columns: 1fr;
+    }
+  }
+  .tool-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.9rem 1rem;
+    background: var(--card-bg);
+    border: var(--card-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    color: var(--ink);
+    border-bottom: none;
+    transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
+  }
+  .tool-card:hover {
+    color: var(--ink);
+    border-bottom: none;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lift);
+  }
+  .tool-card-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .tool-card-desc {
+    font-size: 0.82rem;
+    line-height: 1.4;
+    color: var(--ink-soft);
+  }
+  .tool-card-cta {
+    margin-top: 0.25rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  /* the featured card was designed for wide containers; break it out of .reading too */
+  .featured-card {
+    --lane-breakout: 11rem;
+    width: calc(100% + 2 * var(--lane-breakout));
+    max-width: calc(36rem + 2 * var(--lane-breakout));
+    margin-left: calc(-1 * var(--lane-breakout));
+    margin-bottom: 1rem;
+  }
+  :global(.lane-grid) {
+    --lane-breakout: 11rem;
+    width: calc(100% + 2 * var(--lane-breakout));
+    max-width: calc(36rem + 2 * var(--lane-breakout));
+    margin-left: calc(-1 * var(--lane-breakout));
+    margin-top: 1.5rem;
+    list-style: none;
+    padding: 0;
+  }
+  :global(.lane-grid li:last-child .post-row) {
+    border-bottom: 1px dashed var(--rule);
+  }
+  @media (max-width: 960px) {
+    .featured-card,
+    :global(.lane-grid) {
+      --lane-breakout: 0rem;
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+</style>
