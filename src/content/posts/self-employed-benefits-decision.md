@@ -4,7 +4,7 @@ description: "A solo parent's real benefits math: about $200 a person on a spous
 pubDate: 2026-10-14
 tags: ["money", "self-employed", "new-parents", "insurance"]
 type: money
-draft: true
+draft: false
 cover: "/images/posts/self-employed-benefits-decision-cover.jpg"
 coverAlt: "Pastel illustration of three doors with the center one highlighted in pink under a small heart, captioned the spouse plan, mostly"
 ---
