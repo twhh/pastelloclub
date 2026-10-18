@@ -4,7 +4,7 @@ description: "A solopreneur's real Solo 401(k) vs SEP IRA comparison with 2026 l
 pubDate: 2026-10-16
 tags: ["money", "self-employed", "new-parents", "retirement"]
 type: money
-draft: true
+draft: false
 cover: "/images/posts/solo-401k-vs-sep-ira-cover.jpg"
 coverAlt: "Pastel illustration of two piggy banks with the taller one wearing a small crown, captioned the complicated one won"
 ---

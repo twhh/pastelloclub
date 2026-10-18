@@ -62,21 +62,29 @@ Calendar split while authority is zero: 75% pillar 1 / 15% pillar 2 / 10% pillar
 
 ## Queue (scored, build order)
 
-| # | Piece | Type / intent | Notes | Score | Status |
+Release column = publish date + state. Live state comes from `npm run queue`
+(frontmatter + files on disk), not this table - keep this column for humans.
+
+| Release | # | Piece | Type / intent | Notes | Score |
 |---|---|---|---|---|---|
-| 1 | "Is that Trump Account email real?" - spotting the scam wave | Searchable, awareness | Fake-activation searches spike with each Treasury wave. | 8.6 | **Shipped** Oct 3 (`trump-account-email-scams`) |
-| 5 | What happens at 18: taking control, Traditional default, Roth election | Searchable | Calculator companion; pairs with #3. | 7.8 | **Shipped** Oct 5 (`trump-account-what-happens-at-18`) |
-| 3 | Front-loading $5,000 for a 17-year-old + the Roth conversion at 18 | Searchable, consideration | New segment (parents of teens). Kiddie-tax catch vs dependent standard deduction; the post corrects the viral version. | 8.1 | **Shipped** Oct 7 (`trump-account-front-load-roth-conversion`) |
-| 2 | Trump Account vs UTMA vs Custodial Roth | Searchable, consideration | The comparison gap; natural calculator link | 8.3 | **Shipped** Oct 9 (`trump-account-vs-utma-vs-roth`) |
-| 4 | Trump Account claim-rate stats page (curated, refreshed monthly) | Link-earning stat roundup | Citation infrastructure for the news cycle; our best AI-citation asset. Pitch writers once live. | 8.0 | **Shipped** Oct 11 (`trump-account-statistics`) |
-| 6 | The self-employed parent's benefits decision: build, buy, or use a spouse's plan | Use-case, differentiated | Our real answer was "mostly the spouse's employer plan." Feeds the email list | 7.6 | Draft ready (`self-employed-benefits-decision`), release Oct 14; needs cover |
-| 7 | Solo 401(k) vs SEP IRA: why the complicated one won | Searchable, consideration | Sequel to #6. Broad sole-prop framing + our S-corp case study; Vanguard-to-Ascensus vendor story is the differentiator. Collective plug. Primary keyword: solo 401k vs sep ira | 7.4 | Draft ready (`solo-401k-vs-sep-ira`), release Oct 16; cover + pin done. `/tools/solo-401k-calculator/` ships with it |
-| 8 | Why we bought the Cruz and skipped the Vista | Searchable, consideration | Owned Cruz, researched Vista - "the choice we made" framing. Never write spec-sheet comparisons of gear we don't own. | 7.2 | Draft ready (`cruz-vs-vista-choice`), release Oct 19; needs render cover + pin |
-| 9 | How I pay myself: S-corp salary, payroll, QBI | Searchable, consideration | Sequel to #6/#7 (both link forward). LinkedIn audience = tech PMs gone solo. Collective plug. | 7.2 | Queued, release Oct 22 |
-| 10 | We returned $800 of the registry | Shareable | Real numbers, Pinterest-friendly. The monthly shareable slot. | 6.8 | Queued, release Oct 25 |
-| 11 | What the first year actually costs (receipts: daycare, hospital, diapers, food) | Searchable + email | Bay Area real numbers; Rakuten/cashback section lives here. Carries a downloadable checklist = first real lead magnet for the newsletter. | 7.6 | Queued, release Oct 28 |
-| 12 | Pampers rewards: how we saved a few hundred on diapers | Searchable, affiliate | Referral code; recurring-cost evergreen; Pinterest-native. | 7.5 | Queued, release Oct 31 |
-| 13 | Free stuff from the Amazon baby registry | Searchable, affiliate | Welcome box / completion discount long-tail; Amazon affiliate; pairs with #10. | 7.2 | Queued, release Nov 3 |
+| Oct 19 (ready) | 8 | Why we bought the Cruz and skipped the Vista | Searchable, consideration | Owned Cruz, researched Vista - "the choice we made" framing. Never write spec-sheet comparisons of gear we don't own. | 7.2 |
+| Oct 22 (to draft) | 9 | How I pay myself: S-corp salary, payroll, QBI | Searchable, consideration | Sequel to #6/#7 (both link forward). LinkedIn audience = tech PMs gone solo. Collective plug. | 7.2 |
+| Oct 25 (to draft) | 10 | We returned $800 of the registry | Shareable | Real numbers, Pinterest-friendly. The monthly shareable slot. | 6.8 |
+| Oct 28 (to draft) | 11 | What the first year actually costs (receipts: daycare, hospital, diapers, food) | Searchable + email | Bay Area real numbers; Rakuten/cashback section lives here. Carries a downloadable checklist = first real lead magnet for the newsletter. | 7.6 |
+| Oct 31 (to draft) | 12 | Pampers rewards: how we saved a few hundred on diapers | Searchable, affiliate | Referral code; recurring-cost evergreen; Pinterest-native. | 7.5 |
+| Nov 3 (to draft) | 13 | Free stuff from the Amazon baby registry | Searchable, affiliate | Welcome box / completion discount long-tail; Amazon affiliate; pairs with #10. | 7.2 |
+
+## Launched (archive)
+
+| Date | # | Piece | Slug |
+|---|---|---|---|
+| Oct 3 | 1 | Trump Account email scam wave | `trump-account-email-scams` |
+| Oct 5 | 5 | What happens at 18 | `trump-account-what-happens-at-18` |
+| Oct 7 | 3 | Front-load $5,000 + Roth conversion at 18 | `trump-account-front-load-roth-conversion` |
+| Oct 9 | 2 | Trump Account vs UTMA vs Custodial Roth | `trump-account-vs-utma-vs-roth` |
+| Oct 11 | 4 | Trump Account claim-rate stats page (monthly refresh) | `trump-account-statistics` |
+| Oct 14 | 6 | Self-employed benefits decision | `self-employed-benefits-decision` |
+| Oct 16 | 7 | Solo 401(k) vs SEP IRA (+ `/tools/solo-401k-calculator/`) | `solo-401k-vs-sep-ira` |
 
 Shareable slot, 1/month max: filled through November by #10 ("We returned $800
 of the registry"). December slot open.
