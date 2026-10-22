@@ -4,7 +4,7 @@ description: "The Cruz vs Vista decision from a family that picked the cheaper o
 pubDate: 2026-10-19
 tags: ["review", "baby-gear", "strollers", "new-parents"]
 type: review
-draft: true
+draft: false
 product: "UPPAbaby Cruz"
 price: 900
 priceRange: "$$$"
