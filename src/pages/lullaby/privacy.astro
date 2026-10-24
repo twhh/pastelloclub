@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE } from '../../consts';
 
-const updated = 'September 29, 2026';
+const updated = 'October 24, 2026';
 ---
 <BaseLayout
   title="Lullaby Privacy Policy"
@@ -64,12 +64,21 @@ const updated = 'September 29, 2026';
         analytics, account directory, or administrator data API.
       </p>
 
-      <h2>User-directed exports</h2>
+      <h2>User-directed backups and restore</h2>
       <p>
         When you choose Export All Data, export a Health Summary PDF, or use the
         Android share sheet, you choose the destination. The selected receiving
-        app or service handles that copy under its own privacy terms. Lullaby
-        does not receive a copy.
+        app or service handles that copy under its own privacy terms. Pastello
+        Club does not receive a copy. JSON backups are readable, not encrypted;
+        keep them private and retain them outside the app if you need recovery.
+      </p>
+      <p>
+        Starting with version 1.0.5, Restore a Backup reads the JSON file you
+        explicitly select through the system file picker. Lullaby validates the
+        file on-device, shows a summary, and requires confirmation before
+        replacing local profiles, history, reminders, and preferences. It does
+        not merge records, upload the file, or automatically change a linked
+        server copy.
       </p>
 
       <h2>Retention, deletion, and recovery</h2>
@@ -84,11 +93,22 @@ const updated = 'September 29, 2026';
         attempts remote deletion before resetting the app.
       </p>
       <p>
-        Lullaby has no account-recovery workflow. Local-only data cannot be
-        recovered after deletion. In server-enabled mode, a device can download
+        Lullaby has no account-recovery workflow or automatic cloud recovery.
+        Deleted local information cannot be recovered unless you kept a separate
+        JSON backup. A backup can be restored after review in version 1.0.5 or
+        later. Files you exported outside Lullaby must be deleted separately
+        from the destination app or storage service. In server-enabled mode, a device can download
         a remote snapshot only while that snapshot and its pairing values still
-        exist. Export All Data creates a readable JSON archive for your records;
-        this release cannot import that archive back into Lullaby.
+        exist.
+      </p>
+
+      <h2>Help and feedback</h2>
+      <p>
+        Help &amp; feedback works on-device. Sending feedback opens your chosen
+        email app with a template; no baby records or diagnostic logs are attached
+        automatically. Only information you choose to email reaches us, and we
+        use it to respond to your request and improve the app. Please avoid
+        including identifying or health-related child information.
       </p>
 
       <h2>Children and intended users</h2>
