@@ -67,12 +67,10 @@ Release column = publish date + state. Live state comes from `npm run queue`
 
 | Release | # | Piece | Type / intent | Notes | Score |
 |---|---|---|---|---|---|
-| Oct 19 (ready) | 8 | Why we bought the Cruz and skipped the Vista | Searchable, consideration | Owned Cruz, researched Vista - "the choice we made" framing. Never write spec-sheet comparisons of gear we don't own. | 7.2 |
-| Oct 22 (to draft) | 9 | How I pay myself: S-corp salary, payroll, QBI | Searchable, consideration | Sequel to #6/#7 (both link forward). LinkedIn audience = tech PMs gone solo. Collective plug. | 7.2 |
-| Oct 25 (to draft) | 10 | We returned $800 of the registry | Shareable | Real numbers, Pinterest-friendly. The monthly shareable slot. | 6.8 |
-| Oct 28 (to draft) | 11 | What the first year actually costs (receipts: daycare, hospital, diapers, food) | Searchable + email | Bay Area real numbers; Rakuten/cashback section lives here. Carries a downloadable checklist = first real lead magnet for the newsletter. | 7.6 |
-| Oct 31 (to draft) | 12 | Pampers rewards: how we saved a few hundred on diapers | Searchable, affiliate | Referral code; recurring-cost evergreen; Pinterest-native. | 7.5 |
-| Nov 3 (to draft) | 13 | Free stuff from the Amazon baby registry | Searchable, affiliate | Welcome box / completion discount long-tail; Amazon affiliate; pairs with #10. | 7.2 |
+| Nov 2 (to draft) | 10 | We returned $800 of the registry | Shareable | Real numbers, Pinterest-friendly. The monthly shareable slot. | 6.8 |
+| Nov 5 (to draft) | 11 | What the first year actually costs (receipts: daycare, hospital, diapers, food) | Searchable + email | Bay Area real numbers; Rakuten/cashback section lives here. Carries a downloadable checklist = first real lead magnet for the newsletter. | 7.6 |
+| Nov 8 (to draft) | 12 | Pampers rewards: how we saved a few hundred on diapers | Searchable, affiliate | Referral code; recurring-cost evergreen; Pinterest-native. | 7.5 |
+| Nov 11 (to draft) | 13 | Free stuff from the Amazon baby registry | Searchable, affiliate | Welcome box / completion discount long-tail; Amazon affiliate; pairs with #10. | 7.2 |
 
 ## Launched (archive)
 
@@ -85,6 +83,8 @@ Release column = publish date + state. Live state comes from `npm run queue`
 | Oct 11 | 4 | Trump Account claim-rate stats page (monthly refresh) | `trump-account-statistics` |
 | Oct 14 | 6 | Self-employed benefits decision | `self-employed-benefits-decision` |
 | Oct 16 | 7 | Solo 401(k) vs SEP IRA (+ `/tools/solo-401k-calculator/`) | `solo-401k-vs-sep-ira` |
+| Oct 19 | 8 | Why we bought the Cruz and skipped the Vista | `cruz-vs-vista-choice` |
+| Oct 22 | 9 | QBI and the S-corp salary, explained | `qbi-s-corp-salary` |
 
 Shareable slot, 1/month max: filled through November by #10 ("We returned $800
 of the registry"). December slot open.

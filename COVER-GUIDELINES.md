@@ -43,6 +43,7 @@ Photorealistic 3D interior renders (see `nursery-furniture-essentials-cover.jpg`
 | car essentials | `#FFF9F1` to `#FBE3CC` | warm peach | `#C08A5E` |
 | solo 401k vs sep | `#F5FAFC` to `#D3E5EE` | sky blue | `#5E8AA0` |
 | cruz vs vista | `#FAF6FC` to `#E6D9F2` | lavender | `#8A76B0` |
+| qbi s-corp | `#FFFDF2` to `#F6E9C4` | butter yellow | `#B08A3E` |
 
 Other useful fills: wooden blocks `#F6DCB4` face / `#DCA96F` edge / `#8A5A33` letters; gold stars `#E8C36A`; hearts `#E8A0B4`.
 
