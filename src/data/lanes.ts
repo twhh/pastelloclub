@@ -1,13 +1,13 @@
 // Lane (pillar) definitions shared by the homepage strip and the /[lane]/ pages.
 export interface Lane {
-  slug: 'money' | 'reviews' | 'notes';
+  slug: 'money' | 'reviews' | 'notes' | 'fun';
   chipClass: string;
   chipLabel: string;
   title: string;
   metaTitle: string;
   description: string;
   intro: string;
-  type: 'money' | 'review' | 'post';
+  type: 'money' | 'review' | 'post' | 'fun';
   variant: 'money' | 'general';
   tools: boolean;
 }
@@ -52,6 +52,20 @@ export const LANES: Lane[] = [
     intro:
       'The unglamorous middle of parenting: names, nurseries, registries, and the days between the milestones. No life advice, just notes from two kids, a bernedoodle, and the Bay Area.',
     type: 'post',
+    variant: 'general',
+    tools: false,
+  },
+  {
+    slug: 'fun',
+    chipClass: 'chip chip-fun',
+    chipLabel: 'Toddler Fun',
+    title: 'Toddler Fun: Jokes, Rhymes, and Lists',
+    metaTitle: 'Toddler Fun: Jokes, Rhymes, and Lists',
+    description:
+      'Knock knock jokes, clean jokes, nursery rhymes, lullabies, and name lists for toddlers and preschoolers - the screen-free stuff that actually lands.',
+    intro:
+      'The quick wins of parenting a toddler: jokes to tell them (they laugh at anything after the "who?"), rhymes with motions, lullaby lyrics for tired 2am brains, and the name lists everyone scrolls. All tested on a real four-year-old.',
+    type: 'fun',
     variant: 'general',
     tools: false,
   },

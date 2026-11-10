@@ -361,6 +361,7 @@ nav.primary a:hover { color: var(--accent); }
 .chip-review { background: var(--blush); }
 .chip-note { background: var(--sage); }
 .chip-money { background: var(--peach); }
+.chip-fun { background: var(--sky); }
 
 /* tool banner (homepage money section) */
 .tool-banner {

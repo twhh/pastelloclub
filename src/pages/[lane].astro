@@ -15,7 +15,8 @@ export function getStaticPaths() {
 const { lane } = Astro.params;
 const meta = LANES.find((l) => l.slug === lane)!;
 
-const posts = (await getCollection('posts', ({ data }) => !data.draft))
+// drafts render in dev for review, but never ship in the production build
+const posts = (await getCollection('posts', ({ data }) => !data.draft || import.meta.env.DEV))
   .filter((post) => post.data.type === meta.type)
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 

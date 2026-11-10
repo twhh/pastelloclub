@@ -44,6 +44,11 @@ Photorealistic 3D interior renders (see `nursery-furniture-essentials-cover.jpg`
 | solo 401k vs sep | `#F5FAFC` to `#D3E5EE` | sky blue | `#5E8AA0` |
 | cruz vs vista | `#FAF6FC` to `#E6D9F2` | lavender | `#8A76B0` |
 | qbi s-corp | `#FFFDF2` to `#F6E9C4` | butter yellow | `#B08A3E` |
+| pampers rewards | `#FFF5F0` to `#FBE0D4` | coral | `#C07856` |
+| amazon registry | `#EFF9F6` to `#C9E8DF` | teal | `#4F8E7E` |
+| stokke review | `#FBF5FA` to `#EED9F0` | rose lilac | `#A874A0` |
+| knock knock jokes | `#F6FBF4` to `#DFF2E0` | mint | `#5E9A74` |
+| clean jokes | `#FFF8EF` to `#FBDFC9` | apricot | `#C4855E` |
 
 Other useful fills: wooden blocks `#F6DCB4` face / `#DCA96F` edge / `#8A5A33` letters; gold stars `#E8C36A`; hearts `#E8A0B4`.
 

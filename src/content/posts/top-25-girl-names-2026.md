@@ -2,6 +2,7 @@
 title: "The Top 25 Girl Names of 2026 (and What They Mean)"
 description: "From Olivia to Ophelia, here are the girl names parents are loving in 2026, what each one means, and a few of our favorite ways to make the name official."
 pubDate: 2026-08-09
+type: fun
 tags: ["baby-names", "new-parents", "pregnancy", "tips"]
 draft: false
 cover: "/images/posts/top-25-girl-names-2026-cover.jpg"

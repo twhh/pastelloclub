@@ -6,7 +6,8 @@ import PostCard from '../components/PostCard.astro';
 import { SITE } from '../consts';
 import { Image } from 'astro:assets';
 
-const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
+// drafts render in dev for review, but never ship in the production build
+const posts = (await getCollection('posts', ({ data }) => !data.draft || import.meta.env.DEV)).sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
 );
 
@@ -14,18 +15,22 @@ const [featured, ...rest] = posts;
 const money = rest.filter((post) => post.data.type === 'money');
 const reviews = rest.filter((post) => post.data.type === 'review');
 const notes = rest.filter((post) => post.data.type === 'post');
+const fun = rest.filter((post) => post.data.type === 'fun');
 
 const chip = (post: (typeof posts)[number]) =>
   post.data.type === 'review'
     ? { class: 'chip chip-review', label: 'Gear Review' }
     : post.data.type === 'money'
       ? { class: 'chip chip-money', label: 'Money Note' }
-      : { class: 'chip chip-note', label: 'Note' };
+      : post.data.type === 'fun'
+        ? { class: 'chip chip-fun', label: 'Toddler Fun' }
+        : { class: 'chip chip-note', label: 'Note' };
 
 // totals for the lane strip include the featured post's lane
 const totalMoney = posts.filter((p) => p.data.type === 'money').length;
 const totalReviews = posts.filter((p) => p.data.type === 'review').length;
 const totalNotes = posts.filter((p) => p.data.type === 'post').length;
+const totalFun = posts.filter((p) => p.data.type === 'fun').length;
 ---
 
 <BaseLayout title="Baby Gear Reviews & Money Notes for Working Parents">
@@ -56,6 +61,11 @@ const totalNotes = posts.filter((p) => p.data.type === 'post').length;
       <span class="chip chip-note">Everyday Notes</span>
       <span class="lane-desc">The unglamorous middle of parenting</span>
       <span class="lane-count">{totalNotes} notes <span aria-hidden="true">→</span></span>
+    </a>
+    <a class="lane-card" href="/fun/">
+      <span class="chip chip-fun">Toddler Fun</span>
+      <span class="lane-desc">Jokes, rhymes, and lists that land</span>
+      <span class="lane-count">{totalFun} fun lists <span aria-hidden="true">→</span></span>
     </a>
   </nav>
 
@@ -130,16 +140,36 @@ const totalNotes = posts.filter((p) => p.data.type === 'post').length;
       </ul>
     </section>
   )}
+
+  {fun.length > 0 && (
+    <section class="post-section">
+      <div class="section-head">
+        <h2>Toddler Fun</h2>
+        <span class="section-rule" aria-hidden="true"></span>
+        <a class="section-more" href="/fun/">See all {totalFun} <span aria-hidden="true">→</span></a>
+      </div>
+      <ul class="post-grid">
+        {fun.slice(0, 4).map((post) => (
+          <li><PostCard post={post} /></li>
+        ))}
+      </ul>
+    </section>
+  )}
 </BaseLayout>
 
 <style>
   .lane-strip {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
     margin: 0.5rem 0 2.5rem;
   }
-  @media (max-width: 680px) {
+  @media (max-width: 960px) {
+    .lane-strip {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 560px) {
     .lane-strip {
       grid-template-columns: 1fr;
       gap: 0.75rem;

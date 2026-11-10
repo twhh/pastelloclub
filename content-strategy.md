@@ -57,8 +57,10 @@ accumulate impressions while gear stays flat, money becomes the primary lane.
 | 1. Parent money (self-employed angle) | Traffic + links + email | Timely (Trump accounts), differentiated, calculator hub |
 | 2. Premium gear, honestly tested | Affiliate revenue + price-watch synergy | Real multi-year ownership, Pastello Scale, review-to-price-page funnel |
 | 3. Everyday notes | Voice + shareability | Retention and brand. Capped at ~1/month |
+| 4. Toddler fun (jokes, rhymes, names lists) | Volume + platform-native content | Quick wins: zero personal data, folk content, every post cuts to X/IG/Pinterest natively. Added Nov 2026 (`type: fun`, /fun/ lane) |
 
-Calendar split while authority is zero: 75% pillar 1 / 15% pillar 2 / 10% pillar 3.
+Calendar split while authority is zero: money and gear keep their lanes; Toddler Fun
+runs 1-2 quick posts/week between bigger pieces (multiple posts per week total).
 
 ## Queue (scored, build order)
 
@@ -67,10 +69,17 @@ Release column = publish date + state. Live state comes from `npm run queue`
 
 | Release | # | Piece | Type / intent | Notes | Score |
 |---|---|---|---|---|---|
-| Nov 2 (to draft) | 10 | We returned $800 of the registry | Shareable | Real numbers, Pinterest-friendly. The monthly shareable slot. | 6.8 |
-| Nov 5 (to draft) | 11 | What the first year actually costs (receipts: daycare, hospital, diapers, food) | Searchable + email | Bay Area real numbers; Rakuten/cashback section lives here. Carries a downloadable checklist = first real lead magnet for the newsletter. | 7.6 |
-| Nov 8 (to draft) | 12 | Pampers rewards: how we saved a few hundred on diapers | Searchable, affiliate | Referral code; recurring-cost evergreen; Pinterest-native. | 7.5 |
-| Nov 11 (to draft) | 13 | Free stuff from the Amazon baby registry | Searchable, affiliate | Welcome box / completion discount long-tail; Amazon affiliate; pairs with #10. | 7.2 |
+| Nov 8 (to draft) | 17 | 8 pieces of gear that survived two kids | Shareable recap | Zero new research - links all 8 reviews; the Baby Gear That Lasts board's anchor pin | 7.0 |
+| Nov 10 (to draft) | 18 | Animal jokes for toddlers | Fun, quick win | Sequel to knock-knock; the interrupting cow gets a follow-up | 6.2 |
+| Nov 12 (to draft) | 19 | Baby's first holiday: the infant gift list | Seasonal shareable | Pinterest holiday save-window is open Nov-Dec; gear links we already have | 7.1 |
+| Nov 14 (to draft) | 20 | Nursery rhymes + lullaby lyrics (with motions) | Fun, searchable | Public domain; big evergreen search; fingerplay instructions differentiate | 6.6 |
+| Nov 17 (to draft) | 21 | Nobody warned me: kid #2 after a 4-year gap | Shareable | Real receipts (reused Stokke/Cruz hand-me-downs, second-kid truths) | 7.0 |
+| Nov 19 (to draft) | 22 | Grandparent nicknames (the full list) | Fun, quick win | Real search volume, names-list format | 6.4 |
+| Nov 21 (to draft) | 23 | Dad jokes for tired parents | Fun, quick win | The parents-laugh-too entry; strong X/IG cut | 6.3 |
+| Nov 24 (to draft) | 24 | Top baby names of 2027 (early predictions) | Fun, searchable | Year-end name search spike; SSA 2026 data lands spring for a refresh | 6.8 |
+| TBD (parked) | 11 | What the first year actually costs (receipts: daycare, hospital, diapers, food) | Searchable + email | Blocked on gathering real numbers. Rakuten section + downloadable checklist lead magnet. | 7.6 |
+
+Dates are backdated to continue the cadence from the last published post (Oct 22); each post publishes the day it's drafted, wearing its queue date.
 
 ## Launched (archive)
 
@@ -85,11 +94,16 @@ Release column = publish date + state. Live state comes from `npm run queue`
 | Oct 16 | 7 | Solo 401(k) vs SEP IRA (+ `/tools/solo-401k-calculator/`) | `solo-401k-vs-sep-ira` |
 | Oct 19 | 8 | Why we bought the Cruz and skipped the Vista | `cruz-vs-vista-choice` |
 | Oct 22 | 9 | QBI and the S-corp salary, explained | `qbi-s-corp-salary` |
+| Oct 25 | 12 | Pampers rewards ($150 back on diapers) | `pampers-rewards` |
+| Oct 28 | 13 | Amazon registry welcome box + 15% completion discount | `amazon-registry-freebies` |
+| Oct 31 | 14 | Stokke Tripp Trapp review | `stokke-high-chair-review` |
+| Nov 3 | 15 | 25 knock knock jokes for toddlers (first Toddler Fun post) | `knock-knock-jokes-for-toddlers` |
+| Nov 6 | 16 | 25 clean jokes for baby and toddler | `clean-jokes-for-baby` |
 
-Shareable slot, 1/month max: filled through November by #10 ("We returned $800
-of the registry"). December slot open.
+Shareable slot, 1/month max: November slot filled by #15 (long-tail test).
 
-Dropped: Yoto Mini vs Yoto Player comparison (never seriously considered the Player;
+Dropped: #10 registry-returns post (we didn't have many returns - not our
+story, Nov 9). Yoto Mini vs Yoto Player comparison (never seriously considered the Player;
 fold any contrast into the existing Mini review instead).
 
 ## Production rules
@@ -101,7 +115,8 @@ fold any contrast into the existing Mini review instead).
    <slug>` flips the flag and prints the Pinterest assets.
 2. **De-slop pass before publish** (see CONTENT-GUIDELINES.md): run every draft through
    the no-ai-slop skill; fix flagged lines, keep the voice.
-3. Cadence: 1-2 posts/week maximum. Each post gets its own launch day.
+3. Cadence: multiple posts per week (2-3 steady; quick listicles can raise it).
+   Each post gets its own launch day.
 4. Every money post links the calculator. Every gear post links its price-watch page
    (when live).
 5. Pre-publish gate: name the distribution plan (Reddit thread, Pinterest pin, or
@@ -189,6 +204,17 @@ Pinterest copy, Collective placement.
 Day-30 go/no-go (Nov 4): organic impressions trending up week-over-week, >=1
 post in top 20 for a target keyword, Pinterest outbound clicks >100/mo, first
 affiliate revenue != $0. Rising trend -> invest more; flat -> kill or pivot.
+
+## Distribution adds (Nov 2026)
+
+- X + Instagram start now (added Nov 9): prior experience on other sites got
+  more impressions per post than Pinterest has in a month. Repurpose each
+  post: shareable content becomes image posts/threads, reviews become
+  before-after-durability posts, money notes become stat posts. Same content,
+  platform-native cuts - no new writing.
+- Shareable experiments are OFF: not enough data in 2-week windows. Shareable
+  content ships as a steady lane instead, judged by platform metrics
+  (saves/shares/reposts), not GSC.
 
 ## Distribution adds (Oct 2026)
 
